@@ -17,13 +17,13 @@ AnimatorStateMachine:
     m_Position: {x: 270, y: -10, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -706520766214925750}
-    m_Position: {x: 305, y: 55, z: 0}
+    m_Position: {x: 510, y: -20, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5433343252300002498}
-    m_Position: {x: 340, y: 120, z: 0}
+    m_Position: {x: 510, y: 90, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2013749948640175218}
-    m_Position: {x: 375, y: 185, z: 0}
+    m_Position: {x: 520, y: 170, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3626280542338992582}
     m_Position: {x: 410, y: 250, z: 0}
@@ -44,7 +44,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MartialHero
+  m_Name: HeroIdle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -58,7 +58,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 761c36dd2b909bb48b2b0127ed265846, type: 2}
+  m_Motion: {fileID: 7400000, guid: a7aa76f1a635c86459e7311f864674ad, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
