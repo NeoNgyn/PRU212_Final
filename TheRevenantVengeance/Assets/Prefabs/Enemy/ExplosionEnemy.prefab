@@ -204,6 +204,8 @@ MonoBehaviour:
   healthBar: {fileID: 8859531047308257460}
   enterDamage: 30
   stayDamage: 0
+  knockbackForce: 15
+  knockbackDuration: 0.6
   explosionPrefab: {fileID: 4326256387911111308, guid: f12100fd7ab86f840978373dcd2af51b, type: 3}
 --- !u!1001 &480140642846380599
 PrefabInstance:

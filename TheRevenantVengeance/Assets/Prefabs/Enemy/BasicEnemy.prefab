@@ -204,6 +204,8 @@ MonoBehaviour:
   healthBar: {fileID: 5204276765416577397}
   enterDamage: 10
   stayDamage: 1
+  knockbackForce: 5
+  knockbackDuration: 0.2
 --- !u!1001 &3775111566273618934
 PrefabInstance:
   m_ObjectHideFlags: 0
