@@ -182,6 +182,8 @@ MonoBehaviour:
   healthBar: {fileID: 892818305519907263}
   enterDamage: 15
   stayDamage: 1
+  knockbackForce: 5
+  knockbackDuration: 0.2
   energyObject: {fileID: 4362688542381635570, guid: 89e1e381b29085249a6ff085aac369c7, type: 3}
 --- !u!95 &7094243539923516990
 Animator:

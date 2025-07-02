@@ -177,6 +177,8 @@ MonoBehaviour:
   healthBar: {fileID: 7008148693808772908}
   enterDamage: 5
   stayDamage: 1
+  knockbackForce: 5
+  knockbackDuration: 0.2
   heartObject: {fileID: 1682632347474198923, guid: 1fa42cb902cef23448e53ce0098cd839, type: 3}
   healValue: 20
 --- !u!50 &7041427393253448697
