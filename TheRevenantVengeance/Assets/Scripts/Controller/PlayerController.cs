@@ -150,10 +150,18 @@ public class PlayerController : MonoBehaviour
 		currentHp -= damage;
 		currentHp = Mathf.Max(currentHp, 0);
 		UpdateHealthBar();
-
-		if (currentHp <= 0)
-			Die();
-	}
+        if (currentHp <= 0)
+        {
+            animator.ResetTrigger("TakeHit");
+            animator.SetTrigger("Die");
+            animator.SetBool("isDead", true);
+            Die();
+        }
+        else
+        {
+            animator.SetTrigger("TakeHit");
+        }
+    }
 
 	public void Heal(float healValue)
 	{
@@ -197,10 +205,10 @@ public class PlayerController : MonoBehaviour
 	{
 		// Kích hoạt animation chết
 		animator.SetTrigger("Die");
-
-		// Ngăn chặn các hành động khác của người chơi sau khi chết
-		// Vô hiệu hóa input hoặc script này
-		enabled = false; // Tắt script này
+        animator.SetBool("isDead", true);
+        // Ngăn chặn các hành động khác của người chơi sau khi chết
+        // Vô hiệu hóa input hoặc script này
+        enabled = false; // Tắt script này
 		rb.linearVelocity = Vector2.zero; // Dừng mọi chuyển động
 									// Vô hiệu hóa collider để không còn va chạm nữa
 		Collider2D playerCollider = GetComponent<Collider2D>();
