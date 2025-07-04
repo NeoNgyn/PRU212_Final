@@ -1,4 +1,0 @@
-repository "TheRevenantVengeance/TheRevenantVengeance@18968285095165@cloud"
-  path "/"
-    br "/main"
-    co "/main"
