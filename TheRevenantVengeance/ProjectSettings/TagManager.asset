@@ -57,23 +57,35 @@ TagManager:
   - name: Ground
     uniqueID: 60718297
     locked: 0
+  - name: River
+    uniqueID: 301096701
+    locked: 0
   - name: Grass
     uniqueID: 678808283
+    locked: 0
+  - name: Lake
+    uniqueID: 579541495
+    locked: 0
+  - name: Bridge
+    uniqueID: 2241116603
+    locked: 0
+  - name: BossStand
+    uniqueID: 581624327
     locked: 0
   - name: Rock
     uniqueID: 831713227
     locked: 0
   - name: ItemsMap
-    uniqueID: 3959328375
+    uniqueID: 1008637589
+    locked: 0
+  - name: Player
+    uniqueID: 1157584871
     locked: 0
   - name: Tree
     uniqueID: 3918739007
     locked: 0
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Player
-    uniqueID: 1157584871
     locked: 0
   - name: Bullet
     uniqueID: 347999125
