@@ -45,6 +45,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: land
+    uniqueID: 1195964365
+    locked: 0
+  - name: wall
+    uniqueID: 1105538713
+    locked: 0
+  - name: trees
+    uniqueID: 4087394739
+    locked: 0
   - name: Ground
     uniqueID: 60718297
     locked: 0
@@ -65,6 +74,9 @@ TagManager:
     locked: 0
   - name: Rock
     uniqueID: 831713227
+    locked: 0
+  - name: ItemsMap
+    uniqueID: 1008637589
     locked: 0
   - name: Player
     uniqueID: 1157584871
