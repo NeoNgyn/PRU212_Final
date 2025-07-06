@@ -13,6 +13,7 @@ TagManager:
   - Achievement
   - Rock
   - Boss
+  - FallingSword
   layers:
   - Default
   - TransparentFX
