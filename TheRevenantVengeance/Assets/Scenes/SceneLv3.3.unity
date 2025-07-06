@@ -43939,7 +43939,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3451500780279661999, guid: 2e5b1c46857bdc44f80641b56f1dc79a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.5
+      value: 1.53
       objectReference: {fileID: 0}
     - target: {fileID: 3451500780279661999, guid: 2e5b1c46857bdc44f80641b56f1dc79a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -44334,7 +44334,7 @@ Animator:
   m_GameObject: {fileID: 1113302448}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d1632ab84ab6b9c45824394b3594471d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 95d2eeb18fc9f314db34b99818caf795, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -44411,8 +44411,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.3125, y: 2.6875}
-    newSize: {x: 1.3125, y: 2.6875}
+    oldSize: {x: 1.1875, y: 2.5625}
+    newSize: {x: 8, y: 8}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -44463,12 +44463,12 @@ SpriteRenderer:
   m_SortingLayerID: 2119438533
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: -5643622218009816433, guid: 88d74b4b9d1b9254180b8bf875bdb0db, type: 3}
+  m_Sprite: {fileID: 1625068356, guid: 88d74b4b9d1b9254180b8bf875bdb0db, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.3125, y: 2.6875}
+  m_Size: {x: 8, y: 8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -44483,7 +44483,7 @@ Transform:
   m_GameObject: {fileID: 1113302448}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24.37, y: 37.74, z: 0}
+  m_LocalPosition: {x: 9.78, y: -4.16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -44503,19 +44503,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84462322aa555144ab5604c7e7dbc42c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpeed: 0
-  maxHp: 50
+  enemySpeed: 1
+  maxHp: 500
   healthBar: {fileID: 821393315}
   enterDamage: 10
   stayDamage: 10
   knockbackForce: 5
   knockbackDuration: 0.2
-  bulletPrefabs: {fileID: 1973797488871700, guid: 93515aff472345d4292f990c9358c9a7, type: 3}
+  swordPrefabs:
+  - {fileID: 4737228359687354505, guid: 50a211858b2381147aea13a73b66db20, type: 3}
+  - {fileID: 4812972827944258564, guid: 8f3b2e424bb8d884a99ada0fb7bab3ae, type: 3}
+  - {fileID: 8272700805288847284, guid: 07591500ae4431a4da8dbf886cc68bfe, type: 3}
+  fireballPrefabs: {fileID: 1973797488871700, guid: 93515aff472345d4292f990c9358c9a7, type: 3}
+  sprialBulletPrefabs: {fileID: 3491141052104820550, guid: 98aa86130da4954479441b4df9fcc741, type: 3}
   firePoint: {fileID: 1484494476}
   normalAttackSpeed: 20
   specialAttackSpeed: 5
   hpValue: 20
   miniEnemy: {fileID: 5667707870469601095, guid: df6e14406a00d0d4b8cac2789b6cb106, type: 3}
+  shield: {fileID: 0}
   shotDelay: 0.2
   skillCooldown: 10
   itemPrefab: {fileID: 4534051146270964280, guid: 95c593321596e414ab99189bfe7e5106, type: 3}

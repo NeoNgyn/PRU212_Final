@@ -200,661 +200,661 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spr_KingGroundAttack_strip_no_bkg_0
+      name: Lv33_KingBossAttack_0
       rect:
         serializedVersion: 2
-        x: 55
-        y: 51
-        width: 18
-        height: 42
+        x: 0
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: cfddaec4c376f2aa0800000000000000
-      internalID: -6183610254670242308
+      spriteID: c9ace58201b41af45b095354e6cd5031
+      internalID: -599085621
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_KingGroundAttack_strip_no_bkg_1
+      name: Lv33_KingBossAttack_1
       rect:
         serializedVersion: 2
-        x: 183
-        y: 51
-        width: 19
-        height: 43
+        x: 128
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 6554c0b1370233260800000000000000
-      internalID: 7076035118276298070
+      spriteID: 00b9ac3d0668f6c4ab8316c968167456
+      internalID: -807020268
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_KingGroundAttack_strip_no_bkg_2
+      name: Lv33_KingBossAttack_2
       rect:
         serializedVersion: 2
-        x: 311
-        y: 51
-        width: 18
-        height: 44
+        x: 256
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 78878aabad1dd6500800000000000000
-      internalID: 391199480015779975
+      spriteID: c32b77e821c234d47bc864dfaa3ac3ed
+      internalID: -300373161
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_KingGroundAttack_strip_no_bkg_3
+      name: Lv33_KingBossAttack_3
       rect:
         serializedVersion: 2
-        x: 439
-        y: 51
-        width: 18
-        height: 51
+        x: 384
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 8de4477c4640dd5d0800000000000000
-      internalID: -3036265742888317224
+      spriteID: 666e1fa1af46d164da383527234d88c7
+      internalID: 612109799
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_KingGroundAttack_strip_no_bkg_4
+      name: Lv33_KingBossAttack_4
       rect:
         serializedVersion: 2
-        x: 567
-        y: 51
-        width: 18
-        height: 51
+        x: 512
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 20d89a52851f63590800000000000000
-      internalID: -7694697552424628990
+      spriteID: 87c98f25ceebb4b4dbc9e2eb0e7d6aff
+      internalID: 1042772325
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_KingGroundAttack_strip_no_bkg_5
+      name: Lv33_KingBossAttack_5
       rect:
         serializedVersion: 2
-        x: 695
-        y: 51
-        width: 18
-        height: 51
+        x: 640
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 4d286dc8124feac70800000000000000
-      internalID: 8984386731584684756
+      spriteID: 316173f8834ab884cae5305e412ddeb8
+      internalID: -637325833
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_KingGroundAttack_strip_no_bkg_6
+      name: Lv33_KingBossAttack_6
       rect:
         serializedVersion: 2
-        x: 823
-        y: 51
-        width: 18
-        height: 51
+        x: 768
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 42ef2836832fc7ee0800000000000000
-      internalID: -1261867471568962012
+      spriteID: d4dcd98e48476564dbd4eddb12f3bd56
+      internalID: 877414789
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_KingGroundAttack_strip_no_bkg_7
+      name: Lv33_KingBossAttack_7
       rect:
         serializedVersion: 2
-        x: 951
-        y: 51
-        width: 18
-        height: 51
+        x: 896
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 78e86eae9f59a25f0800000000000000
-      internalID: -780646684774986105
+      spriteID: 520435d010e1a8c42ae5115e3a1d759c
+      internalID: 1817187065
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_KingGroundAttack_strip_no_bkg_8
+      name: Lv33_KingBossAttack_8
       rect:
         serializedVersion: 2
-        x: 1079
-        y: 51
-        width: 18
-        height: 51
+        x: 1024
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 7d6ee3fe1f3bac600800000000000000
-      internalID: 489401361205487319
+      spriteID: c63cda35d7557e447b59e27e9a7d7b3e
+      internalID: -2055676581
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_KingGroundAttack_strip_no_bkg_9
+      name: Lv33_KingBossAttack_9
       rect:
         serializedVersion: 2
-        x: 1207
-        y: 51
-        width: 18
-        height: 51
+        x: 1152
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: c6fb3254770610880800000000000000
-      internalID: -8646523744197296276
+      spriteID: 128b8bf18210ead4895bafae296598b5
+      internalID: -76660585
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_KingGroundAttack_strip_no_bkg_10
+      name: Lv33_KingBossAttack_10
       rect:
         serializedVersion: 2
-        x: 1335
-        y: 51
-        width: 18
-        height: 51
+        x: 1280
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: cb11441d706fdca50800000000000000
-      internalID: 6543156347075301820
+      spriteID: dba4b8579f6865b4cb7cfba85ab85472
+      internalID: -1637280887
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_KingGroundAttack_strip_no_bkg_11
+      name: Lv33_KingBossAttack_11
       rect:
         serializedVersion: 2
-        x: 1463
-        y: 51
-        width: 18
-        height: 51
+        x: 1408
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 48dd79de31f15bda0800000000000000
-      internalID: -5929799163912397436
+      spriteID: 4af1fe4e2bd17a641899613c2223c67d
+      internalID: 1756020673
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_KingGroundAttack_strip_no_bkg_12
+      name: Lv33_KingBossAttack_12
       rect:
         serializedVersion: 2
-        x: 1591
-        y: 51
-        width: 22
-        height: 59
+        x: 1536
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 76b2b22a14ae0d830800000000000000
-      internalID: 4094029628894292839
+      spriteID: ba56e402896e3db4cbb8d2cfe34849e1
+      internalID: 817135797
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_KingGroundAttack_strip_no_bkg_13
+      name: Lv33_KingBossAttack_13
       rect:
         serializedVersion: 2
-        x: 1719
-        y: 51
-        width: 23
-        height: 60
+        x: 1664
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: c578a461bc5705970800000000000000
-      internalID: 8741616391838926684
+      spriteID: 34d8444ba7aa9534e9ab837a5261044e
+      internalID: -545902818
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_KingGroundAttack_strip_no_bkg_14
+      name: Lv33_KingBossAttack_14
       rect:
         serializedVersion: 2
-        x: 1843
-        y: 51
-        width: 33
-        height: 66
+        x: 1792
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 01d84098d95dddc10800000000000000
-      internalID: 2080053475500395792
+      spriteID: b3b4d967ba43bcb4db408e828cd22174
+      internalID: 320688237
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_KingGroundAttack_strip_no_bkg_15
+      name: Lv33_KingBossAttack_15
       rect:
         serializedVersion: 2
-        x: 1975
-        y: 51
-        width: 25
-        height: 62
+        x: 1920
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: bca77fe05d4cb5090800000000000000
-      internalID: -8044619890009081141
+      spriteID: 817b9479f457ef9489aa2b0fd597f6bc
+      internalID: 401714474
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_KingGroundAttack_strip_no_bkg_16
+      name: Lv33_KingBossAttack_16
       rect:
         serializedVersion: 2
-        x: 2103
-        y: 51
-        width: 18
-        height: 51
+        x: 2048
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 088235ef650613010800000000000000
-      internalID: 1166819705215985792
+      spriteID: 2faecdb7dc2682d4a816b4fb5a370f4d
+      internalID: 500708024
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_KingGroundAttack_strip_no_bkg_17
+      name: Lv33_KingBossAttack_17
       rect:
         serializedVersion: 2
-        x: 2231
-        y: 51
-        width: 20
-        height: 50
+        x: 2176
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b684daed5af97c550800000000000000
-      internalID: 6181084548343613547
+      spriteID: 427b6d47ca089bc41923612502543484
+      internalID: -103200939
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_KingGroundAttack_strip_no_bkg_18
+      name: Lv33_KingBossAttack_18
       rect:
         serializedVersion: 2
-        x: 2348
-        y: 51
-        width: 32
-        height: 47
+        x: 2304
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 9cad853d4f9ca5190800000000000000
-      internalID: -7972838136951022903
+      spriteID: 3cb746985b514e04ca7d0d90f5bbb662
+      internalID: 1745891345
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_KingGroundAttack_strip_no_bkg_19
+      name: Lv33_KingBossAttack_19
       rect:
         serializedVersion: 2
-        x: 2458
-        y: 51
-        width: 69
-        height: 36
+        x: 2432
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 55fa68efb42ae71d0800000000000000
-      internalID: -3351062625440583851
+      spriteID: 0485d64132e201b479493f95dd15c486
+      internalID: 2066534157
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_KingGroundAttack_strip_no_bkg_20
+      name: Lv33_KingBossAttack_20
       rect:
         serializedVersion: 2
-        x: 2593
-        y: 51
-        width: 55
-        height: 29
+        x: 2560
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: a930ef73ded5fcc30800000000000000
-      internalID: 4381824235882808218
+      spriteID: c878218e88ced5c40b78fb1b3095483f
+      internalID: 1161214887
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_KingGroundAttack_strip_no_bkg_21
+      name: Lv33_KingBossAttack_21
       rect:
         serializedVersion: 2
-        x: 2723
-        y: 51
-        width: 51
-        height: 47
+        x: 2688
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 589a773865a6fcf50800000000000000
-      internalID: 6903853673587648901
+      spriteID: 66777c62c816471438bc8d39dbea108c
+      internalID: -1580480424
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_KingGroundAttack_strip_no_bkg_22
+      name: Lv33_KingBossAttack_22
       rect:
         serializedVersion: 2
-        x: 2856
-        y: 51
-        width: 41
-        height: 63
+        x: 2816
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 1d5e8700c0d7df1e0800000000000000
-      internalID: -2162434755566967343
+      spriteID: c1ec468e5db49cf45979f2d94dcac62d
+      internalID: -416582556
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_KingGroundAttack_strip_no_bkg_23
+      name: Lv33_KingBossAttack_23
       rect:
         serializedVersion: 2
-        x: 2989
-        y: 51
-        width: 30
-        height: 70
+        x: 2944
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: be2d8bd6df9728770800000000000000
-      internalID: 8611579566860325611
+      spriteID: 6f31fae2047819f4e80e5f5364d2bd80
+      internalID: 1741275854
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_KingGroundAttack_strip_no_bkg_24
+      name: Lv33_KingBossAttack_24
       rect:
         serializedVersion: 2
-        x: 3117
-        y: 51
-        width: 30
-        height: 74
+        x: 3072
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 4c30e9d521aaabca0800000000000000
-      internalID: -6000296557660994620
+      spriteID: b912723e911dfaf419f004473128496d
+      internalID: -1072412416
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_KingGroundAttack_strip_no_bkg_25
+      name: Lv33_KingBossAttack_25
       rect:
         serializedVersion: 2
-        x: 3245
-        y: 51
-        width: 30
-        height: 19
+        x: 3200
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 7133c005a3f30e330800000000000000
-      internalID: 3738057210401141527
+      spriteID: c3b73629478d67141a72f4681a1726a5
+      internalID: -283450812
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_KingGroundAttack_strip_no_bkg_26
+      name: Lv33_KingBossAttack_26
       rect:
         serializedVersion: 2
-        x: 3373
-        y: 51
-        width: 29
-        height: 25
+        x: 3328
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: da4487533bb5042e0800000000000000
-      internalID: -2143612597374008147
+      spriteID: cb5893c51c3ce8041b0b63ef27e1299d
+      internalID: 1283929738
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_KingGroundAttack_strip_no_bkg_27
+      name: Lv33_KingBossAttack_27
       rect:
         serializedVersion: 2
-        x: 3511
-        y: 51
-        width: 18
-        height: 40
+        x: 3456
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 55c9ebfd13365ef60800000000000000
-      internalID: 8062959773735099477
+      spriteID: db0dd3c22a6341646ab25dc938e4197d
+      internalID: 1565941638
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_KingGroundAttack_strip_no_bkg_28
+      name: Lv33_KingBossAttack_28
       rect:
         serializedVersion: 2
-        x: 3639
-        y: 51
-        width: 18
-        height: 42
+        x: 3584
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 5dc6812f4029c1040800000000000000
-      internalID: 4619727867714497749
+      spriteID: 814e8ea321a7a2a44862c0d80ee184b0
+      internalID: -14014066
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_KingGroundAttack_strip_no_bkg_29
+      name: Lv33_KingBossAttack_29
       rect:
         serializedVersion: 2
-        x: 3767
-        y: 51
-        width: 18
-        height: 42
+        x: 3712
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: ebad85cdb90528e50800000000000000
-      internalID: 6810094216884574910
+      spriteID: a089262acba39454e88ec6e18591908e
+      internalID: 999274704
       vertices: []
       indices: 
       edges: []
@@ -863,7 +863,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 7e8b3b632cbb0f8409063e10dd775fa5
     internalID: 0
     vertices: []
     indices: 
@@ -871,38 +871,40 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":30.0,"y":1.0},"gridSpriteSize":{"x":128.0,"y":128.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      spr_KingGroundAttack_strip_no_bkg_0: -6183610254670242308
-      spr_KingGroundAttack_strip_no_bkg_1: 7076035118276298070
-      spr_KingGroundAttack_strip_no_bkg_10: 6543156347075301820
-      spr_KingGroundAttack_strip_no_bkg_11: -5929799163912397436
-      spr_KingGroundAttack_strip_no_bkg_12: 4094029628894292839
-      spr_KingGroundAttack_strip_no_bkg_13: 8741616391838926684
-      spr_KingGroundAttack_strip_no_bkg_14: 2080053475500395792
-      spr_KingGroundAttack_strip_no_bkg_15: -8044619890009081141
-      spr_KingGroundAttack_strip_no_bkg_16: 1166819705215985792
-      spr_KingGroundAttack_strip_no_bkg_17: 6181084548343613547
-      spr_KingGroundAttack_strip_no_bkg_18: -7972838136951022903
-      spr_KingGroundAttack_strip_no_bkg_19: -3351062625440583851
-      spr_KingGroundAttack_strip_no_bkg_2: 391199480015779975
-      spr_KingGroundAttack_strip_no_bkg_20: 4381824235882808218
-      spr_KingGroundAttack_strip_no_bkg_21: 6903853673587648901
-      spr_KingGroundAttack_strip_no_bkg_22: -2162434755566967343
-      spr_KingGroundAttack_strip_no_bkg_23: 8611579566860325611
-      spr_KingGroundAttack_strip_no_bkg_24: -6000296557660994620
-      spr_KingGroundAttack_strip_no_bkg_25: 3738057210401141527
-      spr_KingGroundAttack_strip_no_bkg_26: -2143612597374008147
-      spr_KingGroundAttack_strip_no_bkg_27: 8062959773735099477
-      spr_KingGroundAttack_strip_no_bkg_28: 4619727867714497749
-      spr_KingGroundAttack_strip_no_bkg_29: 6810094216884574910
-      spr_KingGroundAttack_strip_no_bkg_3: -3036265742888317224
-      spr_KingGroundAttack_strip_no_bkg_4: -7694697552424628990
-      spr_KingGroundAttack_strip_no_bkg_5: 8984386731584684756
-      spr_KingGroundAttack_strip_no_bkg_6: -1261867471568962012
-      spr_KingGroundAttack_strip_no_bkg_7: -780646684774986105
-      spr_KingGroundAttack_strip_no_bkg_8: 489401361205487319
-      spr_KingGroundAttack_strip_no_bkg_9: -8646523744197296276
+      Lv33_KingBossAttack_0: -599085621
+      Lv33_KingBossAttack_1: -807020268
+      Lv33_KingBossAttack_10: -1637280887
+      Lv33_KingBossAttack_11: 1756020673
+      Lv33_KingBossAttack_12: 817135797
+      Lv33_KingBossAttack_13: -545902818
+      Lv33_KingBossAttack_14: 320688237
+      Lv33_KingBossAttack_15: 401714474
+      Lv33_KingBossAttack_16: 500708024
+      Lv33_KingBossAttack_17: -103200939
+      Lv33_KingBossAttack_18: 1745891345
+      Lv33_KingBossAttack_19: 2066534157
+      Lv33_KingBossAttack_2: -300373161
+      Lv33_KingBossAttack_20: 1161214887
+      Lv33_KingBossAttack_21: -1580480424
+      Lv33_KingBossAttack_22: -416582556
+      Lv33_KingBossAttack_23: 1741275854
+      Lv33_KingBossAttack_24: -1072412416
+      Lv33_KingBossAttack_25: -283450812
+      Lv33_KingBossAttack_26: 1283929738
+      Lv33_KingBossAttack_27: 1565941638
+      Lv33_KingBossAttack_28: -14014066
+      Lv33_KingBossAttack_29: 999274704
+      Lv33_KingBossAttack_3: 612109799
+      Lv33_KingBossAttack_4: 1042772325
+      Lv33_KingBossAttack_5: -637325833
+      Lv33_KingBossAttack_6: 877414789
+      Lv33_KingBossAttack_7: 1817187065
+      Lv33_KingBossAttack_8: -2055676581
+      Lv33_KingBossAttack_9: -76660585
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

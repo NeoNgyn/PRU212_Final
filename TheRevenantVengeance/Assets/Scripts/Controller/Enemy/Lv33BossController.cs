@@ -1,13 +1,26 @@
+using System.Collections;
 using UnityEngine;
+
+//Ki nang: ban thuong: ban 3 cau` lua vao player
+//         ban dac biet: ban 1 vong xoay 100 vien dan hinh xoan oc
+//         mua kiem : ban 3 thanh kiem roi roi xuong player
+//         hoi mau: hoi 20 mau
+//         sinh ra 5 quai nho xung quanh
+//         dich chuyen toi player
+//         tuc' gian: khi mau duoi 50% thi tuc gian, tang toc do, tang sat thuong, tang dam va tang toc do chay
+//         va hoi lai day mau, su dung skill nhieu hon
 
 public class Lv33BossController : EnemyController
 {
-    [SerializeField] private GameObject bulletPrefabs;
+    [SerializeField] private GameObject[] swordPrefabs;
+    [SerializeField] private GameObject fireballPrefabs;
+    public GameObject sprialBulletPrefabs;
     [SerializeField] private Transform firePoint;
     [SerializeField] private float normalAttackSpeed = 20f;
     [SerializeField] private float specialAttackSpeed = 5f;
     [SerializeField] private float hpValue = 20f;
     [SerializeField] private GameObject miniEnemy;
+    [SerializeField] private GameObject shield;
 
     [SerializeField] private float shotDelay = 0.2f;
     private float nextShot;
@@ -15,14 +28,48 @@ public class Lv33BossController : EnemyController
     private float nextSkill;
 
     [SerializeField] private GameObject itemPrefab;
-    
+    private float summonCooldown = 2.5f;
+    private float nextSummonTime = 0f;
+    private bool enraged = false;
+    private float spiralAngle = 0f;
+
 
     protected override void Update()
     {
         base.Update();
 
-        NormalAttack();
+        if (Time.time >= nextSummonTime)
+        {
+            nextSummonTime = Time.time + summonCooldown;
+            NormalAttack();
+            if (enraged)
+            {
+                SpecialAttack();
+            }
+        }
+
+        if (!enraged && currentHp <= maxHp * 0.5f)
+        {
+            EnterEnragedState();
+        }
         UseSkill();
+    }
+
+    private void EnterEnragedState()
+    {
+        enraged = true;
+
+        Debug.Log("Boss has entered ENRAGED state!");
+
+
+        currentHp = maxHp;
+        UpdateHealthBar();
+
+        enterDamage *= 1.5f;
+        stayDamage *= 1.5f;
+        enemySpeed *= 1.5f;
+
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -61,7 +108,7 @@ public class Lv33BossController : EnemyController
                 float radian = angle * Mathf.Deg2Rad;
                 Vector3 dir = new Vector3(Mathf.Cos(radian), Mathf.Sin(radian), 0);
 
-                GameObject bullet = Instantiate(bulletPrefabs, firePoint.position, Quaternion.Euler(0, 0, angle - 270));
+                GameObject bullet = Instantiate(fireballPrefabs, firePoint.position, Quaternion.Euler(0, 0, angle - 270));
 
                 EnemyBulletController enemyBullet = bullet.AddComponent<EnemyBulletController>();
                 enemyBullet.SetMovementDirection(dir * normalAttackSpeed);
@@ -69,20 +116,32 @@ public class Lv33BossController : EnemyController
         }
     }
 
-    //private void SpecialAttack()
-    //{
-    //    const int bulletCount = 12;
-    //    float angleStep = 360 / bulletCount;
-    //    for (int i = 0; i < bulletCount; i++)
-    //    {
-    //        float angle = i * angleStep;
-    //        Vector3 bulletDirection = new Vector3(Mathf.Cos(Mathf.Deg2Rad * angle), Mathf.Sin(Mathf.Deg2Rad * angle), 0);
-    //        GameObject bullet = Instantiate(bulletPrefabs, transform.position, Quaternion.identity);
-    //        EnemyBulletController enemyBullet = bullet.AddComponent<EnemyBulletController>();
-    //        enemyBullet.SetMovementDirection(bulletDirection * specialAttackSpeed);
-    //    }
+    private void SpecialAttack()
+    {
+        StartCoroutine(SpiralAttackCoroutine());
+    }
 
-    //}
+    private IEnumerator SpiralAttackCoroutine()
+    {
+        int bulletsToFire = 100; 
+        float angleStep = 10f; 
+        float delayBetweenBullets = 0.05f; 
+
+        for (int i = 0; i < bulletsToFire; i++)
+        {
+            float angle = spiralAngle + i * angleStep;
+            float rad = angle * Mathf.Deg2Rad;
+            Vector3 direction = new Vector3(Mathf.Cos(rad), Mathf.Sin(rad), 0);
+
+            GameObject bullet = Instantiate(sprialBulletPrefabs, transform.position, Quaternion.identity);
+            EnemyBulletController enemyBullet = bullet.AddComponent<EnemyBulletController>();
+            enemyBullet.SetMovementDirection(direction * specialAttackSpeed);
+
+            yield return new WaitForSeconds(delayBetweenBullets);
+        }
+
+        spiralAngle += 15f; 
+    }
 
     private void Heal(float hpAmount)
     {
@@ -116,14 +175,38 @@ public class Lv33BossController : EnemyController
         }
     }
 
+    private void SummonFallingSwords()
+    {
+        StartCoroutine(SummonSwordsCoroutine());
+    }
+
+    private IEnumerator SummonSwordsCoroutine()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            if (player != null)
+            {
+                GameObject swordPrefab = swordPrefabs[i % swordPrefabs.Length];
+
+                Vector3 spawnPos = player.transform.position + new Vector3(Random.Range(-1f, 1f), 5f, 0);
+                GameObject sword = Instantiate(swordPrefab, spawnPos, swordPrefab.transform.rotation);
+
+                FallingSwordController controller = sword.GetComponent<FallingSwordController>();
+                if (controller != null)
+                {
+                    controller.Initialize(player.transform.position);
+                }
+
+                yield return new WaitUntil(() => sword == null);
+            }
+        }
+    }
+
     private void ChooseRandomSkill()
     {
-        int randomSkill = Random.Range(0, 3);
+        int randomSkill = Random.Range(1, 4);
         switch (randomSkill)
         {
-            case 0:
-                //SpecialAttack();
-                break;
             case 1:
                 Heal(hpValue);
                 break;
@@ -133,17 +216,25 @@ public class Lv33BossController : EnemyController
             case 3:
                 Teleport();
                 break;
+            case 4:
+                SummonFallingSwords();
+                break;
         }
     }
 
     private void UseSkill()
     {
+        float currentCooldown = enraged ? skillCooldown / 2f : skillCooldown; 
+
         if (Time.time >= nextSkill)
         {
-            nextSkill = Time.time + skillCooldown;
+            nextSkill = Time.time + currentCooldown;
             ChooseRandomSkill();
+            if (enraged)
+            {
+                ChooseRandomSkill(); 
+            }
         }
-        
     }
 
     protected override void Die()
@@ -152,4 +243,3 @@ public class Lv33BossController : EnemyController
         base.Die();
     }
 }
-
