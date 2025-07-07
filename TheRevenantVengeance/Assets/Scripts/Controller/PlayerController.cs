@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private float moveSpeed = 5f;
 
 	[SerializeField] private float maxHp = 100f;
-	private float currentHp;
+	public float currentHp;
 	[SerializeField] private Image healthBar;
 
 	[SerializeField] private int maxEnergy = 10;
