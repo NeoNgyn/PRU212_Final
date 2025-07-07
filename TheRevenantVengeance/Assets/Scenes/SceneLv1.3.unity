@@ -120400,7 +120400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpeed: 1
-  maxHp: 50
+  maxHp: 500
   healthBar: {fileID: 2001083833}
   enterDamage: 10
   stayDamage: 10
@@ -120414,6 +120414,16 @@ MonoBehaviour:
   - {fileID: 1502319471}
   maxActiveMinions: 30
   gateTrigger: {fileID: 515979482}
+  slamRadius: 3
+  slamDamage: 20
+  slamCooldown: 4
+  slamEffectPrefab: {fileID: 0}
+  fireballPrefab: {fileID: 8876904922947555684, guid: d6a7b7ffdb5906d4c8098e75354f4eb2, type: 3}
+  radialFireballOnHitCount: 8
+  hitReactionComboCooldown: 5
+  teleportCooldown: 6
+  teleportEffectPrefab: {fileID: 0}
+  minTeleportDistance: 15
 --- !u!1 &854338176
 GameObject:
   m_ObjectHideFlags: 0
