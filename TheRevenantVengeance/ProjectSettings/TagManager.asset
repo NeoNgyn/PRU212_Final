@@ -11,6 +11,8 @@ TagManager:
   - Explosion
   - EnemyBullet
   - Achievement
+  - Rock
+  - Boss
   - FallingSword
   layers:
   - Default
@@ -46,17 +48,17 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: land
-    uniqueID: 1195964365
+  - name: Ground
+    uniqueID: 60718297
+    locked: 0
+  - name: Rock
+    uniqueID: 831713227
     locked: 0
   - name: wall
     uniqueID: 1105538713
     locked: 0
   - name: trees
     uniqueID: 4087394739
-    locked: 0
-  - name: Ground
-    uniqueID: 60718297
     locked: 0
   - name: River
     uniqueID: 301096701
@@ -73,11 +75,11 @@ TagManager:
   - name: BossStand
     uniqueID: 581624327
     locked: 0
-  - name: Rock
-    uniqueID: 831713227
+  - name: Stair
+    uniqueID: 2314907419
     locked: 0
-  - name: ItemsMap
-    uniqueID: 1008637589
+  - name: Stairs
+    uniqueID: 3612416897
     locked: 0
   - name: Player
     uniqueID: 1157584871
@@ -90,6 +92,12 @@ TagManager:
     locked: 0
   - name: Bullet
     uniqueID: 347999125
+    locked: 0
+  - name: ItemsMap
+    uniqueID: 1008637589
+    locked: 0
+  - name: TreeScene1.3
+    uniqueID: 2182755165
     locked: 0
   - name: Weapon
     uniqueID: 1014179845

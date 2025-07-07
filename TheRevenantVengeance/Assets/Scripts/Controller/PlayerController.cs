@@ -234,4 +234,9 @@ public class PlayerController : MonoBehaviour
 		// Hoặc:
 		Destroy(gameObject, 3f); // Hủy sau 2 giây (đảm bảo animation có thời gian để phát)
 	}
+
+	public float GetCurrentEnergy()
+	{
+		return currentEnergy;
+	}
 }
