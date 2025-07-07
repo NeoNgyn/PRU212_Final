@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private float moveSpeed = 5f;
 
 	[SerializeField] private float maxHp = 100f;
-	private float currentHp;
+	public float currentHp;
 	[SerializeField] private Image healthBar;
 
 	[SerializeField] private int maxEnergy = 10;
@@ -25,8 +25,10 @@ public class PlayerController : MonoBehaviour
 	// --- THÊM DÒNG NÀY ---
 	[SerializeField] private GameObject attackHitbox; // Kéo GameObject AttackHitbox của bạn vào đây từ Inspector
 
+    private float lastHitTime = -999f;
+    [SerializeField] private float hitCooldown = 0.5f;
 
-	private void Awake()
+    private void Awake()
 	{
 		rb = GetComponent<Rigidbody2D>();
 		spriteRenderer = rb.GetComponent<SpriteRenderer>();
@@ -147,7 +149,10 @@ public class PlayerController : MonoBehaviour
 
 	public void TakeDamage(float damage)
 	{
-		currentHp -= damage;
+        if (Time.time - lastHitTime < hitCooldown) return; // Nếu chưa đủ thời gian thì bỏ qua
+
+        lastHitTime = Time.time;
+        currentHp -= damage;
 		currentHp = Mathf.Max(currentHp, 0);
 		UpdateHealthBar();
         if (currentHp <= 0)
