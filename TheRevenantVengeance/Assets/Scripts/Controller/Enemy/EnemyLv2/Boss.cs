@@ -34,6 +34,9 @@ namespace Assets.Scripts.Controller.Enemy.EnemyLv2
         [SerializeField] private AudioClip attackSound;
         [SerializeField] private AudioClip takeHitSound;
         [SerializeField] private AudioClip deathSound;
+
+        [SerializeField] private GateTriggerBoss gateTrigger;
+
         protected override void Awake()
         {
             base.Awake();
@@ -220,6 +223,10 @@ namespace Assets.Scripts.Controller.Enemy.EnemyLv2
                 audioSource.PlayOneShot(deathSound);
             }
             Instantiate(itemPrefab, transform.position, Quaternion.identity);
+            if (gateTrigger != null)
+            {
+                gateTrigger.OpenGate();
+            }
             Destroy(gameObject, 2f);
             //base.Die();
         }
