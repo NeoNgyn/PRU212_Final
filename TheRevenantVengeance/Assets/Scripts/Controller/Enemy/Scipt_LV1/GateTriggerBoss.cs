@@ -181,6 +181,7 @@ public class GateTriggerBoss : MonoBehaviour
 	[SerializeField] private AudioSource gateOpenSound;
 	[SerializeField] private Collider2D gateCollider;
 
+
 	// --- THÊM DÒNG NÀY VÀO ?ÂY ---
 	[Header("Scene Transition Settings")] // Tiêu ?? trong Inspector
 	[SerializeField] private string targetSceneName; // Bi?n ?? l?u tên c?nh ?ích

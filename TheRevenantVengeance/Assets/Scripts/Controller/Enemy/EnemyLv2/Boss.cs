@@ -15,10 +15,10 @@ namespace Assets.Scripts.Controller.Enemy.EnemyLv2
         //[SerializeField] private float normalAttackSpeed = 20f;
         [SerializeField] private float specialAttackSpeed = 5f;
         [SerializeField] private float hpValue = 20f;
-        //[SerializeField] private GameObject miniEnemy;
+        [SerializeField] private GameObject swordPrefab;
+        [SerializeField] private Transform swordCenter;
 
-        //[SerializeField] private float shotDelay = 0.2f;
-        //private float nextShot;
+        [SerializeField] private GameObject flyingSwordPrefab;
         [SerializeField] private float skillCooldown = 10f;
         private float nextSkill;
 
@@ -30,6 +30,10 @@ namespace Assets.Scripts.Controller.Enemy.EnemyLv2
         private float lastAttackTime = 0f;
         protected bool isDead = false;
 
+        [SerializeField] private AudioSource audioSource;
+        [SerializeField] private AudioClip attackSound;
+        [SerializeField] private AudioClip takeHitSound;
+        [SerializeField] private AudioClip deathSound;
         protected override void Awake()
         {
             base.Awake();
@@ -74,7 +78,10 @@ namespace Assets.Scripts.Controller.Enemy.EnemyLv2
             lastAttackTime = Time.time;
 
             animator?.SetTrigger("Attack");
-
+            if (audioSource != null && attackSound != null)
+            {
+                audioSource.PlayOneShot(attackSound);
+            }
             Invoke(nameof(ResetAttack), attackCooldown);
         }
         private void ResetAttack()
@@ -103,6 +110,10 @@ namespace Assets.Scripts.Controller.Enemy.EnemyLv2
             if (currentHp > 0)
             {
                 animator?.SetTrigger("TakeHit");
+                if (audioSource != null && takeHitSound != null)
+                {
+                    audioSource.PlayOneShot(takeHitSound);
+                }
             }
         }
 
@@ -128,17 +139,19 @@ namespace Assets.Scripts.Controller.Enemy.EnemyLv2
 
         }
 
-        //private void SpawnMiniEnemy()
-        //{
-        //    float radius = 2f;
-        //    for (int i = 0; i < 5; i++)
-        //    {
-        //        float angle = i * Mathf.PI * 2 / 5;
-        //        Vector3 spawnPos = transform.position + new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * radius;
-        //        Instantiate(miniEnemy, spawnPos, Quaternion.identity);
-
-        //    }
-        //}
+        private void SpawnSwordSpin()
+        {
+            int swordCount = 5;
+            for (int i = 0; i < swordCount; i++)
+            {
+                GameObject sword = Instantiate(swordPrefab, swordCenter.position, Quaternion.identity);
+                sword.transform.SetParent(swordCenter); // gắn vào boss để quay theo
+                SwordSpin spin = sword.GetComponent<SwordSpin>();
+                spin.bossCenter = swordCenter;
+                spin.angleOffset = i * 360f / swordCount; // chia đều góc
+                spin.InitPosition();              
+            }
+        }
 
         private void Teleport()
         {
@@ -153,9 +166,21 @@ namespace Assets.Scripts.Controller.Enemy.EnemyLv2
             }
         }
 
+        private void ShootSwordAtPlayer()
+        {
+            if (player == null || isDead) return;
+
+            GameObject sword = Instantiate(flyingSwordPrefab, transform.position, Quaternion.identity);
+            FlyingSword swordScript = sword.GetComponent<FlyingSword>();
+            if (swordScript != null)
+            {
+                swordScript.Initialize(player.transform.position);
+            }
+        }
+
         private void ChooseRandomSkill()
         {
-            int randomSkill = Random.Range(0, 3);
+            int randomSkill = Random.Range(0, 4);
             switch (randomSkill)
             {
                 case 0:
@@ -164,11 +189,14 @@ namespace Assets.Scripts.Controller.Enemy.EnemyLv2
                 case 1:
                     Heal(hpValue);
                     break;
-                //case 2:
-                //    SpawnMiniEnemy();
-                //    break;
                 case 2:
+                    SpawnSwordSpin();
+                    break;
+                case 3:
                     Teleport();
+                    break;
+                case 4:
+                    ShootSwordAtPlayer();
                     break;
             }
         }
@@ -187,6 +215,10 @@ namespace Assets.Scripts.Controller.Enemy.EnemyLv2
         {
             isDead = true;
             animator?.SetTrigger("Die");
+            if (audioSource != null && deathSound != null)
+            {
+                audioSource.PlayOneShot(deathSound);
+            }
             Instantiate(itemPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject, 2f);
             //base.Die();
