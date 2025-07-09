@@ -13955,7 +13955,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -26.14, y: 3.96, z: -10}
+  m_LocalPosition: {x: -26.16, y: 4.78, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14240,7 +14240,7 @@ Transform:
   m_GameObject: {fileID: 685158509}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -26.14, y: 3.96, z: -10}
+  m_LocalPosition: {x: -26.16, y: 4.78, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14331,7 +14331,7 @@ Transform:
   m_GameObject: {fileID: 749432996}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -26.14, y: 3.96, z: 0}
+  m_LocalPosition: {x: -26.16, y: 4.78, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14427,7 +14427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  maxHp: 100
+  maxHp: 10000
   currentHp: 0
   healthBar: {fileID: 1173756673}
   maxEnergy: 100
@@ -14521,7 +14521,7 @@ MonoBehaviour:
   - {fileID: 6639285853732437987, guid: a98c3e0efcc44a5428de446a1d858ec8, type: 3}
   - {fileID: 5703981776682762238, guid: 359b760939d356b408dbcdcd166f65e9, type: 3}
   - {fileID: 9065205628412860376, guid: 6b18883600439c94ab5bb557b9157bef, type: 3}
-  - {fileID: 5964038500432494917, guid: 19ab8d5954e583c4e96e46e11a575a73, type: 3}
+  - {fileID: 525978846963190391, guid: 0154fcd13d6dc4c4dbe46747bdfca57d, type: 3}
   - {fileID: 2309872560824219054, guid: e103ef9eadc7c754297040f0b6a50a53, type: 3}
   spawnPoints:
   - {fileID: 121242406}
@@ -114611,7 +114611,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2079320898
 MonoBehaviour:
   m_ObjectHideFlags: 0
