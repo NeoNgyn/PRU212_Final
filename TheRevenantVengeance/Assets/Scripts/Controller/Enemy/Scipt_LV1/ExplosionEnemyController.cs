@@ -2,109 +2,128 @@ using UnityEngine;
 
 public class ExplosionEnemyController : EnemyController
 {
-	[SerializeField] private GameObject miniEnemyPrefab;
-	[SerializeField] private int spawnCount = 3;
-	[SerializeField] private float spawnCooldown = 8f;
+    [SerializeField] private GameObject miniEnemyPrefab;
+    [SerializeField] private int spawnCount = 3;
+    [SerializeField] private float spawnCooldown = 8f;
+    [SerializeField] private float attackDistance = 6f;
 
-	private float cooldownTimer = 0f;
+    [Header("Audio Settings")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip attackSound;
+    [SerializeField] private AudioClip takeHitSound;
+    [SerializeField] private AudioClip dieSound;
+    [SerializeField] private AudioClip spawnSound;  // Thêm âm thanh khi spawn mini enemy (n?u mu?n)
 
-	protected override void Update()
-	{
-		base.Update();
+    private float cooldownTimer = 0f;
+    private Animator animator;
+    private bool isAttacking = false;
+    protected bool isDead = false;
 
-		cooldownTimer -= Time.deltaTime;
+    protected override void Awake()
+    {
+        base.Awake();
+        animator = GetComponent<Animator>();
+    }
 
-		float distance = Vector2.Distance(transform.position, player.transform.position);
-		if (distance <= 6f && cooldownTimer <= 0f)
-		{
-			SpawnMiniEnemies();
-			cooldownTimer = spawnCooldown;
-		}
-	}
+    protected override void Update()
+    {
+        if (isDead) return;
+        base.Update();
 
-	private void SpawnMiniEnemies()
-	{
-		for (int i = 0; i < spawnCount; i++)
-		{
-			GameObject mini = Instantiate(miniEnemyPrefab, transform.position, Quaternion.identity);
-			mini.transform.localScale = new Vector3(0.15f, 0.15f, 1f);
+        cooldownTimer -= Time.deltaTime;
 
-			MiniEnemyController miniScript = mini.GetComponent<MiniEnemyController>();
-			if (miniScript != null)
-			{
-				miniScript.SetAsMiniEnemy();
-			}
-		}
-	}
+        if (player != null && !isAttacking)
+        {
+            float distance = Vector2.Distance(transform.position, player.transform.position);
+            if (distance <= attackDistance && cooldownTimer <= 0f)
+            {
+                Attack();
+                cooldownTimer = spawnCooldown;
+            }
+        }
+    }
 
+    protected override void MoveToPlayer()
+    {
+        if (player != null && !isAttacking && !isDead)
+        {
+            float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
+            if (distanceToPlayer > attackDistance * 0.8f)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, player.transform.position, enemySpeed * Time.deltaTime);
+            }
+            FlipEnemy();
+        }
+    }
+
+    private void Attack()
+    {
+        if (isDead) return;
+        isAttacking = true;
+        animator?.SetTrigger("Attack");
+
+        // Phát âm thanh Attack
+        if (attackSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(attackSound);
+        }
+
+        Invoke(nameof(SpawnMiniEnemies), 0.5f);
+        Invoke(nameof(ResetAttack), spawnCooldown);
+    }
+
+    private void ResetAttack()
+    {
+        isAttacking = false;
+    }
+
+    private void SpawnMiniEnemies()
+    {
+        for (int i = 0; i < spawnCount; i++)
+        {
+            GameObject mini = Instantiate(miniEnemyPrefab, transform.position, Quaternion.identity);
+            mini.transform.localScale = new Vector3(0.15f, 0.15f, 1f);
+
+            MiniEnemyController miniScript = mini.GetComponent<MiniEnemyController>();
+            if (miniScript != null)
+            {
+                miniScript.SetAsMiniEnemy();
+            }
+        }
+
+        // Phát âm thanh spawn mini enemy (n?u có)
+        if (spawnSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(spawnSound);
+        }
+    }
+
+    public override void TakeDamage(float damage, Vector2 knockbackDirection)
+    {
+        base.TakeDamage(damage, knockbackDirection);
+        if (currentHp > 0)
+        {
+            animator?.SetTrigger("TakeHit");
+
+            // Phát âm thanh Take Hit
+            if (takeHitSound != null && audioSource != null)
+            {
+                audioSource.PlayOneShot(takeHitSound);
+            }
+        }
+    }
+
+    protected override void Die()
+    {
+        isDead = true;
+        animator?.SetTrigger("Die");
+
+        // Phát âm thanh Die
+        if (dieSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(dieSound);
+        }
+
+        Destroy(gameObject, 2f);
+    }
 }
-//using UnityEngine;
-
-//public class TeleportExplodeEnemyController : EnemyController
-//{
-//	[SerializeField] private GameObject explosionPrefab;
-//	[SerializeField] private float teleportInterval = 5f;  // Kho?ng th?i gian gi?a m?i l?n teleport
-//	[SerializeField] private float teleportDistance = 4f;  // Kho?ng cách quanh Player khi teleport
-//	[SerializeField] private float explosionDelay = 2f;    // Th?i gian ch? tr??c khi n?
-
-//	private float teleportCooldown;
-//	private float explosionCountdown;
-//	private bool isPreparingToExplode = false;
-
-//	protected override void Update()
-//	{
-//		base.Update();
-
-//		if (isPreparingToExplode)
-//		{
-//			// ?ang ch? n?
-//			explosionCountdown -= Time.deltaTime;
-//			if (explosionCountdown <= 0f)
-//			{
-//				Explode();
-//			}
-//		}
-//		else
-//		{
-//			// ??i ??n lúc teleport
-//			teleportCooldown -= Time.deltaTime;
-//			if (teleportCooldown <= 0f)
-//			{
-//				TeleportNearPlayer();
-//			}
-//		}
-//	}
-
-//	private void TeleportNearPlayer()
-//	{
-//		if (player != null)
-//		{
-//			Vector2 randomDirection = Random.insideUnitCircle.normalized;
-//			Vector2 targetPosition = (Vector2)player.transform.position + randomDirection * teleportDistance;
-//			transform.position = targetPosition;
-
-//			// B?t ??u ??m ng??c n?
-//			isPreparingToExplode = true;
-//			explosionCountdown = explosionDelay;
-//		}
-
-//		teleportCooldown = teleportInterval; // Reset cooldown (n?u mu?n teleport l?n n?a sau khi n?)
-//	}
-
-//	private void Explode()
-//	{
-//		// N?
-//		if (explosionPrefab != null)
-//		{
-//			Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-//		}
-
-//		Die();
-//	}
-
-//	protected override void Die()
-//	{
-//		base.Die(); // G?i Die() g?c, s? Destroy(gameObject)
-//	}
-//}
-
