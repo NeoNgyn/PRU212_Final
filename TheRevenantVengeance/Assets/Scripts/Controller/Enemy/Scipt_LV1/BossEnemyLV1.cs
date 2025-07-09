@@ -2,173 +2,224 @@ using UnityEngine;
 
 public class BossEnemyLV1 : EnemyController
 {
-	[Header("Patrol Settings")]
-	[SerializeField] private Transform patrolPointLeft;
-	[SerializeField] private Transform patrolPointRight;
-	[SerializeField] private float patrolSpeed = 1f;
+    [Header("Patrol Settings")]
+    [SerializeField] private Transform patrolPointLeft;
+    [SerializeField] private Transform patrolPointRight;
+    [SerializeField] private float patrolSpeed = 1f;
 
-	[Header("Attack Settings")]
-	[SerializeField] private float attackRange = 5f;
-	[SerializeField] private GameObject fireballPrefab;
-	[SerializeField] private float fireballCooldown = 3f;
-	[SerializeField] private float radialFireballCooldown = 5f;
-	[SerializeField] private int radialFireballCount = 8;
+    [Header("Attack Settings")]
+    [SerializeField] private float attackRange = 5f;
+    [SerializeField] private GameObject fireballPrefab;
+    [SerializeField] private float fireballCooldown = 3f;
+    [SerializeField] private float radialFireballCooldown = 5f;
+    [SerializeField] private int radialFireballCount = 8;
+    [SerializeField] private float attackAnimationDuration = 0.5f;
 
-	[Header("Health Settings")]
-	[SerializeField] private float maxHealth = 100f;
-	[SerializeField] private float regenRate = 2f;
-	[SerializeField] private GateTriggerBoss gateTrigger;
+    [Header("Health Settings")]
+    [SerializeField] private float maxHealth = 100f;
+    [SerializeField] private float regenRate = 2f;
+    [SerializeField] private GateTriggerBoss gateTrigger;
 
-	private float currentHealth;
-	private Transform player;
-	private Vector3 nextPatrolTarget;
-	private float fireballTimer = 0f;
-	private float radialFireballTimer = 0f;
+    [Header("Audio Settings")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip attackSound;
+    [SerializeField] private AudioClip fireballSound;
+    [SerializeField] private AudioClip takeHitSound;
+    [SerializeField] private AudioClip dieSound;
 
-	private void Start()
-	{
-		player = GameObject.FindGameObjectWithTag("Player")?.transform;
-		nextPatrolTarget = patrolPointRight.position;
-		currentHealth = maxHealth;
-		Debug.Log("Boss spawned, HP: " + currentHealth);
-	}
+    private float currentHealth;
+    private Transform player;
+    private Vector3 nextPatrolTarget;
+    private float fireballTimer = 0f;
+    private float radialFireballTimer = 0f;
 
-	private void Update()
-	{
-		if (player == null) return;
+    private Animator animator;
+    private bool isAttacking = false;
+    protected bool isDead = false;
 
-		float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-		fireballTimer -= Time.deltaTime;
-		radialFireballTimer -= Time.deltaTime;
+    protected override void Awake()
+    {
+        base.Awake();
+        animator = GetComponent<Animator>();
+    }
 
-		if (distanceToPlayer <= attackRange)
-		{
-			AttackPlayer();
-		}
-		else
-		{
-			Patrol();
-		}
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player")?.transform;
+        nextPatrolTarget = patrolPointRight.position;
+        currentHealth = maxHealth;
+    }
 
-		if (currentHealth < maxHealth)
-		{
-			currentHealth += regenRate * Time.deltaTime;
-			currentHealth = Mathf.Min(currentHealth, maxHealth);
-		}
-	}
+    protected override void Update()
+    {
+        if (isDead) return;
+        base.Update();
 
-	void Patrol()
-	{
-		transform.position = Vector2.MoveTowards(transform.position, nextPatrolTarget, patrolSpeed * Time.deltaTime);
+        if (player == null) return;
 
-		if (Vector2.Distance(transform.position, nextPatrolTarget) < 0.1f)
-		{
-			nextPatrolTarget = (nextPatrolTarget == patrolPointLeft.position) ? patrolPointRight.position : patrolPointLeft.position;
-		}
+        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+        fireballTimer -= Time.deltaTime;
+        radialFireballTimer -= Time.deltaTime;
 
-		FlipSprite(nextPatrolTarget);
-	}
+        if (distanceToPlayer <= attackRange)
+        {
+            if (!isAttacking)
+            {
+                FlipSprite(player.position);
+                AttemptAttack();
+            }
+        }
+        else
+        {
+            Patrol();
+        }
 
-	void AttackPlayer()
-	{
-		FlipSprite(player.position);
+        if (currentHealth < maxHealth)
+        {
+            currentHealth += regenRate * Time.deltaTime;
+            currentHealth = Mathf.Min(currentHealth, maxHealth);
+        }
+    }
 
-		if (fireballTimer <= 0f)
-		{
-			ShootFireballAtPlayer();
-			fireballTimer = fireballCooldown;
-		}
+    void Patrol()
+    {
+        if (isAttacking || isDead) return;
 
-		if (radialFireballTimer <= 0f)
-		{
-			ShootRadialFireballs();
-			radialFireballTimer = radialFireballCooldown;
-		}
-	}
+        transform.position = Vector2.MoveTowards(transform.position, nextPatrolTarget, patrolSpeed * Time.deltaTime);
 
-	void ShootFireballAtPlayer()
-	{
-		if (fireballPrefab != null)
-		{
-			Vector2 direction = (player.position - transform.position).normalized;
-			GameObject fireball = Instantiate(fireballPrefab, transform.position, Quaternion.identity);
-			Rigidbody2D rb = fireball.GetComponent<Rigidbody2D>();
-			if (rb != null)
-			{
-				rb.linearVelocity = direction * 5f;
-			}
-		}
-	}
+        if (Vector2.Distance(transform.position, nextPatrolTarget) < 0.1f)
+        {
+            nextPatrolTarget = (nextPatrolTarget == patrolPointLeft.position) ? patrolPointRight.position : patrolPointLeft.position;
+        }
 
-	void ShootRadialFireballs()
-	{
-		if (fireballPrefab != null)
-		{
-			for (int i = 0; i < radialFireballCount; i++)
-			{
-				float angle = i * (360f / radialFireballCount);
-				float radian = angle * Mathf.Deg2Rad;
-				Vector2 direction = new Vector2(Mathf.Cos(radian), Mathf.Sin(radian));
+        FlipSprite(nextPatrolTarget);
+    }
 
-				GameObject fireball = Instantiate(fireballPrefab, transform.position, Quaternion.identity);
-				Rigidbody2D rb = fireball.GetComponent<Rigidbody2D>();
-				if (rb != null)
-				{
-					rb.linearVelocity = direction * 4f;
-				}
-			}
-		}
-	}
+    void AttemptAttack()
+    {
+        bool attackedThisFrame = false;
 
-	void FlipSprite(Vector3 targetPos)
-	{
-		Vector3 localScale = transform.localScale;
-		localScale.x = targetPos.x < transform.position.x ? -Mathf.Abs(localScale.x) : Mathf.Abs(localScale.x);
-		transform.localScale = localScale;
-	}
+        if (fireballTimer <= 0f)
+        {
+            isAttacking = true;
+            animator?.SetTrigger("Attack");
 
-	public override void TakeDamage(float damage, Vector2 knockback)
-	{
-		Debug.Log($"Boss nhận {damage} damage, HP trước khi trừ: {currentHealth}"); // Hoặc currentHp nếu bạn đã bỏ biến riêng
+            if (attackSound != null && audioSource != null)
+                audioSource.PlayOneShot(attackSound);
 
-		currentHealth -= damage; // Hoặc currentHp -= damage;
-		currentHealth = Mathf.Max(currentHealth, 0); // Hoặc currentHp = Mathf.Max(currentHp, 0);
+            Invoke(nameof(ShootFireballAtPlayer), attackAnimationDuration * 0.5f);
+            fireballTimer = fireballCooldown;
+            attackedThisFrame = true;
+        }
 
-		// Nếu bạn có thanh máu riêng cho boss, hãy cập nhật ở đây.
-		// Nếu bạn dùng thanh máu của EnemyController, hãy gọi base.UpdateHealthBar();
-		// Ví dụ: base.UpdateHealthBar();
+        if (radialFireballTimer <= 0f && !attackedThisFrame)
+        {
+            isAttacking = true;
+            animator?.SetTrigger("Attack");
 
-		Debug.Log("HP sau khi trừ: " + currentHealth); // Hoặc currentHp
+            if (attackSound != null && audioSource != null)
+                audioSource.PlayOneShot(attackSound);
 
-		if (currentHealth <= 0) // Hoặc currentHp
-		{
-			Debug.Log("Boss chết, gọi Die()");
-			Die();
-		}
-		else
-		{
-			// *** ĐẢM BẢO CHỈ GỌI DÒNG NÀY ***
-			base.ApplyKnockback(knockback); // Sử dụng hệ thống knockback của EnemyController
-		}
-		// *** KHÔNG CÓ DÒNG NÀO KIỂU NHƯ:
-		// Rigidbody2D rb = GetComponent<Rigidbody2D>();
-		// if (rb != null) { rb.AddForce(knockback * 200f); }
-		// Ở ĐÂY NỮA! ***
-	}
+            Invoke(nameof(ShootRadialFireballs), attackAnimationDuration * 0.5f);
+            radialFireballTimer = radialFireballCooldown;
+            attackedThisFrame = true;
+        }
 
-	void Die()
-	{
-		Debug.Log("Boss đã chết, mở cổng!");
-		if (gateTrigger != null)
-		{
-			gateTrigger.OpenGate();
-		}
-		else
-		{
-			Debug.LogWarning("GateTrigger chưa được gán vào BossEnemy!");
-		}
+        if (attackedThisFrame)
+        {
+            Invoke(nameof(ResetAttack), attackAnimationDuration);
+        }
+    }
 
-		Destroy(gameObject);
-	}
+    void ShootFireballAtPlayer()
+    {
+        if (fireballPrefab != null && player != null)
+        {
+            Vector2 direction = (player.position - transform.position).normalized;
+            GameObject fireball = Instantiate(fireballPrefab, transform.position, Quaternion.identity);
+            Rigidbody2D rb = fireball.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                rb.linearVelocity = direction * 5f;
+            }
+
+            if (fireballSound != null && audioSource != null)
+                audioSource.PlayOneShot(fireballSound);
+        }
+    }
+
+    void ShootRadialFireballs()
+    {
+        if (fireballPrefab != null)
+        {
+            for (int i = 0; i < radialFireballCount; i++)
+            {
+                float angle = i * (360f / radialFireballCount);
+                float radian = angle * Mathf.Deg2Rad;
+                Vector2 direction = new Vector2(Mathf.Cos(radian), Mathf.Sin(radian));
+
+                GameObject fireball = Instantiate(fireballPrefab, transform.position, Quaternion.identity);
+                Rigidbody2D rb = fireball.GetComponent<Rigidbody2D>();
+                if (rb != null)
+                {
+                    rb.linearVelocity = direction * 4f;
+                }
+
+                if (fireballSound != null && audioSource != null)
+                    audioSource.PlayOneShot(fireballSound);
+            }
+        }
+    }
+
+    void ResetAttack()
+    {
+        isAttacking = false;
+    }
+
+    void FlipSprite(Vector3 targetPos)
+    {
+        Vector3 localScale = transform.localScale;
+        localScale.x = targetPos.x < transform.position.x ? -Mathf.Abs(localScale.x) : Mathf.Abs(localScale.x);
+        transform.localScale = localScale;
+    }
+
+    public override void TakeDamage(float damage, Vector2 knockback)
+    {
+        if (isDead) return;
+
+        currentHealth -= damage;
+        currentHealth = Mathf.Max(currentHealth, 0);
+
+        if (currentHp > 0)
+        {
+            animator?.SetTrigger("TakeHit");
+
+            if (takeHitSound != null && audioSource != null)
+                audioSource.PlayOneShot(takeHitSound);
+
+            base.ApplyKnockback(knockback);
+        }
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    protected override void Die()
+    {
+        if (isDead) return;
+        isDead = true;
+        animator?.SetTrigger("Die");
+
+        if (dieSound != null && audioSource != null)
+            audioSource.PlayOneShot(dieSound);
+
+        if (gateTrigger != null)
+        {
+            gateTrigger.OpenGate();
+        }
+
+        Destroy(gameObject, 3f);
+    }
 }
-
