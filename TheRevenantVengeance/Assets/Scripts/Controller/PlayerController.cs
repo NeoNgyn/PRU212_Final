@@ -16,6 +16,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int maxEnergy = 10;
     private float currentEnergy;
     [SerializeField] private Image energyBar;
+    private bool isPoisoned = false;
+    private float poisonDamagePerSecond;
+    private float poisonTimer = 0f;
 
     [SerializeField] private int maxExp = 10;
     private float currentExp;
@@ -25,10 +28,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameManager gameManager;
     [SerializeField] private AttackDetector attackDetector;
 
+    private GameObject fireballPrefab;  // Prefab quả cầu (sẽ gán khi nhặt item)
+    public Transform fireballSpawnPoint;  // Điểm bắn quả cầu (thường là 1 empty object ở tay hoặc trước mặt)
+    public float fireballSpeed = 10f;
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
     private Animator animator;
 
+    [SerializeField] private GameObject auraPrefab;  // Gán prefab hào quang từ Inspector
+    private GameObject activeAura;  // Hào quang đang active
     // Biến để kiểm tra trạng thái tấn công
     private bool isAttacking = false;
 
@@ -92,16 +100,43 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-	void Update()
-	{
-		Movement();
+    public void ActivateAura(GameObject auraPrefab)
+    {
+        if (auraPrefab != null && activeAura == null)  // Chỉ tạo 1 lần
+        {
+            activeAura = Instantiate(auraPrefab, transform.position, Quaternion.identity);
+            activeAura.transform.SetParent(transform);  // Gắn theo Player
+            activeAura.transform.localPosition = Vector3.zero;  // Ở giữa Player
+            Debug.Log("Hào quang đã được kích hoạt!");
+        }
+    }
+
+    void Update()
+    {
+
+        Movement();
         currentEnergy = maxEnergy;
         UpdateEnergyBar(); //test ultimate
         // Kiểm tra input tấn công
         if (Input.GetKeyDown(KeyCode.Space) && !isAttacking)
-		{
-			Attack();
-		}
+        {
+            Attack();
+        }
+        AutoShootFireball();
+        if (isPoisoned)
+        {
+            poisonTimer -= Time.deltaTime;
+
+            // Mỗi frame gây damage từ từ
+            TakeDamage(poisonDamagePerSecond * Time.deltaTime);
+
+            if (poisonTimer <= 0f)
+            {
+                isPoisoned = false;
+                Debug.Log("Hết hiệu ứng độc.");
+            }
+        }  	
+			
         if (!isUsingUltimate && Input.GetKeyDown(KeyCode.R) && currentEnergy >= maxEnergy)
         {
             StartCoroutine(UseUltimate());
@@ -206,7 +241,6 @@ public class PlayerController : MonoBehaviour
         currentHp -= damage;
         currentHp = Mathf.Max(currentHp, 0);
         UpdateHealthBar();
-
         if (currentHp <= 0)
         {
             animator.ResetTrigger("TakeHit");
@@ -322,11 +356,33 @@ public class PlayerController : MonoBehaviour
             attackHitbox.SetActive(false);
         }
 
-        // Tùy chọn: Hủy đối tượng sau một khoảng thời gian để animation chết có thể phát hết
-        // float deathAnimationLength = animator.GetCurrentAnimatorStateInfo(0).length; // Lấy độ dài của animation hiện tại trên layer 0
-        // Destroy(gameObject, deathAnimationLength); // Hủy sau khi animation chết phát hết
-        // Hoặc:
-        Destroy(gameObject, 3f); // Hủy sau 3 giây (đảm bảo animation có thời gian để phát)
+        Destroy(gameObject, 3f); // Hủy sau 2 giây (đảm bảo animation có thời gian để phát)
+    }
+    public void SetFireballPrefab(GameObject prefab)
+    {
+        fireballPrefab = prefab;
+        Debug.Log("Đã kích hoạt khả năng bắn quả cầu!");
+    }
+
+    void ShootFireball()
+    {
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 direction = (mousePos - transform.position);
+        direction.Normalize();
+
+        GameObject fireball = Instantiate(fireballPrefab, fireballSpawnPoint.position, Quaternion.identity);
+
+        // Xoay đầu đạn về đúng hướng:
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        fireball.transform.rotation = Quaternion.Euler(0, 0, angle);
+
+        Rigidbody2D rb = fireball.GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.linearVelocity = direction * fireballSpeed;
+        }
+
+        Debug.Log("Đã bắn quả cầu tự động!");
     }
 
 	public float GetCurrentEnergy()
@@ -409,6 +465,27 @@ public class PlayerController : MonoBehaviour
             currentCircleEffect.transform.localPosition = new Vector3(0, -0.7f, 0); // điều chỉnh xuống chân
         }
     }
+    float fireRate = 0.5f;  // Tốc độ bắn (0.5s/viên)
+    float nextFireTime = 0f;
+
+    void AutoShootFireball()
+    {
+        if (fireballPrefab == null) return;
+
+        if (Time.time >= nextFireTime)
+        {
+            ShootFireball();
+            nextFireTime = Time.time + fireRate;
+        }
+    }
+    public void ApplyPoison(float damagePerSecond, float duration)
+    {
+        poisonDamagePerSecond = damagePerSecond;
+        poisonTimer = duration;
+        isPoisoned = true;
+        Debug.Log("Player bị dính độc!");
+    }
+
     public void ActivateSwordSpin()
     {
         if (hasSwordSpin) return; // Không cho kích hoạt lại nếu đã có

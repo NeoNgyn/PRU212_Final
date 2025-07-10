@@ -214,10 +214,10 @@ MonoBehaviour:
   fireSpeed: 5
   stoppingDistance: 5
   audioSource: {fileID: 7803025759226292853}
-  attackSound: {fileID: 0}
-  takeHitSound: {fileID: 0}
-  dieSound: {fileID: 0}
-  fireballSound: {fileID: 0}
+  attackSound: {fileID: 8300000, guid: 0ec8566a5566804418d6970c5d5ab4e7, type: 3}
+  takeHitSound: {fileID: 8300000, guid: b20bca41b7becc14482bd728dd06979a, type: 3}
+  dieSound: {fileID: 8300000, guid: a9b5d18137f88394b92164fff6f11e18, type: 3}
+  fireballSound: {fileID: 8300000, guid: 0ec8566a5566804418d6970c5d5ab4e7, type: 3}
 --- !u!82 &7803025759226292853
 AudioSource:
   m_ObjectHideFlags: 0
