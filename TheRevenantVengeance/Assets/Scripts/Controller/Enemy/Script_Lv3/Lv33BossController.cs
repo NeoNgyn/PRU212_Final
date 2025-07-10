@@ -20,7 +20,6 @@ public class Lv33BossController : EnemyController
     [SerializeField] private float specialAttackSpeed = 5f;
     [SerializeField] private float hpValue = 20f;
     [SerializeField] private GameObject miniEnemy;
-    [SerializeField] private GameObject shield;
 
     [SerializeField] private float shotDelay = 0.2f;
     private float nextShot;
@@ -33,6 +32,24 @@ public class Lv33BossController : EnemyController
     private bool enraged = false;
     private float spiralAngle = 0f;
 
+    [SerializeField] private float meleeAttackCooldown = 3f;
+    private float nextMeleeAttackTime = 0f;
+
+    private Animator animator;
+
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip attackSound;
+    [SerializeField] private AudioClip deathSound;
+    [SerializeField] private AudioClip fireBallSound;
+    [SerializeField] private AudioClip waveSound;
+    [SerializeField] private AudioClip teleportSound;
+
+
+    protected override void Awake()
+    {
+        base.Awake();
+        animator = GetComponent<Animator>();
+    }
 
     protected override void Update()
     {
@@ -53,6 +70,34 @@ public class Lv33BossController : EnemyController
             EnterEnragedState();
         }
         UseSkill();
+        if (player != null)
+        {
+            float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
+            if (distanceToPlayer < 2.5f && Time.time >= nextMeleeAttackTime)
+            {
+                nextMeleeAttackTime = Time.time + meleeAttackCooldown;
+
+                float roll = Random.Range(0f, 1f);
+                if (roll <= 0.75f)
+                {
+                    animator.SetTrigger("Attack");
+                    if (audioSource != null && attackSound != null)
+                    {
+                        audioSource.PlayOneShot(attackSound);
+                    }
+                    player.TakeDamage(10f);
+                }
+                else
+                {
+                    animator.SetTrigger("Combo");
+                    if (audioSource != null && attackSound != null)
+                    {
+                        audioSource.PlayOneShot(attackSound);
+                    }
+                    player.TakeDamage(18f);
+                }
+            }
+        }
     }
 
     private void EnterEnragedState()
@@ -68,8 +113,6 @@ public class Lv33BossController : EnemyController
         enterDamage *= 1.5f;
         stayDamage *= 1.5f;
         enemySpeed *= 1.5f;
-
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -111,6 +154,10 @@ public class Lv33BossController : EnemyController
                 GameObject bullet = Instantiate(fireballPrefabs, firePoint.position, Quaternion.Euler(0, 0, angle - 270));
 
                 EnemyBulletController enemyBullet = bullet.AddComponent<EnemyBulletController>();
+                if (audioSource != null && fireBallSound != null)
+                {
+                    audioSource.PlayOneShot(fireBallSound);
+                }
                 enemyBullet.SetMovementDirection(dir * normalAttackSpeed);
             }
         }
@@ -118,6 +165,15 @@ public class Lv33BossController : EnemyController
 
     private void SpecialAttack()
     {
+        if (sprialBulletPrefabs == null)
+        {
+            Debug.LogWarning("Spiral bullet prefab is not assigned!", this);
+            return;
+        }
+        if (audioSource != null && waveSound != null)
+        {
+            audioSource.PlayOneShot(waveSound);
+        }
         StartCoroutine(SpiralAttackCoroutine());
     }
 
@@ -214,6 +270,11 @@ public class Lv33BossController : EnemyController
                 SpawnMiniEnemy();
                 break;
             case 3:
+                animator.SetTrigger("Teleport");
+                if (audioSource != null && teleportSound != null)
+                {
+                    audioSource.PlayOneShot(teleportSound);
+                }
                 Teleport();
                 break;
             case 4:
@@ -239,6 +300,11 @@ public class Lv33BossController : EnemyController
 
     protected override void Die()
     {
+        animator.SetTrigger("Death");
+        if (audioSource != null && deathSound != null)
+        {
+            audioSource.PlayOneShot(deathSound);
+        }
         Instantiate(itemPrefab, transform.position, Quaternion.identity);
         base.Die();
     }
