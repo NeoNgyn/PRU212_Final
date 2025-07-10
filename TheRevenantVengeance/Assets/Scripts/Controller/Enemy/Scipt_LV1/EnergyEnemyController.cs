@@ -15,7 +15,7 @@ public class EnergyEnemyController : EnemyController
     private Animator animator;
     private bool isAttacking = false;
     private float lastAttackTime = 0f;
-    protected bool isDead = false;
+    //protected bool isDead = false;
 
     protected override void Awake()
     {
@@ -25,7 +25,7 @@ public class EnergyEnemyController : EnemyController
 
     protected override void Update()
     {
-        if (isDead) return;
+        if (IsDead()) return;
         base.Update();
 
         if (player != null && !isAttacking)
@@ -40,7 +40,7 @@ public class EnergyEnemyController : EnemyController
 
     protected override void MoveToPlayer()
     {
-        if (player != null && !isAttacking && !isDead)
+        if (player != null && !isAttacking && !IsDead())
         {
             float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
             if (distanceToPlayer > attackDistance * 0.8f)
@@ -53,7 +53,7 @@ public class EnergyEnemyController : EnemyController
 
     private void Attack()
     {
-        if (isDead) return;
+        if (IsDead()) return;
         isAttacking = true;
         lastAttackTime = Time.time;
         animator?.SetTrigger("Attack");
@@ -74,7 +74,7 @@ public class EnergyEnemyController : EnemyController
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && !isDead)
+        if (collision.CompareTag("Player") && !IsDead())
         {
             player.TakeDamage(enterDamage);
         }
@@ -82,7 +82,7 @@ public class EnergyEnemyController : EnemyController
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && !isDead && isAttacking)
+        if (collision.CompareTag("Player") && !IsDead() && isAttacking)
         {
             player.TakeDamage(stayDamage);
         }
@@ -105,7 +105,7 @@ public class EnergyEnemyController : EnemyController
 
     protected override void Die()
     {
-        isDead = true;
+        //isDead = true;
         animator?.SetTrigger("Die");
 
         // Phát âm thanh Die
@@ -119,7 +119,7 @@ public class EnergyEnemyController : EnemyController
             GameObject energy = Instantiate(energyObject, transform.position, Quaternion.identity);
             Destroy(energy, 5f);
         }
-
-        Destroy(gameObject, 2f);
+        base.Die();
+        //Destroy(gameObject, 2f);
     }
 }

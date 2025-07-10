@@ -15,7 +15,7 @@ namespace Assets.Scripts.Controller.Enemy.EnemyLv2
         private bool isAttacking = false;
         private readonly float attackCooldown = 1f;
         private float lastAttackTime = 0f;
-        protected bool isDead = false;
+        //protected bool isDead = false;
 
         [SerializeField] private AudioSource audioSource;
         [SerializeField] private AudioClip takeHitSound;
@@ -29,7 +29,7 @@ namespace Assets.Scripts.Controller.Enemy.EnemyLv2
 
         protected override void Update()
         {
-            if (isDead) return;
+            if (IsDead()) return;
             base.Update();
             if (player != null && !isAttacking)
             {
@@ -43,7 +43,7 @@ namespace Assets.Scripts.Controller.Enemy.EnemyLv2
 
         private void Attack()
         {
-            if (isDead) return;
+            if (IsDead()) return;
             isAttacking = true;
             lastAttackTime = Time.time;
 
@@ -114,7 +114,7 @@ namespace Assets.Scripts.Controller.Enemy.EnemyLv2
 
         protected override void Die()
         {
-            isDead = true;
+            //isDead = true;
             animator?.SetTrigger("Die");
             if (audioSource != null && deathSound != null)
             {
@@ -125,8 +125,8 @@ namespace Assets.Scripts.Controller.Enemy.EnemyLv2
                 GameObject heart = Instantiate(heartObject, transform.position, Quaternion.identity);
                 Destroy(heart, 5f);
             }
-
-            Destroy(gameObject, 2f);
+            base.Die();
+            //Destroy(gameObject, 2f);
         }
 
         private void HealPlayer()

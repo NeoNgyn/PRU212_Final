@@ -16,9 +16,14 @@ namespace Assets.Scripts.Controller.Enemy.EnemyLv2
         public float radius = 2f;
         public float lifetime = 5f;
         [HideInInspector] public float angleOffset;
+
+        public string ownerTag = "Enemy";
         void Start()
         {
-            Destroy(gameObject, lifetime);
+            if (lifetime > 0)
+            {
+                Destroy(gameObject, lifetime);
+            }
         }
 
         void Update()
@@ -49,20 +54,25 @@ namespace Assets.Scripts.Controller.Enemy.EnemyLv2
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.CompareTag("Player"))
+            // Nếu là kiếm của enemy, chỉ đánh player
+            if (ownerTag == "Enemy" && collision.CompareTag("Player"))
             {
                 PlayerController player = collision.GetComponent<PlayerController>();
                 if (player != null)
                 {
                     player.TakeDamage(damage);
+                    
+                }
+            }
 
-                    // Knockback
-                    Rigidbody2D rb = collision.GetComponent<Rigidbody2D>();
-                    if (rb != null)
-                    {
-                        Vector2 knockDir = (collision.transform.position - bossCenter.position).normalized;
-                        rb.AddForce(knockDir * knockbackForce, ForceMode2D.Impulse);
-                    }
+            // Nếu là kiếm của player, chỉ đánh enemy
+            else if (ownerTag == "Player" && collision.CompareTag("Enemy"))
+            {
+                EnemyController enemy = collision.GetComponentInParent<EnemyController>();
+                if (enemy != null && !enemy.IsDead())
+                {
+                    enemy.TakeDamage(damage, Vector2.zero);
+                    
                 }
             }
         }
