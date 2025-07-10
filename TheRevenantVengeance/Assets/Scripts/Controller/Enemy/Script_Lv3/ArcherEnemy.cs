@@ -62,10 +62,15 @@ public class ArcherEnemy : EnemyController
         {
             GameObject arrow = Instantiate(arrowPrefab, firePoint.position, Quaternion.identity);
 
+            Vector2 direction = (player.transform.position - firePoint.position).normalized;
+
             Arrow arrowScript = arrow.GetComponent<Arrow>();
             if (arrowScript != null)
             {
-                arrowScript.SetTarget(player.transform);
+                arrowScript.SetDirection(direction);
+
+                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                arrow.transform.rotation = Quaternion.Euler(0, 0, angle);
             }
             else
             {
@@ -77,6 +82,7 @@ public class ArcherEnemy : EnemyController
             Debug.LogWarning("arrowPrefab, player hoac firePoint bi null!");
         }
     }
+
 
     private void ResetAttack()
     {

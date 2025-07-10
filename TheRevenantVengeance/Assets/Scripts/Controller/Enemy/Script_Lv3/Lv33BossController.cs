@@ -20,7 +20,6 @@ public class Lv33BossController : EnemyController
     [SerializeField] private float specialAttackSpeed = 5f;
     [SerializeField] private float hpValue = 20f;
     [SerializeField] private GameObject miniEnemy;
-    [SerializeField] private GameObject shield;
 
     [SerializeField] private float shotDelay = 0.2f;
     private float nextShot;
@@ -33,6 +32,24 @@ public class Lv33BossController : EnemyController
     private bool enraged = false;
     private float spiralAngle = 0f;
 
+    [SerializeField] private float meleeAttackCooldown = 3f;
+    private float nextMeleeAttackTime = 0f;
+
+    private Animator animator;
+
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip attackSound;
+    [SerializeField] private AudioClip deathSound;
+    [SerializeField] private AudioClip fireBallSound;
+    [SerializeField] private AudioClip waveSound;
+    [SerializeField] private AudioClip teleportSound;
+
+
+    protected override void Awake()
+    {
+        base.Awake();
+        animator = GetComponent<Animator>();
+    }
 
     protected override void Update()
     {
@@ -53,6 +70,26 @@ public class Lv33BossController : EnemyController
             EnterEnragedState();
         }
         UseSkill();
+        if (player != null)
+        {
+            float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
+            if (distanceToPlayer < 2.5f && Time.time >= nextMeleeAttackTime)
+            {
+                nextMeleeAttackTime = Time.time + meleeAttackCooldown;
+
+                float roll = Random.Range(0f, 1f);
+                if (roll <= 0.75f)
+                {
+                    animator.SetTrigger("Attack");
+                    player.TakeDamage(10f);
+                }
+                else
+                {
+                    animator.SetTrigger("Combo");
+                    player.TakeDamage(18f);
+                }
+            }
+        }
     }
 
     private void EnterEnragedState()
@@ -214,6 +251,7 @@ public class Lv33BossController : EnemyController
                 SpawnMiniEnemy();
                 break;
             case 3:
+                animator.SetTrigger("Teleport");
                 Teleport();
                 break;
             case 4:
@@ -239,6 +277,7 @@ public class Lv33BossController : EnemyController
 
     protected override void Die()
     {
+        animator.SetTrigger("Death");
         Instantiate(itemPrefab, transform.position, Quaternion.identity);
         base.Die();
     }
