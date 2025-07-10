@@ -69,8 +69,8 @@ MonoBehaviour:
     y: 0
     width: 363.19995
     height: 716.8
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 76}
+  m_MaxSize: {x: 4001, y: 4026}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -403,7 +403,7 @@ MonoBehaviour:
   m_LastFolders:
   - Assets/Sprites/Player/Ultimate
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: C:\Semester\Ki7\PRU212\Final\PRU212_Final\TheRevenantVengeance
+  m_LastProjectPath: D:\FPTU_SU25_ki7\PRU212\PRU212_Final\TheRevenantVengeance
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
@@ -1289,7 +1289,7 @@ MonoBehaviour:
       height: 864.00006
     m_MinimalGUI: 1
   m_defaultScale: 0.50393516
-  m_LastWindowPixelSize: {x: 1100.5, y: 570.5}
+  m_LastWindowPixelSize: {x: 880.4, y: 456.4}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
