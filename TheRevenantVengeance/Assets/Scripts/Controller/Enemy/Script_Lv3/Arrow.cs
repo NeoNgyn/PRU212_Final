@@ -1,30 +1,30 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Arrow : MonoBehaviour
 {
+    private Vector2 moveDirection;
     public float speed = 10f;
     public int damage = 10;
-    public float lifetime = 5f;
+    public float lifeTime = 5f;
 
     private Transform target;
+
+    public void SetDirection(Vector2 direction)
+    {
+        moveDirection = direction.normalized;
+        Destroy(gameObject, lifeTime); 
+    }
     void Start()
     {
         
     }
-    public void SetTarget(Transform newTarget)
+
+    private void Update()
     {
-        target = newTarget;
-        Destroy(gameObject, lifetime); 
+        transform.Translate(moveDirection * speed * Time.deltaTime, Space.World);
     }
 
-    void Update()
-    {
-        if (target == null) return;
-
-        Vector2 direction = (target.position - transform.position).normalized;
-        transform.position += (Vector3)direction * speed * Time.deltaTime;
-        transform.right = direction;
-    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))

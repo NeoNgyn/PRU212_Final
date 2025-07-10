@@ -101,6 +101,9 @@ public class MusicManager : MonoBehaviour
     [SerializeField] private AudioClip Lv2Music;
     [SerializeField] private AudioClip Lv22Music;
     [SerializeField] private AudioClip Lv23Music;
+    [SerializeField] private AudioClip Lv31Music;
+    [SerializeField] private AudioClip Lv32Music;
+    [SerializeField] private AudioClip Lv33Music;
 
     private Dictionary<string, AudioClip> sceneMusicMap;
 
