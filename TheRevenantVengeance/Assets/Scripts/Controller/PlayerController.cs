@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip attackClip;
     [SerializeField] private AudioClip takeHitClip;
-	[SerializeField] private AudioClip ultiClip;
+    [SerializeField] private AudioClip ultiClip;
 
     [SerializeField] private GameObject swordSpinPrefab;
     [SerializeField] private Transform spinCenter;
@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private VideoPlayer ultimateVideoPlayer;
     [SerializeField] private Canvas ultimateCanvas; 
-    [SerializeField] private float ultimateRadius = 20f;
+    [SerializeField] private float ultimateRadius = 7.5f;
     [SerializeField] private float ultimateTimeScale = 0.1f;
     [SerializeField] private float ultimateDuration = 3f;
     private bool isUsingUltimate = false;
@@ -351,7 +351,10 @@ public class PlayerController : MonoBehaviour
             }
 
             ultimateVideoPlayer.Play();
-			audioSource.PlayOneShot(ultiClip);
+            if (audioSource != null && ultiClip != null)
+            {
+                audioSource.PlayOneShot(ultiClip);
+            }
             Debug.Log("Ultimate video started playing");
         }
         else
@@ -395,11 +398,33 @@ public class PlayerController : MonoBehaviour
 
         isUsingUltimate = false;
     }
-    void PreloadUltimateVideo()
+    public void ShowCircleEffect()
     {
-        if (ultimateVideoPlayer != null && ultimateVideoPlayer.clip != null)
+        if (circleEffectPrefab == null) return;
+
+        if (currentCircleEffect == null)
         {
-            ultimateVideoPlayer.Prepare();
+            currentCircleEffect = Instantiate(circleEffectPrefab, transform.position, Quaternion.identity);
+            currentCircleEffect.transform.SetParent(transform); // Gắn vòng tròn vào Player
+            currentCircleEffect.transform.localPosition = new Vector3(0, -0.7f, 0); // điều chỉnh xuống chân
+        }
+    }
+    public void ActivateSwordSpin()
+    {
+        if (hasSwordSpin) return; // Không cho kích hoạt lại nếu đã có
+
+        hasSwordSpin = true;
+        int swordCount = 3;
+
+        for (int i = 0; i < swordCount; i++)
+        {
+            GameObject sword = Instantiate(swordSpinPrefab, spinCenter.position, Quaternion.identity);
+            sword.transform.SetParent(spinCenter); // quay quanh player
+            SwordSpin spin = sword.GetComponent<SwordSpin>();
+            spin.ownerTag = "Player";
+            spin.bossCenter = spinCenter;
+            spin.angleOffset = i * 360f / swordCount;
+            spin.InitPosition();
         }
     }
 }
