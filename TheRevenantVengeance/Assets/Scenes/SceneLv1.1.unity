@@ -216,7 +216,7 @@ MonoBehaviour:
   gateOpenSound: {fileID: 0}
   player: {fileID: 2115518378}
   gateCollider: {fileID: 1099146417}
-  sceneIndexToLoad: 5
+  sceneIndexToLoad: 2
 --- !u!1 &60197409
 GameObject:
   m_ObjectHideFlags: 0
@@ -117323,6 +117323,8 @@ MonoBehaviour:
   audioSource: {fileID: 2115518382}
   attackClip: {fileID: 8300000, guid: d27894f708009524b8140bf1e01847d7, type: 3}
   takeHitClip: {fileID: 8300000, guid: 8944a28c23ce3d84d9c67fcf2de4fe63, type: 3}
+  swordSpinPrefab: {fileID: 0}
+  spinCenter: {fileID: 0}
 --- !u!50 &2115518379
 Rigidbody2D:
   serializedVersion: 5

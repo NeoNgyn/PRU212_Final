@@ -17,6 +17,8 @@ public abstract class EnemyController : MonoBehaviour
 	[SerializeField] protected float knockbackDuration = 0.2f; // Th?i gian ??y l�i
 	protected bool isKnockedBack = false; // C? ?? ki?m so�t tr?ng th�i ??y l�i
 	protected Rigidbody2D rb; // Tham chi?u ??n Rigidbody2D c?a k? ??ch
+
+	private bool isDead = false;
 	protected virtual void Awake()
 	{
 		// L?y tham chi?u Rigidbody2D c?a k? ??ch
@@ -72,7 +74,8 @@ public abstract class EnemyController : MonoBehaviour
 
 	public virtual void TakeDamage(float damage, Vector2 knockbackDirection) // Th�m tham s? knockbackDirection
 	{
-		currentHp -= damage;
+        if (isDead) return;
+        currentHp -= damage;
 		currentHp = Mathf.Max(currentHp, 0);
 		UpdateHealthBar();
 
@@ -124,6 +127,11 @@ public abstract class EnemyController : MonoBehaviour
 
     protected virtual void Die()
     {
-        Destroy(gameObject);
+		isDead = true;
+        Destroy(gameObject, 2f);
+    }
+    public bool IsDead()
+    {
+        return isDead;
     }
 }

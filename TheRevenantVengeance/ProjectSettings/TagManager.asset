@@ -81,6 +81,9 @@ TagManager:
   - name: Stairs
     uniqueID: 3612416897
     locked: 0
+  - name: circleEffect
+    uniqueID: 2827843533
+    locked: 0
   - name: Player
     uniqueID: 1157584871
     locked: 0

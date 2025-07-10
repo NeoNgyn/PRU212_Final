@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Controller;
+using Assets.Scripts.Controller.Enemy.EnemyLv2;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
@@ -32,14 +34,21 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioClip attackClip;
     [SerializeField] private AudioClip takeHitClip;
 
+    [SerializeField] private GameObject swordSpinPrefab;
+    [SerializeField] private Transform spinCenter;
+
+    [SerializeField] private GameObject circleEffectPrefab;
+    private GameObject currentCircleEffect;
+
+    private bool hasSwordSpin = false;
     private void Awake()
-	{
-		rb = GetComponent<Rigidbody2D>();
+	{    
+        rb = GetComponent<Rigidbody2D>();
 		spriteRenderer = rb.GetComponent<SpriteRenderer>();
 		animator = rb.GetComponent<Animator>();
 	}
 
-	void Start()
+    void Start()
 	{
 		currentHp = maxHp;
 		UpdateHealthBar();
@@ -52,7 +61,14 @@ public class PlayerController : MonoBehaviour
 		{
 			attackHitbox.SetActive(false);
 		}
-	}
+
+        if (PlayerState.acquiredSwordSpin)
+        {
+            ShowCircleEffect();
+            ActivateSwordSpin();
+            //PlayerState.acquiredSwordSpin = false;
+        }
+    }
 
 	void Update()
 	{
@@ -180,7 +196,38 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-	public void Heal(float healValue)
+    public void ActivateSwordSpin()
+    {
+        if (hasSwordSpin) return; // Không cho kích hoạt lại nếu đã có
+
+        hasSwordSpin = true;
+        int swordCount = 3;
+
+        for (int i = 0; i < swordCount; i++)
+        {
+            GameObject sword = Instantiate(swordSpinPrefab, spinCenter.position, Quaternion.identity);
+            sword.transform.SetParent(spinCenter); // quay quanh player
+            SwordSpin spin = sword.GetComponent<SwordSpin>();
+            spin.ownerTag = "Player";
+            spin.bossCenter = spinCenter;
+            spin.angleOffset = i * 360f / swordCount;
+            spin.InitPosition();
+        }
+    }
+
+    public void ShowCircleEffect()
+    {
+        if (circleEffectPrefab == null) return;
+
+        if (currentCircleEffect == null)
+        {
+            currentCircleEffect = Instantiate(circleEffectPrefab, transform.position, Quaternion.identity);
+            currentCircleEffect.transform.SetParent(transform); // Gắn vòng tròn vào Player
+            currentCircleEffect.transform.localPosition = new Vector3(0, -0.7f, 0); // điều chỉnh xuống chân
+        }
+    }
+
+    public void Heal(float healValue)
 	{
 		if (currentHp < maxHp)
 		{

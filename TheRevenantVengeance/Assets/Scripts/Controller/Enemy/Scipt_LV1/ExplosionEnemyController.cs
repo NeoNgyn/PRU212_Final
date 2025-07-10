@@ -17,7 +17,7 @@ public class ExplosionEnemyController : EnemyController
     private float cooldownTimer = 0f;
     private Animator animator;
     private bool isAttacking = false;
-    protected bool isDead = false;
+    //protected bool isDead = false;
 
     protected override void Awake()
     {
@@ -27,7 +27,7 @@ public class ExplosionEnemyController : EnemyController
 
     protected override void Update()
     {
-        if (isDead) return;
+        if (IsDead()) return;
         base.Update();
 
         cooldownTimer -= Time.deltaTime;
@@ -45,7 +45,7 @@ public class ExplosionEnemyController : EnemyController
 
     protected override void MoveToPlayer()
     {
-        if (player != null && !isAttacking && !isDead)
+        if (player != null && !isAttacking && !IsDead())
         {
             float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
             if (distanceToPlayer > attackDistance * 0.8f)
@@ -58,7 +58,7 @@ public class ExplosionEnemyController : EnemyController
 
     private void Attack()
     {
-        if (isDead) return;
+        if (IsDead()) return;
         isAttacking = true;
         animator?.SetTrigger("Attack");
 
@@ -115,7 +115,7 @@ public class ExplosionEnemyController : EnemyController
 
     protected override void Die()
     {
-        isDead = true;
+        //isDead = true;
         animator?.SetTrigger("Die");
 
         // Phát âm thanh Die
@@ -123,7 +123,7 @@ public class ExplosionEnemyController : EnemyController
         {
             audioSource.PlayOneShot(dieSound);
         }
-
-        Destroy(gameObject, 2f);
+        base.Die();
+        //Destroy(gameObject, 2f);
     }
 }
