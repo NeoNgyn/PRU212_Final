@@ -166,4 +166,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireballDamage: 15
-  playerKnockbackForce: 5
+  playerKnockbackForce: 15

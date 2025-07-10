@@ -99444,7 +99444,7 @@ Transform:
   m_GameObject: {fileID: 131130477}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.31, y: -5.07, z: 0}
+  m_LocalPosition: {x: 13.26, y: -6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -99464,6 +99464,7 @@ GameObject:
   - component: {fileID: 161346061}
   - component: {fileID: 161346065}
   - component: {fileID: 161346066}
+  - component: {fileID: 161346067}
   m_Layer: 0
   m_Name: bossLv1
   m_TagString: Enemy
@@ -99665,9 +99666,117 @@ MonoBehaviour:
   radialFireballCooldown: 5
   radialFireballCount: 8
   attackAnimationDuration: 0.5
-  maxHealth: 100
+  orbitFireballCount: 8
+  orbitRadius: 5
+  orbitSpeed: 100
+  orbitDuration: 5
+  maxHealth: 200
   regenRate: 2
   gateTrigger: {fileID: 12318105}
+  healthBar: {fileID: 1675031860}
+  audioSource: {fileID: 161346067}
+  attackSound: {fileID: 8300000, guid: 71c23d4f52b507c469af0709e8affc4f, type: 3}
+  fireballSound: {fileID: 8300000, guid: 71c23d4f52b507c469af0709e8affc4f, type: 3}
+  takeHitSound: {fileID: 8300000, guid: b20bca41b7becc14482bd728dd06979a, type: 3}
+  dieSound: {fileID: 8300000, guid: a9b5d18137f88394b92164fff6f11e18, type: 3}
+  bossActivated: 0
+--- !u!82 &161346067
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161346060}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &186736762
 GameObject:
   m_ObjectHideFlags: 0
@@ -114229,6 +114338,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1186630355}
   - component: {fileID: 1186630356}
+  - component: {fileID: 1186630357}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -114258,14 +114368,32 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1186630354}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 606e8b4e27c270141bbd01e971e26d3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 1693994331}
-  countdownTime: 180
+  countdownTime: 5
   bossEnemy: {fileID: 186736762}
+  healthBar: {fileID: 363121051}
+  healthText: {fileID: 1861518231}
+  energyBar: {fileID: 854338178}
+--- !u!114 &1186630357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1186630354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6070f718cafd8ae4882f8b4a7793ea93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerText: {fileID: 1693994331}
+  countdownTime: 5
+  bossEnemy: {fileID: 161346060}
   healthBar: {fileID: 363121051}
   healthText: {fileID: 1861518231}
   energyBar: {fileID: 854338178}
@@ -115038,19 +115166,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5188708295249104327, guid: 2e5b1c46857bdc44f80641b56f1dc79a, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 69.0535
+      value: 95.1129
       objectReference: {fileID: 0}
     - target: {fileID: 5188708295249104327, guid: 2e5b1c46857bdc44f80641b56f1dc79a, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 58.4858
+      value: 66.9595
       objectReference: {fileID: 0}
     - target: {fileID: 5188708295249104327, guid: 2e5b1c46857bdc44f80641b56f1dc79a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.0227
+      value: 0.0016
       objectReference: {fileID: 0}
     - target: {fileID: 5188708295249104327, guid: 2e5b1c46857bdc44f80641b56f1dc79a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.0415
+      value: -0.0203
       objectReference: {fileID: 0}
     - target: {fileID: 6384009851166948741, guid: 2e5b1c46857bdc44f80641b56f1dc79a, type: 3}
       propertyPath: m_Name
@@ -121013,7 +121141,7 @@ Transform:
   m_GameObject: {fileID: 2087384212}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.3, y: -4.97, z: 0}
+  m_LocalPosition: {x: -7.63, y: -5.69, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

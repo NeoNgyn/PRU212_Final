@@ -208,9 +208,9 @@ MonoBehaviour:
   knockbackForce: 5
   knockbackDuration: 0.2
   audioSource: {fileID: 7960511650393585688}
-  attackSound: {fileID: 0}
-  takeHitSound: {fileID: 0}
-  dieSound: {fileID: 0}
+  attackSound: {fileID: 8300000, guid: 08eae2a551535694d909db5cd56beb84, type: 3}
+  takeHitSound: {fileID: 8300000, guid: b20bca41b7becc14482bd728dd06979a, type: 3}
+  dieSound: {fileID: 8300000, guid: a9b5d18137f88394b92164fff6f11e18, type: 3}
 --- !u!82 &7960511650393585688
 AudioSource:
   m_ObjectHideFlags: 0
