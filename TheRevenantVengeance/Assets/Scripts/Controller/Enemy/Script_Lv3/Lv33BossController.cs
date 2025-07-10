@@ -113,8 +113,6 @@ public class Lv33BossController : EnemyController
         enterDamage *= 1.5f;
         stayDamage *= 1.5f;
         enemySpeed *= 1.5f;
-
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

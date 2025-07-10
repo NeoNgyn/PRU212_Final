@@ -223,8 +223,12 @@ namespace Assets.Scripts.Controller.Enemy.EnemyLv2
             {
                 audioSource.PlayOneShot(deathSound);
             }
-            GameObject itemBoss = Instantiate(itemPrefab, transform.position, Quaternion.identity);
-            Destroy(itemBoss, 10f);
+            if (itemPrefab != null)
+            {
+                GameObject itemBoss = Instantiate(itemPrefab, transform.position, Quaternion.identity);
+                Destroy(itemBoss, 10f);
+            }
+                       
             if (gateTrigger != null)
             {
                 gateTrigger.OpenGate();
