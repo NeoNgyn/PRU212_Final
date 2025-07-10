@@ -128,7 +128,10 @@ public class MusicManager : MonoBehaviour
             {
                 { "SceneLv2", Lv2Music },
                 { "SceneLv2-2", Lv22Music },
-                { "SceneLv2-3", Lv23Music }
+                { "SceneLv2-3", Lv23Music },
+                { "SceneLv3.1", Lv31Music },
+                { "SceneLv3.2", Lv32Music },
+                { "SceneLv3.3", Lv33Music }
                 // Add thêm tại đây nếu có nhiều scene hơn
             };
 
