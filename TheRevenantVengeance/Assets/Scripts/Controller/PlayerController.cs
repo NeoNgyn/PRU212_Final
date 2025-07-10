@@ -1,7 +1,9 @@
-﻿using Assets.Scripts.Controller;
+﻿using System.Collections;
+using Assets.Scripts.Controller;
 using Assets.Scripts.Controller.Enemy.EnemyLv2;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class PlayerController : MonoBehaviour
 {
@@ -39,6 +41,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip attackClip;
     [SerializeField] private AudioClip takeHitClip;
+    [SerializeField] private AudioClip ultiClip;
 
     [SerializeField] private GameObject swordSpinPrefab;
     [SerializeField] private Transform spinCenter;
@@ -48,6 +51,13 @@ public class PlayerController : MonoBehaviour
 
     private bool hasSwordSpin = false;
 
+    [SerializeField] private VideoPlayer ultimateVideoPlayer;
+    [SerializeField] private Canvas ultimateCanvas; 
+    [SerializeField] private float ultimateRadius = 7.5f;
+    [SerializeField] private float ultimateTimeScale = 0.1f;
+    [SerializeField] private float ultimateDuration = 3f;
+    private bool isUsingUltimate = false;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -56,9 +66,10 @@ public class PlayerController : MonoBehaviour
     }
 
     void Start()
-    {
+	{
+		ultimateCanvas.enabled = false;
         currentHp = maxHp;
-        UpdateHealthBar();
+		UpdateHealthBar();
 
         currentEnergy = 0;
         UpdateEnergyBar();
@@ -81,14 +92,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        Movement();
-
+	void Update()
+	{
+		Movement();
+        currentEnergy = maxEnergy;
+        UpdateEnergyBar(); //test ultimate
         // Kiểm tra input tấn công
         if (Input.GetKeyDown(KeyCode.Space) && !isAttacking)
+		{
+			Attack();
+		}
+        if (!isUsingUltimate && Input.GetKeyDown(KeyCode.R) && currentEnergy >= maxEnergy)
         {
-            Attack();
+            StartCoroutine(UseUltimate());
         }
     }
 
@@ -313,11 +329,86 @@ public class PlayerController : MonoBehaviour
         Destroy(gameObject, 3f); // Hủy sau 3 giây (đảm bảo animation có thời gian để phát)
     }
 
-    public float GetCurrentEnergy()
+	public float GetCurrentEnergy()
+	{
+		return currentEnergy;
+	}
+    private IEnumerator UseUltimate()
     {
-        return currentEnergy;
-    }
+        isUsingUltimate = true;
+        currentEnergy = 0;
+        UpdateEnergyBar();
 
+        Debug.Log("Using Ultimate Ability");
+
+        if (ultimateCanvas != null) ultimateCanvas.enabled = true;
+        if (ultimateVideoPlayer != null && ultimateVideoPlayer.clip != null)
+        {
+            if (!ultimateVideoPlayer.isPrepared)
+            {
+                ultimateVideoPlayer.Prepare();
+                yield return new WaitUntil(() => ultimateVideoPlayer.isPrepared);
+            }
+
+            ultimateVideoPlayer.Play();
+            if (audioSource != null && ultiClip != null)
+            {
+                audioSource.PlayOneShot(ultiClip);
+            }
+            Debug.Log("Ultimate video started playing");
+        }
+        else
+        {
+            Debug.LogWarning("Ultimate video player or clip is not set!");
+        }
+
+        Time.timeScale = ultimateTimeScale;
+        Time.fixedDeltaTime = 0.02f * Time.timeScale;
+
+
+        yield return new WaitForSecondsRealtime(ultimateDuration);
+
+        if (ultimateVideoPlayer != null)
+        {
+            ultimateVideoPlayer.Stop();
+        }
+
+        if (ultimateCanvas != null)
+        {
+            ultimateCanvas.enabled = false;
+            Debug.Log("Ultimate canvas disabled");
+        }
+
+        Time.timeScale = 1f;
+        Time.fixedDeltaTime = 0.02f;
+
+        Collider2D[] hitObjects = Physics2D.OverlapCircleAll(transform.position, ultimateRadius);
+        foreach (Collider2D obj in hitObjects)
+        {
+            if (obj.CompareTag("Enemy"))
+            {
+                EnemyController ec = obj.GetComponent<EnemyController>();
+                if (ec != null)
+                {
+                    Vector2 knockbackDir = spriteRenderer.flipX ? Vector2.left : Vector2.right;
+                    ec.TakeDamage(ec.maxHp * 0.5f, knockbackDir);
+                }
+            }
+        }
+
+        isUsingUltimate = false;
+    }
+    public void ShowCircleEffect()
+    {
+        if (circleEffectPrefab == null) return;
+
+        if (currentCircleEffect == null)
+        {
+            currentCircleEffect = Instantiate(circleEffectPrefab, transform.position, Quaternion.identity);
+            currentCircleEffect.transform.SetParent(transform); // Gắn vòng tròn vào Player
+            currentCircleEffect.transform.localPosition = new Vector3(0, -0.7f, 0); // điều chỉnh xuống chân
+        }
+    }
     public void ActivateSwordSpin()
     {
         if (hasSwordSpin) return; // Không cho kích hoạt lại nếu đã có
@@ -334,18 +425,6 @@ public class PlayerController : MonoBehaviour
             spin.bossCenter = spinCenter;
             spin.angleOffset = i * 360f / swordCount;
             spin.InitPosition();
-        }
-    }
-
-    public void ShowCircleEffect()
-    {
-        if (circleEffectPrefab == null) return;
-
-        if (currentCircleEffect == null)
-        {
-            currentCircleEffect = Instantiate(circleEffectPrefab, transform.position, Quaternion.identity);
-            currentCircleEffect.transform.SetParent(transform); // Gắn vòng tròn vào Player
-            currentCircleEffect.transform.localPosition = new Vector3(0, -0.7f, 0); // điều chỉnh xuống chân
         }
     }
 }
