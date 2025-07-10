@@ -1,93 +1,189 @@
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement; // ?? bi?t khi n�o Scene thay ??i
+using UnityEngine.SceneManagement; // ?? bi?t khi nào Scene thay ??i
 
 public class MusicManager : MonoBehaviour
 {
-	public static MusicManager instance; // Singleton pattern ?? ??m b?o ch? c� 1 MusicManager
+    //public static MusicManager instance; // Singleton pattern ?? ??m b?o ch? có 1 MusicManager
 
-	[SerializeField] private AudioClip backgroundMusic;
-	private AudioSource audioSource;
+    //[SerializeField] private AudioClip backgroundMusic;
+    //private AudioSource audioSource;
 
-	void Awake()
-	{
-		// Th?c hi?n Singleton pattern
-		if (instance == null)
-		{
-			instance = this;
-			DontDestroyOnLoad(gameObject); // R?t quan tr?ng: Gi? GameObject n�y t?n t?i qua c�c Scene
-			audioSource = GetComponent<AudioSource>();
+    //void Awake()
+    //{
+    //	// Th?c hi?n Singleton pattern
+    //	if (instance == null)
+    //	{
+    //		instance = this;
+    //		DontDestroyOnLoad(gameObject); // R?t quan tr?ng: Gi? GameObject này t?n t?i qua các Scene
+    //		audioSource = GetComponent<AudioSource>();
 
-			if (audioSource == null)
-			{
-				audioSource = gameObject.AddComponent<AudioSource>();
-			}
+    //		if (audioSource == null)
+    //		{
+    //			audioSource = gameObject.AddComponent<AudioSource>();
+    //		}
 
-			// Thi?t l?p AudioSource cho nh?c n?n
-			audioSource.clip = backgroundMusic;
-			audioSource.loop = true; // L?p l?i li�n t?c
-			audioSource.playOnAwake = false; // Ch�ng ta s? t? ?i?u khi?n vi?c ph�t
+    //		// Thi?t l?p AudioSource cho nh?c n?n
+    //		audioSource.clip = backgroundMusic;
+    //		audioSource.loop = true; // L?p l?i liên t?c
+    //		audioSource.playOnAwake = false; // Chúng ta s? t? ?i?u khi?n vi?c phát
 
-			// ??ng k� s? ki?n khi Scene ???c load
-			SceneManager.sceneLoaded += OnSceneLoaded;
-		}
-		else
-		{
-			// N?u ?� c� m?t MusicManager kh�c, h?y b? c�i m?i n�y
-			Destroy(gameObject);
-		}
-	}
+    //		// ??ng ký s? ki?n khi Scene ???c load
+    //		SceneManager.sceneLoaded += OnSceneLoaded;
+    //	}
+    //	else
+    //	{
+    //		// N?u ?ã có m?t MusicManager khác, h?y b? cái m?i này
+    //		Destroy(gameObject);
+    //	}
+    //}
 
-	void OnDestroy()
-	{
-		// H?y ??ng k� s? ki?n khi GameObject n�y b? h?y
-		SceneManager.sceneLoaded -= OnSceneLoaded;
-	}
+    //void OnDestroy()
+    //{
+    //	// H?y ??ng ký s? ki?n khi GameObject này b? h?y
+    //	SceneManager.sceneLoaded -= OnSceneLoaded;
+    //}
 
-	void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-	{
-		// Khi m?t Scene m?i ???c load
-		// B?n c� th? th�m logic ? ?�y ?? ki?m tra Scene n�o n�n ph�t nh?c
-		// ho?c d?ng nh?c n?u ?� l� Scene menu, v.v.
+    //void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    //{
+    //	// Khi m?t Scene m?i ???c load
+    //	// B?n có th? thêm logic ? ?ây ?? ki?m tra Scene nào nên phát nh?c
+    //	// ho?c d?ng nh?c n?u ?ó là Scene menu, v.v.
 
-		// V� d?: Ph�t nh?c n?u ch?a ph�t
-		if (!audioSource.isPlaying)
-		{
-			audioSource.Play();
-		}
+    //	// Ví d?: Phát nh?c n?u ch?a phát
+    //	if (!audioSource.isPlaying)
+    //	{
+    //		audioSource.Play();
+    //	}
 
-		// V� d?: D?ng nh?c n?u v�o Scene "MainMenu"
-		// if (scene.name == "MainMenu")
-		// {
-		//     audioSource.Stop();
-		// }
-		// else if (!audioSource.isPlaying) // Ph�t n?u kh�ng ph?i MainMenu v� ch?a ph�t
-		// {
-		//     audioSource.Play();
-		// }
-	}
+    //	// Ví d?: D?ng nh?c n?u vào Scene "MainMenu"
+    //	// if (scene.name == "MainMenu")
+    //	// {
+    //	//     audioSource.Stop();
+    //	// }
+    //	// else if (!audioSource.isPlaying) // Phát n?u không ph?i MainMenu và ch?a phát
+    //	// {
+    //	//     audioSource.Play();
+    //	// }
+    //}
 
-	// C�c h�m c�ng c?ng ?? ?i?u khi?n nh?c t? c�c script kh�c
-	public void PlayMusic()
-	{
-		if (audioSource != null && !audioSource.isPlaying)
-		{
-			audioSource.Play();
-		}
-	}
+    //// Các hàm công c?ng ?? ?i?u khi?n nh?c t? các script khác
+    //public void PlayMusic()
+    //{
+    //	if (audioSource != null && !audioSource.isPlaying)
+    //	{
+    //		audioSource.Play();
+    //	}
+    //}
 
-	public void StopMusic()
-	{
-		if (audioSource != null && audioSource.isPlaying)
-		{
-			audioSource.Stop();
-		}
-	}
+    //public void StopMusic()
+    //{
+    //	if (audioSource != null && audioSource.isPlaying)
+    //	{
+    //		audioSource.Stop();
+    //	}
+    //}
 
-	public void SetVolume(float volume)
-	{
-		if (audioSource != null)
-		{
-			audioSource.volume = volume;
-		}
-	}
+    //public void SetVolume(float volume)
+    //{
+    //	if (audioSource != null)
+    //	{
+    //		audioSource.volume = volume;
+    //	}
+    //}
+
+    public static MusicManager instance;
+
+    private AudioSource audioSource;
+
+    // Cấu hình ánh xạ tên scene → AudioClip
+    [SerializeField] private AudioClip defaultMusic;
+    [SerializeField] private AudioClip Lv2Music;
+    [SerializeField] private AudioClip Lv22Music;
+    [SerializeField] private AudioClip Lv23Music;
+    [SerializeField] private AudioClip Lv31Music;
+    [SerializeField] private AudioClip Lv32Music;
+    [SerializeField] private AudioClip Lv33Music;
+
+    private Dictionary<string, AudioClip> sceneMusicMap;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+
+            audioSource = GetComponent<AudioSource>();
+            if (audioSource == null)
+            {
+                audioSource = gameObject.AddComponent<AudioSource>();
+            }
+
+            audioSource.loop = true;
+            audioSource.playOnAwake = false;
+
+            // Tạo mapping giữa scene và nhạc
+            sceneMusicMap = new Dictionary<string, AudioClip>
+            {
+                { "SceneLv2", Lv2Music },
+                { "SceneLv2-2", Lv22Music },
+                { "SceneLv2-3", Lv23Music }
+                // Add thêm tại đây nếu có nhiều scene hơn
+            };
+
+            SceneManager.sceneLoaded += OnSceneLoaded;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        string sceneName = scene.name;
+
+        AudioClip newClip = defaultMusic;
+
+        if (sceneMusicMap.ContainsKey(sceneName))
+        {
+            newClip = sceneMusicMap[sceneName];
+        }
+
+        // Nếu clip mới khác clip hiện tại thì đổi nhạc
+        if (audioSource.clip != newClip)
+        {
+            audioSource.clip = newClip;
+            audioSource.Play();
+        }
+    }
+
+    // Hàm công cộng nếu muốn đổi nhạc từ nơi khác
+    public void PlayMusic(AudioClip clip)
+    {
+        if (clip != null && audioSource.clip != clip)
+        {
+            audioSource.clip = clip;
+            audioSource.Play();
+        }
+    }
+
+    public void StopMusic()
+    {
+        if (audioSource.isPlaying)
+        {
+            audioSource.Stop();
+        }
+    }
+
+    public void SetVolume(float volume)
+    {
+        audioSource.volume = Mathf.Clamp01(volume);
+    }
 }

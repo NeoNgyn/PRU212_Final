@@ -14,7 +14,12 @@ namespace Assets.Scripts.Controller.Enemy.EnemyLv2
         private bool isAttacking = false;
         private readonly float attackCooldown = 1f;
         private float lastAttackTime = 0f;
-        protected bool isDead = false;
+        //protected bool isDead = false;
+
+        [SerializeField] private AudioSource audioSource;
+        [SerializeField] private AudioClip takeHitSound;
+        [SerializeField] private AudioClip attackSound;
+        [SerializeField] private AudioClip deathSound;
         protected override void Awake()
         {
             base.Awake();
@@ -23,7 +28,7 @@ namespace Assets.Scripts.Controller.Enemy.EnemyLv2
 
         protected override void Update()
         {
-            if (isDead) return;
+            if (IsDead()) return;
             base.Update();
             if (player != null && !isAttacking)
             {
@@ -37,12 +42,15 @@ namespace Assets.Scripts.Controller.Enemy.EnemyLv2
 
         private void Attack()
         {
-            if (isDead) return;
+            if (IsDead()) return;
             isAttacking = true;
             lastAttackTime = Time.time;
 
             animator?.SetTrigger("Attack");
-
+            if (audioSource != null && attackSound != null)
+            {
+                audioSource.PlayOneShot(attackSound);
+            }
             // Gây sát thương sau 0.5s (tùy theo frame animation)
             Invoke(nameof(DealDamageToPlayer), 0.3f);
 
@@ -69,12 +77,16 @@ namespace Assets.Scripts.Controller.Enemy.EnemyLv2
             if (currentHp > 0)
             {
                 animator?.SetTrigger("TakeHit");
+                if (audioSource != null && takeHitSound != null)
+                {
+                    audioSource.PlayOneShot(takeHitSound);
+                }
             }
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (isDead || isAttacking) return;
+            if (IsDead() || isAttacking) return;
 
             if (collision.CompareTag("Player") && Time.time - lastAttackTime > attackCooldown)
             {
@@ -84,15 +96,19 @@ namespace Assets.Scripts.Controller.Enemy.EnemyLv2
 
         protected override void Die()
         {
-            isDead = true;
+            //isDead = true;
             animator?.SetTrigger("Die");
+            if (audioSource != null && deathSound != null)
+            {
+                audioSource.PlayOneShot(deathSound);
+            }
             if (energyObject != null)
             {
                 GameObject energy = Instantiate(energyObject, transform.position, Quaternion.identity);
                 Destroy(energy, 5f);
             }
-
-            Destroy(gameObject, 2f);
+            base.Die();
+            //Destroy(gameObject, 2f);
         }
     }
 }

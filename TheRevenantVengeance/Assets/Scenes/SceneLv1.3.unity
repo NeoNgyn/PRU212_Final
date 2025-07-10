@@ -194,7 +194,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 60718297
-  m_SortingLayer: -13
+  m_SortingLayer: -14
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -120243,12 +120243,21 @@ MonoBehaviour:
   healthBar: {fileID: 1173756673}
   maxEnergy: 100
   energyBar: {fileID: 8960665529090028046}
+  maxExp: 10
+  level: 1
   gameManager: {fileID: 1186630356}
+  attackDetector: {fileID: 0}
   fireballSpawnPoint: {fileID: 851515341}
   fireballSpeed: 10
   auraPrefab: {fileID: 6732595593057788650, guid: 248bdf5841709f342b191b5c5b87985c, type: 3}
   attackHitbox: {fileID: 2137638117}
   hitCooldown: 0.5
+  audioSource: {fileID: 0}
+  attackClip: {fileID: 0}
+  takeHitClip: {fileID: 0}
+  swordSpinPrefab: {fileID: 0}
+  spinCenter: {fileID: 0}
+  circleEffectPrefab: {fileID: 0}
 --- !u!95 &749433002
 Animator:
   serializedVersion: 7
@@ -121119,7 +121128,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 678808283
-  m_SortingLayer: -8
+  m_SortingLayer: -9
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -124596,7 +124605,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -682550399
-  m_SortingLayer: -3
+  m_SortingLayer: -4
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 1.5, y: 1.5, z: 0}
@@ -125067,7 +125076,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 831713227
-  m_SortingLayer: -12
+  m_SortingLayer: -13
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -135427,11 +135436,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 1693994331}
-  countdownTime: 180
+  countdownTime: 5
   bossEnemy: {fileID: 821564170}
   healthBar: {fileID: 363121051}
   healthText: {fileID: 1861518231}
   energyBar: {fileID: 854338178}
+  expBar: {fileID: 0}
+  levelText: {fileID: 0}
 --- !u!1 &1205196721
 GameObject:
   m_ObjectHideFlags: 0
@@ -135461,7 +135472,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f323ce202e2cc9748962588498e12dd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundMusic: {fileID: 8300000, guid: e214a4130edcf8e45ba83535d6675cec, type: 3}
+  defaultMusic: {fileID: 0}
+  Lv2Music: {fileID: 0}
+  Lv22Music: {fileID: 0}
+  Lv23Music: {fileID: 0}
+  Lv31Music: {fileID: 0}
+  Lv32Music: {fileID: 0}
+  Lv33Music: {fileID: 0}
 --- !u!4 &1205196723
 Transform:
   m_ObjectHideFlags: 0

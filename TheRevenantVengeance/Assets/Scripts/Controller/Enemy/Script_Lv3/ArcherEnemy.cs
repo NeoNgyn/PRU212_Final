@@ -6,7 +6,7 @@ public class ArcherEnemy : EnemyController
     private bool isAttacking = false;
     private float attackCooldown = 1.5f;
     private float lastAttackTime = 0f;
-    protected bool isDead = false;
+    //protected bool isDead = false;
     [SerializeField] private GameObject arrowPrefab;
     [SerializeField] private Transform firePoint;
     protected override void Awake()
@@ -16,7 +16,7 @@ public class ArcherEnemy : EnemyController
     }
     protected override void Update()
     {
-        if (isDead) return;
+        if (IsDead()) return;
         base.Update();
         if (player != null && !isAttacking)
         {
@@ -45,7 +45,7 @@ public class ArcherEnemy : EnemyController
     }
     private void Shoot()
     {
-        if (isDead) return;
+        if (IsDead()) return;
         isAttacking = true;
         lastAttackTime = Time.time;
 
@@ -62,10 +62,15 @@ public class ArcherEnemy : EnemyController
         {
             GameObject arrow = Instantiate(arrowPrefab, firePoint.position, Quaternion.identity);
 
+            Vector2 direction = (player.transform.position - firePoint.position).normalized;
+
             Arrow arrowScript = arrow.GetComponent<Arrow>();
             if (arrowScript != null)
             {
-                arrowScript.SetTarget(player.transform);
+                arrowScript.SetDirection(direction);
+
+                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                arrow.transform.rotation = Quaternion.Euler(0, 0, angle);
             }
             else
             {
@@ -78,6 +83,7 @@ public class ArcherEnemy : EnemyController
         }
     }
 
+
     private void ResetAttack()
     {
         isAttacking = false;
@@ -85,8 +91,9 @@ public class ArcherEnemy : EnemyController
 
     protected override void Die()
     {
-        isDead = true;
+        //isDead = true;
         animator?.SetTrigger("Death");
-        Destroy(gameObject, 2f);
+        base.Die();
+        //Destroy(gameObject, 2f);
     }
 }

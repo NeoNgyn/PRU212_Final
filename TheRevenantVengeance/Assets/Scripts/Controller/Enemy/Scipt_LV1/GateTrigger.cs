@@ -121,8 +121,9 @@ public class GateTrigger : MonoBehaviour
 	[SerializeField] private AudioSource gateOpenSound;
 	[SerializeField] private PlayerController player;
 	[SerializeField] private Collider2D gateCollider;  // THÊM: Kéo Collider c?a c?ng vào ?ây (Composite Collider ho?c Tilemap Collider 2D)
+	[SerializeField] private int sceneIndexToLoad = 5;
 
-	private bool gateOpened = false;
+    private bool gateOpened = false;
 
 	private void Update()
 	{
@@ -189,10 +190,10 @@ public class GateTrigger : MonoBehaviour
 	{
 		if (gateOpened && collision.CompareTag("Player"))
 		{
-			if (Input.GetKeyDown(KeyCode.W))
-			{
-				SceneManager.LoadScene("SceneLv1.2");
-			}
+			//if (Input.GetKeyDown(KeyCode.W))
+			//{
+				SceneManager.LoadScene(sceneIndexToLoad);
+			//}
 		}
 	}
 }

@@ -19,7 +19,7 @@ public class HealEnemyController : EnemyController
     private float fireCooldown;
     private Animator animator;
     private bool isAttacking = false;
-    protected bool isDead = false;
+    //protected bool isDead = false;
 
     protected override void Awake()
     {
@@ -29,7 +29,7 @@ public class HealEnemyController : EnemyController
 
     protected override void Update()
     {
-        if (isDead) return;
+        if (IsDead()) return;
         base.Update();
 
         if (player != null)
@@ -49,7 +49,7 @@ public class HealEnemyController : EnemyController
 
     protected override void MoveToPlayer()
     {
-        if (player != null && !isAttacking && !isDead)
+        if (player != null && !isAttacking && !IsDead())
         {
             float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
             if (distanceToPlayer > stoppingDistance)
@@ -62,7 +62,7 @@ public class HealEnemyController : EnemyController
 
     private void Attack()
     {
-        if (isDead) return;
+        if (IsDead()) return;
         isAttacking = true;
         animator?.SetTrigger("Attack");
 
@@ -118,7 +118,7 @@ public class HealEnemyController : EnemyController
 
     protected override void Die()
     {
-        isDead = true;
+        //isDead = true;
         animator?.SetTrigger("Die");
 
         // Phát âm thanh Die
@@ -132,7 +132,7 @@ public class HealEnemyController : EnemyController
             GameObject heart = Instantiate(heartObject, transform.position, Quaternion.identity);
             Destroy(heart, 5f);
         }
-
-        Destroy(gameObject, 2f);
+        base.Die();
+        //Destroy(gameObject, 2f);
     }
 }

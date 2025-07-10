@@ -340,7 +340,7 @@ public class BossEnemyLV1 : EnemyController
 
     private Animator animator;
     private bool isAttacking = false;
-    protected bool isDead = false;
+    //protected bool isDead = false;
 
     protected override void Awake()
     {
@@ -362,7 +362,7 @@ public class BossEnemyLV1 : EnemyController
     protected override void Update()
     {
         if (!bossActivated) return;
-        if (isDead) return;
+        if (IsDead()) return;
         base.Update();
 
         if (player == null) return;
@@ -428,7 +428,7 @@ public class BossEnemyLV1 : EnemyController
 
     void Patrol()
     {
-        if (isAttacking || isDead) return;
+        if (isAttacking || IsDead()) return;
 
         transform.position = Vector2.MoveTowards(transform.position, nextPatrolTarget, patrolSpeed * Time.deltaTime);
 
@@ -554,7 +554,7 @@ public class BossEnemyLV1 : EnemyController
 
     public override void TakeDamage(float damage, Vector2 knockback)
     {
-        if (isDead) return;
+        if (IsDead()) return;
 
         currentHp -= damage;
         currentHp = Mathf.Max(currentHp, 0);
@@ -579,8 +579,8 @@ public class BossEnemyLV1 : EnemyController
 
     protected override void Die()
     {
-        if (isDead) return;
-        isDead = true;
+        if (IsDead()) return;
+        //isDead = true;
         animator?.SetTrigger("Die");
 
         if (dieSound != null && audioSource != null)
@@ -590,8 +590,8 @@ public class BossEnemyLV1 : EnemyController
         {
             gateTrigger.OpenGate();
         }
-
-        Destroy(gameObject, 3f);
+        base.Die();
+        //Destroy(gameObject, 3f);
     }
 
     public void ActivateBoss()

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI timerText;
-    [SerializeField] private float countdownTime = 180f; 
+    [SerializeField] private float countdownTime = 180f;
     private bool bossSpawned = false;
 
     private PlayerController player;
@@ -13,11 +13,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Image healthBar;
     [SerializeField] private TextMeshProUGUI healthText;
     [SerializeField] private Image energyBar;
+    [SerializeField] private Image expBar;
+    [SerializeField] private TextMeshProUGUI levelText;
+
 
     void Start()
     {
         UpdateTimerUI();
-        bossEnemy.SetActive(false); 
+        bossEnemy.SetActive(false);
     }
 
     void Update()
@@ -51,6 +54,19 @@ public class GameManager : MonoBehaviour
         {
             energyBar.fillAmount = currentEnergy / maxEnergy;
         }
+    }
+
+    public void UpdateExpBarUI(float currentExp, float maxExp)
+    {
+        if (expBar != null)
+        {
+            expBar.fillAmount = currentExp / maxExp;
+        }
+    }
+
+    public void UpdateLevelUI(int level)
+    {
+        levelText.text = $"{level}";
     }
 
     void UpdateTimerUI()
