@@ -6,7 +6,7 @@ public abstract class EnemyController : MonoBehaviour
     [SerializeField] protected float enemySpeed = 1f;
     protected PlayerController player;
 
-    [SerializeField] protected float maxHp = 50f;
+    [SerializeField] public float maxHp = 50f;
     protected float currentHp;
     [SerializeField] private Image healthBar;
     [SerializeField] protected float enterDamage = 10f;
