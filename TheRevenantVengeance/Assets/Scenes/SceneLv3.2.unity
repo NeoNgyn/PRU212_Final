@@ -111736,11 +111736,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 798f2c4d3c795464d8adcdf37cf930ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gateTilemap: {fileID: 0}
+  gateTilemap: {fileID: 885259390}
   gateMessageText: {fileID: 0}
   gateOpenSound: {fileID: 0}
   gateCollider: {fileID: 1065479754}
-  targetSceneName: SceneLv3.2
+  targetSceneName: SceneLv3.3
 --- !u!61 &1065479754
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -111933,6 +111933,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1186630355}
   - component: {fileID: 1186630356}
+  - component: {fileID: 1186630357}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -111973,6 +111974,103 @@ MonoBehaviour:
   healthBar: {fileID: 363121051}
   healthText: {fileID: 1861518231}
   energyBar: {fileID: 854338178}
+--- !u!82 &1186630357
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1186630354}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: ef22f79bb8ecc9349be59d28bb372632, type: 3}
+  m_Resource: {fileID: 8300000, guid: ef22f79bb8ecc9349be59d28bb372632, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.2
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1245403856
 GameObject:
   m_ObjectHideFlags: 0
@@ -114614,6 +114712,7 @@ MonoBehaviour:
   attackSound: {fileID: 8300000, guid: 099d8126f2688e746b502183b1e7dc96, type: 3}
   takeHitSound: {fileID: 8300000, guid: 798594c5d8dc1ff4aaf67860b793fad0, type: 3}
   deathSound: {fileID: 8300000, guid: 9d323fcd8cd500647aa64440798c26cf, type: 3}
+  gateTrigger: {fileID: 1065479753}
 --- !u!61 &1812317632
 BoxCollider2D:
   m_ObjectHideFlags: 0
