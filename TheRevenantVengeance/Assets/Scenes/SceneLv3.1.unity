@@ -237,9 +237,15 @@ MonoBehaviour:
   fireballCooldown: 3
   radialFireballCooldown: 5
   radialFireballCount: 8
+  attackAnimationDuration: 0.5
   maxHealth: 100
   regenRate: 2
   gateTrigger: {fileID: 334721850}
+  audioSource: {fileID: 0}
+  attackSound: {fileID: 0}
+  fireballSound: {fileID: 0}
+  takeHitSound: {fileID: 0}
+  dieSound: {fileID: 0}
 --- !u!95 &177200863
 Animator:
   serializedVersion: 7
@@ -1970,6 +1976,7 @@ MonoBehaviour:
   stayDamage: 10
   knockbackForce: 5
   knockbackDuration: 0.2
+  attackAnimationDuration: 1
   minionPrefab: {fileID: 5667707870469601095, guid: df6e14406a00d0d4b8cac2789b6cb106, type: 3}
   summonCooldown: 2
   summonPoints:
@@ -1978,6 +1985,19 @@ MonoBehaviour:
   - {fileID: 948217076}
   maxActiveMinions: 30
   gateTrigger: {fileID: 334721850}
+  slamRadius: 3
+  slamDamage: 20
+  slamCooldown: 4
+  slamEffectPrefab: {fileID: 0}
+  fireballPrefab: {fileID: 0}
+  radialFireballOnHitCount: 8
+  hitReactionComboCooldown: 5
+  teleportCooldown: 6
+  teleportEffectPrefab: {fileID: 0}
+  minTeleportDistance: 8
+  summonSound: {fileID: 0}
+  dieSound: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!95 &686079895
 Animator:
   serializedVersion: 7
@@ -2269,6 +2289,7 @@ Transform:
   - {fileID: 1049624702}
   - {fileID: 3451500780685511970}
   - {fileID: 2137638118}
+  - {fileID: 1248569481}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &749432999
@@ -2368,6 +2389,9 @@ MonoBehaviour:
   audioSource: {fileID: 749433003}
   attackClip: {fileID: 8300000, guid: d27894f708009524b8140bf1e01847d7, type: 3}
   takeHitClip: {fileID: 8300000, guid: 8944a28c23ce3d84d9c67fcf2de4fe63, type: 3}
+  swordSpinPrefab: {fileID: 6612760209944274038, guid: 42cce2e7e964b0a49b5695c3cc9bc6a7, type: 3}
+  spinCenter: {fileID: 1248569481}
+  circleEffectPrefab: {fileID: 8741384446669436887, guid: cac2265e3b98a0e4f9c674a3ae74d3b1, type: 3}
 --- !u!95 &749433002
 Animator:
   serializedVersion: 7
@@ -2677,7 +2701,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 60718297
-  m_SortingLayer: -13
+  m_SortingLayer: -14
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -51307,6 +51331,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1245403856}
   m_CullTransparentMesh: 1
+--- !u!1 &1248569480
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1248569481}
+  m_Layer: 0
+  m_Name: SpinPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1248569481
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248569480}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.2, y: -0.26, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 749432998}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1294231519
 GameObject:
   m_ObjectHideFlags: 0
@@ -52876,7 +52931,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 831713227
-  m_SortingLayer: -12
+  m_SortingLayer: -13
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}

@@ -6,7 +6,7 @@ public class BossSummoner : EnemyController // K? th?a t? EnemyController
 	// --- BI?N ANIMATOR VÀ TR?NG THÁI ---
 	private Animator animator; // Thêm Animator
 	private bool isAttacking = false; // ?? ki?m soát tr?ng thái t?n công c?a Boss (ví d?: ?ang tri?u h?i, ?ang Ground Slam)
-	protected bool isDead = false; // ?? ki?m soát tr?ng thái ch?t c?a Boss
+	//protected bool isDead = false; // ?? ki?m soát tr?ng thái ch?t c?a Boss
 
 	// --- CÀI ??T CHUNG ---
 	[Header("General Boss Settings")]
@@ -73,7 +73,7 @@ public class BossSummoner : EnemyController // K? th?a t? EnemyController
 	// Override hàm Update ?? x? lý t?t c? logic c?a boss
 	protected override void Update()
 	{
-		if (isDead) return; // N?u ch?t thì không làm gì n?a
+		if (IsDead()) return; // N?u ch?t thì không làm gì n?a
 
 		// C?p nh?t t?t c? các b? ??m th?i gian
 		summonTimer -= Time.deltaTime;
@@ -109,7 +109,7 @@ public class BossSummoner : EnemyController // K? th?a t? EnemyController
 	// --- HÀM T?N CÔNG: TRI?U H?I MINION ---
 	void Attack_Summon()
 	{
-		if (isDead) return;
+		if (IsDead()) return;
 		isAttacking = true; // ?ánh d?u boss ?ang t?n công
 		animator?.SetTrigger("Attack"); // Kích ho?t trigger "Attack"
 
@@ -124,7 +124,7 @@ public class BossSummoner : EnemyController // K? th?a t? EnemyController
 	// --- HÀM T?N CÔNG: ??A CH?N ---
 	void Attack_GroundSlam()
 	{
-		if (isDead) return;
+		if (IsDead()) return;
 		isAttacking = true; // ?ánh d?u boss ?ang t?n công
 		animator?.SetTrigger("Attack"); // Kích ho?t trigger "Attack" (ho?c trigger riêng n?u b?n có animation khác cho Slam)
 
@@ -291,7 +291,7 @@ public class BossSummoner : EnemyController // K? th?a t? EnemyController
 	// --- OVERRIDE TAKE DAMAGE ---
 	public override void TakeDamage(float damage, Vector2 knockback)
 	{
-		if (isDead) return; // Không nh?n sát th??ng n?u ?ã ch?t
+		if (IsDead()) return; // Không nh?n sát th??ng n?u ?ã ch?t
 
 		Debug.Log($"Boss Tri?u H?i nh?n {damage} damage, HP tr??c khi tr?: {currentHp}");
 
@@ -332,8 +332,9 @@ public class BossSummoner : EnemyController // K? th?a t? EnemyController
 	// --- OVERRIDE DIE ---
 	protected override void Die()
 	{
-		if (isDead) return; // ??m b?o ch? ch?t m?t l?n
-		isDead = true;
+		if (IsDead()) return; // ??m b?o ch? ch?t m?t l?n
+							  //isDead = true;
+		
 		animator?.SetTrigger("Die"); // Kích ho?t trigger "Die"
         audioSource?.PlayOneShot(dieSound);
         Debug.Log("Boss Tri?u H?i ?ã b? ?ánh b?i!");
@@ -358,9 +359,9 @@ public class BossSummoner : EnemyController // K? th?a t? EnemyController
 		{
 			Debug.LogWarning("GateTrigger ch?a ???c gán vào BossSummoner!");
 		}
-
+		base.Die();
 		// 3. H?y ??i t??ng boss sau m?t kho?ng th?i gian, cho phép animation Die ch?y h?t
-		Destroy(gameObject, 3f); // Ví d?: h?y sau 3 giây
+		//Destroy(gameObject, 3f); // Ví d?: h?y sau 3 giây
 								 // base.Die(); // Không g?i base.Die() n?u b?n ?ã Destroy(gameObject, th?i gian)
 	}
 

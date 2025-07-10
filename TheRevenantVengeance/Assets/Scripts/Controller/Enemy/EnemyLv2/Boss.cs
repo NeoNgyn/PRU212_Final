@@ -28,7 +28,7 @@ namespace Assets.Scripts.Controller.Enemy.EnemyLv2
         private bool isAttacking = false;
         private readonly float attackCooldown = 1f;
         private float lastAttackTime = 0f;
-        protected bool isDead = false;
+        //protected bool isDead = false;
 
         [SerializeField] private AudioSource audioSource;
         [SerializeField] private AudioClip attackSound;
@@ -45,7 +45,7 @@ namespace Assets.Scripts.Controller.Enemy.EnemyLv2
 
         protected override void Update()
         {
-            if (isDead || player == null || player.currentHp <= 0) return;
+            if (IsDead() || player == null || player.currentHp <= 0) return;
             base.Update();
 
             NormalAttack();
@@ -70,7 +70,7 @@ namespace Assets.Scripts.Controller.Enemy.EnemyLv2
 
         private void NormalAttack()
         {        
-            if (isDead || isAttacking || player == null) return;
+            if (IsDead() || isAttacking || player == null) return;
 
             float distance = Vector2.Distance(transform.position, player.transform.position);
             if (distance > 4f) return;
@@ -150,6 +150,7 @@ namespace Assets.Scripts.Controller.Enemy.EnemyLv2
                 GameObject sword = Instantiate(swordPrefab, swordCenter.position, Quaternion.identity);
                 sword.transform.SetParent(swordCenter); // gắn vào boss để quay theo
                 SwordSpin spin = sword.GetComponent<SwordSpin>();
+                spin.ownerTag = "Enemy";
                 spin.bossCenter = swordCenter;
                 spin.angleOffset = i * 360f / swordCount; // chia đều góc
                 spin.InitPosition();              
@@ -171,7 +172,7 @@ namespace Assets.Scripts.Controller.Enemy.EnemyLv2
 
         private void ShootSwordAtPlayer()
         {
-            if (player == null || isDead) return;
+            if (player == null || IsDead()) return;
 
             GameObject sword = Instantiate(flyingSwordPrefab, transform.position, Quaternion.identity);
             FlyingSword swordScript = sword.GetComponent<FlyingSword>();
@@ -216,19 +217,20 @@ namespace Assets.Scripts.Controller.Enemy.EnemyLv2
 
         protected override void Die()
         {
-            isDead = true;
+            //isDead = true;
             animator?.SetTrigger("Die");
             if (audioSource != null && deathSound != null)
             {
                 audioSource.PlayOneShot(deathSound);
             }
-            Instantiate(itemPrefab, transform.position, Quaternion.identity);
+            GameObject itemBoss = Instantiate(itemPrefab, transform.position, Quaternion.identity);
+            Destroy(itemBoss, 10f);
             if (gateTrigger != null)
             {
                 gateTrigger.OpenGate();
             }
-            Destroy(gameObject, 2f);
-            //base.Die();
+            //Destroy(gameObject, 2f);
+            base.Die();
         }
     }
 }
