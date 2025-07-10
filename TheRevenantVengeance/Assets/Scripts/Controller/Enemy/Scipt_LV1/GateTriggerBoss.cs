@@ -181,6 +181,7 @@ public class GateTriggerBoss : MonoBehaviour
 	[SerializeField] private AudioSource gateOpenSound;
 	[SerializeField] private Collider2D gateCollider;
 
+
 	// --- THÊM DÒNG NÀY VÀO ?ÂY ---
 	[Header("Scene Transition Settings")] // Tiêu ?? trong Inspector
 	[SerializeField] private string targetSceneName; // Bi?n ?? l?u tên c?nh ?ích
@@ -241,8 +242,8 @@ public class GateTriggerBoss : MonoBehaviour
 		{
 			Debug.Log("Ng??i ch?i trong vùng trigger VÀ c?ng ?ã m?.");
 			Debug.Log("Input.GetKeyDown(KeyCode.W) hi?n t?i: " + Input.GetKeyDown(KeyCode.W));
-			if (Input.GetKeyDown(KeyCode.W))
-			{
+			//if (Input.GetKeyDown(KeyCode.W))
+			//{
 				// --- THAY ??I DÒNG NÀY ?? S? D?NG BI?N targetSceneName ---
 				if (!string.IsNullOrEmpty(targetSceneName)) // ??m b?o tên c?nh không r?ng
 				{
@@ -253,7 +254,7 @@ public class GateTriggerBoss : MonoBehaviour
 				{
 					Debug.LogWarning("Target Scene Name ch?a ???c ??t trong Inspector c?a GateTriggerBoss!");
 				}
-			}
+			//}
 		}
 	}
 }

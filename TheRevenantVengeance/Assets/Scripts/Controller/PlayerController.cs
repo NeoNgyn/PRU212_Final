@@ -28,6 +28,10 @@ public class PlayerController : MonoBehaviour
     private float lastHitTime = -999f;
     [SerializeField] private float hitCooldown = 0.5f;
 
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip attackClip;
+    [SerializeField] private AudioClip takeHitClip;
+
     private void Awake()
 	{
 		rb = GetComponent<Rigidbody2D>();
@@ -102,8 +106,12 @@ public class PlayerController : MonoBehaviour
 	{
 		isAttacking = true; // Đặt cờ đang tấn công là true
 		animator.SetTrigger("Attack"); // Kích hoạt Trigger "AttackTrigger" trong Animator
-									   // Animator sẽ tự động chọn HeroAtt1 hoặc HeroAtt2 dựa vào điều kiện isMove
-	}
+                                       // Animator sẽ tự động chọn HeroAtt1 hoặc HeroAtt2 dựa vào điều kiện isMove
+        if (audioSource != null && attackClip != null)
+        {
+            audioSource.PlayOneShot(attackClip);
+        }
+    }
 
 	// Hàm này sẽ được gọi từ Animation Event của cả HeroAtt1 và HeroAtt2
 	public void EndAttack()
@@ -165,6 +173,10 @@ public class PlayerController : MonoBehaviour
         else
         {
             animator.SetTrigger("TakeHit");
+            if (audioSource != null && takeHitClip != null)
+            {
+                audioSource.PlayOneShot(takeHitClip);
+            }
         }
     }
 
