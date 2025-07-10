@@ -62,7 +62,7 @@ using UnityEngine;
 
 public class AttackDetector : MonoBehaviour
 {
-	[SerializeField] private float attackDamage = 10f;
+	[SerializeField] public float attackDamage = 10f;
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
