@@ -211,7 +211,7 @@ MonoBehaviour:
   healValue: 20
   audioSource: {fileID: 724759313623795480}
   takeHitSound: {fileID: 8300000, guid: 979872238a5c60240adf67adbe8b3122, type: 3}
-  attackSound: {fileID: 0}
+  attackSound: {fileID: 8300000, guid: b0b90b2e3d4b11947a7e244301c7fa1a, type: 3}
   deathSound: {fileID: 8300000, guid: 798594c5d8dc1ff4aaf67860b793fad0, type: 3}
 --- !u!82 &724759313623795480
 AudioSource:

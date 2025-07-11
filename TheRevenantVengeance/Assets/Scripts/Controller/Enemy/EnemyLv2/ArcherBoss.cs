@@ -18,7 +18,9 @@ namespace Assets.Scripts.Controller.Enemy.EnemyLv2
         [SerializeField] private Transform firePoint;
 
         [SerializeField] private GateTriggerBoss gateTrigger;
-
+        [SerializeField] private AudioSource audioSource;
+        [SerializeField] private AudioClip attackSound;
+        [SerializeField] private AudioClip deathSound;
         protected override void Awake()
         {
             base.Awake();
@@ -60,6 +62,10 @@ namespace Assets.Scripts.Controller.Enemy.EnemyLv2
             lastAttackTime = Time.time;
 
             animator?.SetTrigger("Shoot");
+            if (audioSource != null && attackSound != null)
+            {
+                audioSource.PlayOneShot(attackSound);
+            }
 
             Invoke(nameof(SpawnArrow), 0.5f);
 
@@ -103,6 +109,10 @@ namespace Assets.Scripts.Controller.Enemy.EnemyLv2
         {
             //isDead = true;
             animator?.SetTrigger("Death");
+            if (audioSource != null && deathSound != null)
+            {
+                audioSource.PlayOneShot(deathSound);
+            }
             if (gateTrigger != null)
             {
                 gateTrigger.OpenGate();
