@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 45
+  controlID: 39
   draggingID: 0
 --- !u!114 &3
 MonoBehaviour:
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 46
+  controlID: 40
   draggingID: 0
 --- !u!114 &10
 MonoBehaviour:
@@ -251,7 +251,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 47
+  controlID: 41
   draggingID: 0
 --- !u!114 &11
 MonoBehaviour:
@@ -408,9 +408,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 319}
-    m_SelectedIDs: 0aec0000
-    m_LastClickedID: 60426
-    m_ExpandedIDs: 00000000dceb000000ca9a3bffffff7f
+    m_SelectedIDs: 06790100
+    m_LastClickedID: 96518
+    m_ExpandedIDs: 00000000ca69010000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -467,7 +467,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -585,9 +585,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 6a110100
-      m_LastClickedID: 69994
-      m_ExpandedIDs: c2e2ffffbee5ffff40e9ffff3eecffff50edffff64eeffff18f0fffff2f1ffff8cf3ffff1af5ffff92f6ffff04fbffffa0020100d0060100b40c01006a110100
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: be3bfeff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -816,7 +816,7 @@ MonoBehaviour:
       sizeOverridden: 0
     - dockPosition: 1
       containerId: overlay-container--right
-      displayed: 1
+      displayed: 0
       id: Scene View/Tilemap Focus
       index: 0
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":24.0,"y":25.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
@@ -1109,7 +1109,7 @@ MonoBehaviour:
   m_Position:
     m_Target: {x: -308.69916, y: 701.17285, z: -9.580283}
     speed: 2
-    m_Value: {x: -309.1771, y: 701.17285, z: -9.5838995}
+    m_Value: {x: -308.69916, y: 701.17285, z: -9.580283}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1161,7 +1161,7 @@ MonoBehaviour:
   m_Size:
     m_Target: 964.02734
     speed: 2
-    m_Value: 964.389
+    m_Value: 964.02734
   m_Ortho:
     m_Target: 1
     speed: 2
