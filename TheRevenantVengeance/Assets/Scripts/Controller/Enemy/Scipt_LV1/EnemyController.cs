@@ -11,6 +11,8 @@ public abstract class EnemyController : MonoBehaviour
     [SerializeField] private Image healthBar;
     [SerializeField] protected float enterDamage = 10f;
     [SerializeField] protected float stayDamage = 10f;
+	[SerializeField] private GameObject[] expObjects;
+
 
 
 	[SerializeField] protected float knockbackForce = 5f; // L?c ??y l�i
@@ -18,7 +20,7 @@ public abstract class EnemyController : MonoBehaviour
 	protected bool isKnockedBack = false; // C? ?? ki?m so�t tr?ng th�i ??y l�i
 	protected Rigidbody2D rb; // Tham chi?u ??n Rigidbody2D c?a k? ??ch
 
-	private bool isDead = false;
+	protected bool isDead = false;
 	protected virtual void Awake()
 	{
 		// L?y tham chi?u Rigidbody2D c?a k? ??ch
@@ -127,11 +129,35 @@ public abstract class EnemyController : MonoBehaviour
 
     protected virtual void Die()
     {
-		isDead = true;
-        Destroy(gameObject, 2f);
+        isDead = true;
+
+        if (expObjects != null && expObjects.Length > 0)
+        {
+            int expCount = Random.Range(1, 4); 
+
+            for (int i = 0; i < expCount; i++)
+            {
+                GameObject expPrefab = expObjects[Random.Range(0, expObjects.Length)];
+
+                GameObject expInstance = Instantiate(expPrefab, transform.position, Quaternion.identity);
+
+                // Thêm lực đẩy ngẫu nhiên
+                Rigidbody2D rb = expInstance.GetComponent<Rigidbody2D>();
+                if (rb != null)
+                {
+                    Vector2 randomDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(0.5f, 1.5f)).normalized;
+                    rb.AddForce(randomDirection * 3f, ForceMode2D.Impulse);
+                }
+
+                Destroy(expInstance, 10f);
+            }
+        }
+        Destroy(gameObject, 2f); 
     }
+
     public bool IsDead()
     {
         return isDead;
     }
+
 }

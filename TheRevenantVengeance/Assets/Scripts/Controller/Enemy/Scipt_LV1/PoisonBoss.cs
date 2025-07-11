@@ -44,7 +44,6 @@ public class PoisonBossEnemy : EnemyController
 
     private Animator animator;
     private bool isAttacking = false;
-    protected bool isDead = false;
 
     protected override void Awake()
     {

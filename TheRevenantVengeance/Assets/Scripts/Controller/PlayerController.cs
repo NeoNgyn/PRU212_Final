@@ -115,8 +115,8 @@ public class PlayerController : MonoBehaviour
     {
 
         Movement();
-        currentEnergy = maxEnergy;
-        UpdateEnergyBar(); //test ultimate
+        //currentEnergy = maxEnergy;
+        //UpdateEnergyBar(); //test ultimate
         // Kiểm tra input tấn công
         if (Input.GetKeyDown(KeyCode.Space) && !isAttacking)
         {

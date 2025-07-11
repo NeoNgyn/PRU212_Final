@@ -79,7 +79,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2119438533
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -238661616, guid: 532fd50738cd1b842858dfef3eb4ebcd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -204,8 +204,15 @@ MonoBehaviour:
   healthBar: {fileID: 1151577976319129492}
   enterDamage: 10
   stayDamage: 10
+  expObjects:
+  - {fileID: 3085360803216928165, guid: 45c33d3ac580bd54583265db0b436b61, type: 3}
+  - {fileID: 8329027369469792152, guid: b4d303f82294a8043b1d3c140cd48c39, type: 3}
   knockbackForce: 5
   knockbackDuration: 0.2
+  audioSource: {fileID: 0}
+  attackSound: {fileID: 0}
+  takeHitSound: {fileID: 0}
+  dieSound: {fileID: 0}
 --- !u!1001 &8332107652304096535
 PrefabInstance:
   m_ObjectHideFlags: 0
