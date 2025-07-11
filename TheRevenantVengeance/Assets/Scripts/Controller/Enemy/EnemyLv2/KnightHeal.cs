@@ -21,6 +21,8 @@ namespace Assets.Scripts.Controller.Enemy.EnemyLv2
         [SerializeField] private AudioClip takeHitSound;
         [SerializeField] private AudioClip attackSound;
         [SerializeField] private AudioClip deathSound;
+
+        [SerializeField] private GateTriggerBoss gateTrigger;
         protected override void Awake()
         {
             base.Awake();
@@ -34,7 +36,7 @@ namespace Assets.Scripts.Controller.Enemy.EnemyLv2
             if (player != null && !isAttacking)
             {
                 float distance = Vector2.Distance(transform.position, player.transform.position);
-                if (distance < 1.5f && Time.time - lastAttackTime > attackCooldown)
+                if (distance < 1.9f && Time.time - lastAttackTime > attackCooldown)
                 {
                     Attack();
                 }
@@ -111,7 +113,11 @@ namespace Assets.Scripts.Controller.Enemy.EnemyLv2
             if (heartObject != null)
             {
                 GameObject heart = Instantiate(heartObject, transform.position, Quaternion.identity);
-                Destroy(heart, 5f);
+                Destroy(heart, 6f);
+            }
+            if (gateTrigger != null)
+            {
+                gateTrigger.OpenGate();
             }
             base.Die();
             //Destroy(gameObject, 2f);
