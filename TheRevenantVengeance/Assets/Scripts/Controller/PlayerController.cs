@@ -7,9 +7,9 @@ using UnityEngine.Video;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] public float moveSpeed = 5f;
 
-    [SerializeField] private float maxHp = 100f;
+    [SerializeField] public float maxHp = 100f;
     public float currentHp;
     [SerializeField] private Image healthBar;
 
@@ -20,13 +20,13 @@ public class PlayerController : MonoBehaviour
     private float poisonDamagePerSecond;
     private float poisonTimer = 0f;
 
-    [SerializeField] private int maxExp = 10;
-    private float currentExp;
+    [SerializeField] public int maxExp = 10;
+    public float currentExp;
     //[SerializeField] private Image expBar;
-    [SerializeField] private int level = 1;
+    [SerializeField] public int level = 1;
 
     [SerializeField] private GameManager gameManager;
-    [SerializeField] private AttackDetector attackDetector;
+    [SerializeField] public AttackDetector attackDetector;
 
     private GameObject fireballPrefab;  // Prefab quả cầu (sẽ gán khi nhặt item)
     public Transform fireballSpawnPoint;  // Điểm bắn quả cầu (thường là 1 empty object ở tay hoặc trước mặt)
@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
     private bool hasSwordSpin = false;
 
     [SerializeField] private VideoPlayer ultimateVideoPlayer;
-    [SerializeField] private Canvas ultimateCanvas; 
+    [SerializeField] private Canvas ultimateCanvas;
     [SerializeField] private float ultimateRadius = 7.5f;
     [SerializeField] private float ultimateTimeScale = 0.1f;
     [SerializeField] private float ultimateDuration = 3f;
@@ -74,10 +74,20 @@ public class PlayerController : MonoBehaviour
     }
 
     void Start()
-	{
-		ultimateCanvas.enabled = false;
+    {
+        ultimateCanvas.enabled = false;
+
+
+        level = PlayerState.Level;
+        maxHp = PlayerState.MaxHp;
+        currentHp = PlayerState.CurrentHp;
+        maxExp = PlayerState.MaxExp;
+        currentExp = PlayerState.CurrentExp;
+        moveSpeed = PlayerState.MoveSpeed;
+        attackDetector.attackDamage = PlayerState.NormalDamge;
+
         currentHp = maxHp;
-		UpdateHealthBar();
+        UpdateHealthBar();
 
         currentEnergy = 0;
         UpdateEnergyBar();
@@ -135,8 +145,8 @@ public class PlayerController : MonoBehaviour
                 isPoisoned = false;
                 Debug.Log("Hết hiệu ứng độc.");
             }
-        }  	
-			
+        }
+
         if (!isUsingUltimate && Input.GetKeyDown(KeyCode.R) && currentEnergy >= maxEnergy)
         {
             StartCoroutine(UseUltimate());
@@ -385,10 +395,10 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Đã bắn quả cầu tự động!");
     }
 
-	public float GetCurrentEnergy()
-	{
-		return currentEnergy;
-	}
+    public float GetCurrentEnergy()
+    {
+        return currentEnergy;
+    }
     private IEnumerator UseUltimate()
     {
         isUsingUltimate = true;
