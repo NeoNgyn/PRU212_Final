@@ -1,4 +1,4 @@
-////using UnityEngine;
+ï»¿////using UnityEngine;
 ////using UnityEngine.Tilemaps;
 ////using TMPro;
 ////using UnityEngine.SceneManagement;
@@ -14,7 +14,7 @@
 
 ////	public void OpenGate()
 ////	{
-////		Debug.Log("?ã g?i OpenGate()");
+////		Debug.Log("?Ã£ g?i OpenGate()");
 
 ////		if (!gateOpened)
 ////		{
@@ -24,7 +24,7 @@
 
 ////			if (gateTilemap != null)
 ////			{
-////				Debug.Log("?n Tilemap thành công.");
+////				Debug.Log("?n Tilemap thÃ nh cÃ´ng.");
 ////				gateTilemap.gameObject.SetActive(false);
 ////			}
 ////			else
@@ -34,7 +34,7 @@
 
 ////			if (gateCollider != null)
 ////			{
-////				Debug.Log("T?t Collider thành công.");
+////				Debug.Log("T?t Collider thÃ nh cÃ´ng.");
 ////				gateCollider.enabled = false;
 ////			}
 ////			else
@@ -55,7 +55,7 @@
 ////		}
 ////		else
 ////		{
-////			Debug.Log("C?ng ?ã m? t? tr??c, không m? l?i.");
+////			Debug.Log("C?ng ?Ã£ m? t? tr??c, khÃ´ng m? l?i.");
 ////		}
 ////	}
 
@@ -88,37 +88,37 @@
 //	[SerializeField] private Tilemap gateTilemap;
 //	[SerializeField] private TMP_Text gateMessageText;
 //	[SerializeField] private AudioSource gateOpenSound;
-//	[SerializeField] private Collider2D gateCollider; // ??m b?o b?n ?ã gán Collider2D c?a c?ng vào ?ây trong Inspector
+//	[SerializeField] private Collider2D gateCollider; // ??m b?o b?n ?Ã£ gÃ¡n Collider2D c?a c?ng vÃ o ?Ã¢y trong Inspector
 
 //	private bool gateOpened = false;
 
 //	public void OpenGate()
 //	{
-//		Debug.Log("?ã g?i OpenGate()"); // ?ã s?a l?i font ti?ng Vi?t
+//		Debug.Log("?Ã£ g?i OpenGate()"); // ?Ã£ s?a l?i font ti?ng Vi?t
 
 //		if (!gateOpened)
 //		{
-//			Debug.Log("?ang m? c?ng..."); // ?ã s?a l?i font ti?ng Vi?t
+//			Debug.Log("?ang m? c?ng..."); // ?Ã£ s?a l?i font ti?ng Vi?t
 
 //			gateOpened = true;
 
 //			if (gateTilemap != null)
 //			{
-//				Debug.Log("?n Tilemap thành công."); // ?ã s?a l?i font ti?ng Vi?t
-//				gateTilemap.gameObject.SetActive(false); // ?n hình ?nh c?ng
+//				Debug.Log("?n Tilemap thÃ nh cÃ´ng."); // ?Ã£ s?a l?i font ti?ng Vi?t
+//				gateTilemap.gameObject.SetActive(false); // ?n hÃ¬nh ?nh c?ng
 //			}
 //			else
 //			{
 //				Debug.LogWarning("gateTilemap NULL.");
 //			}
 
-//			// *** DÒNG NÀY ?Ã ???C XÓA HO?C COMMENT L?I ***
-//			// *** KHÔNG T?T gateCollider N?A ***
-//			// N?u dòng d??i ?ây v?n còn, b?n s? không th? chuy?n scene.
+//			// *** DÃ’NG NÃ€Y ?Ãƒ ???C XÃ“A HO?C COMMENT L?I ***
+//			// *** KHÃ”NG T?T gateCollider N?A ***
+//			// N?u dÃ²ng d??i ?Ã¢y v?n cÃ²n, b?n s? khÃ´ng th? chuy?n scene.
 //			// if (gateCollider != null)
 //			// {
-//			//     Debug.Log("T?t Collider thành công.");
-//			//     gateCollider.enabled = false; // <<< DÒNG CÓ V?N ?? NÀY ?Ã B? XÓA/COMMENT!
+//			//     Debug.Log("T?t Collider thÃ nh cÃ´ng.");
+//			//     gateCollider.enabled = false; // <<< DÃ’NG CÃ“ V?N ?? NÃ€Y ?Ãƒ B? XÃ“A/COMMENT!
 //			// }
 //			// else
 //			// {
@@ -138,7 +138,7 @@
 //		}
 //		else
 //		{
-//			Debug.Log("C?ng ?ã m? t? tr??c, không m? l?i."); // ?ã s?a l?i font ti?ng Vi?t
+//			Debug.Log("C?ng ?Ã£ m? t? tr??c, khÃ´ng m? l?i."); // ?Ã£ s?a l?i font ti?ng Vi?t
 //		}
 //	}
 
@@ -150,29 +150,31 @@
 
 //	private void OnTriggerStay2D(Collider2D collision)
 //	{
-//		// Thêm Debug.Log ?? ki?m tra xem hàm này có ???c g?i không
+//		// ThÃªm Debug.Log ?? ki?m tra xem hÃ m nÃ y cÃ³ ???c g?i khÃ´ng
 //		Debug.Log("OnTriggerStay2D ?ang ???c ki?m tra.");
 
 //		if (gateOpened && collision.CompareTag("Player"))
 //		{
-//			// Thêm Debug.Log ?? ki?m tra ?i?u ki?n này
-//			Debug.Log("Ng??i ch?i trong vùng trigger VÀ c?ng ?ã m?.");
-//			Debug.Log("Input.GetKeyDown(KeyCode.W) hi?n t?i: " + Input.GetKeyDown(KeyCode.W)); // THÊM DÒNG NÀY
-//			if (Input.GetKeyDown(KeyCode.W)) // Dòng này ?ã t?n t?i
+//			// ThÃªm Debug.Log ?? ki?m tra ?i?u ki?n nÃ y
+//			Debug.Log("Ng??i ch?i trong vÃ¹ng trigger VÃ€ c?ng ?Ã£ m?.");
+//			Debug.Log("Input.GetKeyDown(KeyCode.W) hi?n t?i: " + Input.GetKeyDown(KeyCode.W)); // THÃŠM DÃ’NG NÃ€Y
+//			if (Input.GetKeyDown(KeyCode.W)) // DÃ²ng nÃ y ?Ã£ t?n t?i
 //			{
-//				// Thêm Debug.Log ?? xác nh?n nút W ???c nh?n
+//				// ThÃªm Debug.Log ?? xÃ¡c nh?n nÃºt W ???c nh?n
 //				Debug.Log("Ng??i ch?i b?m W! ?ang t?i scene SceneLv1.3...");
 //				SceneManager.LoadScene("SceneLv1.3");
 //			}
 //		}
 //	}
 //}
-// (Ph?n code c? ?ã comment, không quan tâm)
+// (Ph?n code c? ?Ã£ comment, khÃ´ng quan tÃ¢m)
 
-using UnityEngine;
-using UnityEngine.Tilemaps;
+using Assets.Scripts.Controller;
+using System.Collections;
 using TMPro;
+using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Tilemaps;
 
 public class GateTriggerBoss : MonoBehaviour
 {
@@ -182,34 +184,34 @@ public class GateTriggerBoss : MonoBehaviour
 	[SerializeField] private Collider2D gateCollider;
 
 
-	// --- THÊM DÒNG NÀY VÀO ?ÂY ---
-	[Header("Scene Transition Settings")] // Tiêu ?? trong Inspector
-	[SerializeField] private string targetSceneName; // Bi?n ?? l?u tên c?nh ?ích
+	// --- THÃŠM DÃ’NG NÃ€Y VÃ€O ?Ã‚Y ---
+	[Header("Scene Transition Settings")] // TiÃªu ?? trong Inspector
+	[SerializeField] private string targetSceneName; // Bi?n ?? l?u tÃªn c?nh ?Ã­ch
 
 	private bool gateOpened = false;
 
 	public void OpenGate()
 	{
-		Debug.Log("?ã g?i OpenGate()"); // ?ã s?a l?i font ti?ng Vi?t
+		Debug.Log("?Ã£ g?i OpenGate()"); // ?Ã£ s?a l?i font ti?ng Vi?t
 
 		if (!gateOpened)
 		{
-			Debug.Log("?ang m? c?ng..."); // ?ã s?a l?i font ti?ng Vi?t
+			Debug.Log("?ang m? c?ng..."); // ?Ã£ s?a l?i font ti?ng Vi?t
 
 			gateOpened = true;
 
 			if (gateTilemap != null)
 			{
-				Debug.Log("?n Tilemap thành công."); // ?ã s?a l?i font ti?ng Vi?t
-				gateTilemap.gameObject.SetActive(false); // ?n hình ?nh c?ng
+				Debug.Log("?n Tilemap thÃ nh cÃ´ng."); // ?Ã£ s?a l?i font ti?ng Vi?t
+				gateTilemap.gameObject.SetActive(false); // ?n hÃ¬nh ?nh c?ng
 			}
 			else
 			{
 				Debug.LogWarning("gateTilemap NULL.");
 			}
 
-			// *** KHÔNG CÓ DÒNG gateCollider.enabled = false; ? ?ÂY N?A ***
-			// Vui lòng ??m b?o b?n ?ã xóa ho?c comment dòng này nh? ?ã h??ng d?n.
+			// *** KHÃ”NG CÃ“ DÃ’NG gateCollider.enabled = false; ? ?Ã‚Y N?A ***
+			// Vui lÃ²ng ??m b?o b?n ?Ã£ xÃ³a ho?c comment dÃ²ng nÃ y nh? ?Ã£ h??ng d?n.
 
 			if (gateOpenSound != null)
 			{
@@ -224,7 +226,7 @@ public class GateTriggerBoss : MonoBehaviour
 		}
 		else
 		{
-			Debug.Log("C?ng ?ã m? t? tr??c, không m? l?i."); // ?ã s?a l?i font ti?ng Vi?t
+			Debug.Log("C?ng ?Ã£ m? t? tr??c, khÃ´ng m? l?i."); // ?Ã£ s?a l?i font ti?ng Vi?t
 		}
 	}
 
@@ -240,14 +242,21 @@ public class GateTriggerBoss : MonoBehaviour
 
 		if (gateOpened && collision.CompareTag("Player"))
 		{
-			Debug.Log("Ng??i ch?i trong vùng trigger VÀ c?ng ?ã m?.");
+
+            PlayerController pc = collision.GetComponent<PlayerController>();
+            if (pc != null)
+            {
+                StartCoroutine(SaveAndLoadScene(pc));
+            }
+
+            Debug.Log("Ng??i ch?i trong vÃ¹ng trigger VÃ€ c?ng ?Ã£ m?.");
 			Debug.Log("Input.GetKeyDown(KeyCode.W) hi?n t?i: " + Input.GetKeyDown(KeyCode.W));
 			//if (Input.GetKeyDown(KeyCode.W))
 			//{
-				// --- THAY ??I DÒNG NÀY ?? S? D?NG BI?N targetSceneName ---
-				if (!string.IsNullOrEmpty(targetSceneName)) // ??m b?o tên c?nh không r?ng
+				// --- THAY ??I DÃ’NG NÃ€Y ?? S? D?NG BI?N targetSceneName ---
+				if (!string.IsNullOrEmpty(targetSceneName)) // ??m b?o tÃªn c?nh khÃ´ng r?ng
 				{
-					Debug.Log("Ng??i ch?i b?m W! ?ang t?i scene: " + targetSceneName + "..."); // Log tên c?nh ?ích
+					Debug.Log("Ng??i ch?i b?m W! ?ang t?i scene: " + targetSceneName + "..."); // Log tÃªn c?nh ?Ã­ch
 					SceneManager.LoadScene(targetSceneName);
 				}
 				else
@@ -257,4 +266,19 @@ public class GateTriggerBoss : MonoBehaviour
 			//}
 		}
 	}
+
+    private IEnumerator SaveAndLoadScene(PlayerController pc)
+    {
+        PlayerState.Level = pc.level;
+        PlayerState.MaxHp = pc.maxHp;
+        PlayerState.CurrentHp = pc.currentHp;
+        PlayerState.MaxExp = pc.maxExp;
+        PlayerState.CurrentExp = pc.currentExp;
+        PlayerState.MoveSpeed = pc.moveSpeed;
+        PlayerState.NormalDamge = pc.attackDetector.attackDamage;
+
+        Debug.Log("Save statistic");
+        yield return null; // Ä‘á»£i 1 frame Ä‘á»ƒ cháº¯c cháº¯n dá»¯ liá»‡u lÆ°u xong
+
+    }
 }
