@@ -1,4 +1,4 @@
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,9 +16,19 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Image expBar;
     [SerializeField] private TextMeshProUGUI levelText;
 
+    [SerializeField] private GameObject introduction;
+    [SerializeField] private GameObject playerController;
+    [SerializeField] private GameObject uiComponent;
+
+
 
     void Start()
     {
+        // Mở introduction trước khi chơi
+        introduction.SetActive(true);
+        playerController.SetActive(false);
+        uiComponent.SetActive(false);
+
         UpdateTimerUI();
         bossEnemy.SetActive(false);
     }
@@ -37,6 +47,14 @@ public class GameManager : MonoBehaviour
 
             UpdateTimerUI();
         }
+    }
+
+    public void PlayGame()
+    {
+        introduction.SetActive(false);
+        playerController.SetActive(true);
+        uiComponent.SetActive(false);
+
     }
 
     public void UpdateHealthBarUI(float currentHp, float maxHp)
