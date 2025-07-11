@@ -25,7 +25,7 @@ public class BanditEnemy : EnemyController
         if (player != null && !isAttacking)
         {
             float distance = Vector2.Distance(transform.position, player.transform.position);
-            if (distance < 1.5f && Time.time - lastAttackTime > attackCooldown)
+            if (distance < 1.9f && Time.time - lastAttackTime > attackCooldown)
             {
                 Attack();
             }

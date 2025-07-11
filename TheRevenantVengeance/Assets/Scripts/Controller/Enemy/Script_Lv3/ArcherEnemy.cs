@@ -9,6 +9,10 @@ public class ArcherEnemy : EnemyController
     //protected bool isDead = false;
     [SerializeField] private GameObject arrowPrefab;
     [SerializeField] private Transform firePoint;
+
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip attackSound;
+    [SerializeField] private AudioClip deathSound;
     protected override void Awake()
     {
         base.Awake();
@@ -50,6 +54,10 @@ public class ArcherEnemy : EnemyController
         lastAttackTime = Time.time;
 
         animator?.SetTrigger("Shoot");
+        if (audioSource != null && attackSound != null)
+        {
+            audioSource.PlayOneShot(attackSound);
+        }
 
         Invoke(nameof(SpawnArrow), 0.5f); 
 
@@ -93,6 +101,10 @@ public class ArcherEnemy : EnemyController
     {
         //isDead = true;
         animator?.SetTrigger("Death");
+        if (audioSource != null && deathSound != null)
+        {
+            audioSource.PlayOneShot(deathSound);
+        }
         base.Die();
         //Destroy(gameObject, 2f);
     }
