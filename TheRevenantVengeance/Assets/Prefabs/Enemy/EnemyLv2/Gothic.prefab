@@ -205,6 +205,9 @@ MonoBehaviour:
   healthBar: {fileID: 123045051613383450}
   enterDamage: 15
   stayDamage: 15
+  expObjects:
+  - {fileID: 8329027369469792152, guid: b4d303f82294a8043b1d3c140cd48c39, type: 3}
+  - {fileID: 8709908584246897573, guid: effadd4e8571a1e4dbc7ebd8e3c92f94, type: 3}
   knockbackForce: 5
   knockbackDuration: 0.2
   heartObject: {fileID: 1682632347474198923, guid: 1fa42cb902cef23448e53ce0098cd839, type: 3}
@@ -213,6 +216,7 @@ MonoBehaviour:
   takeHitSound: {fileID: 8300000, guid: 979872238a5c60240adf67adbe8b3122, type: 3}
   attackSound: {fileID: 8300000, guid: 732b99ef57481864e8ab739421a1c5cf, type: 3}
   deathSound: {fileID: 8300000, guid: 798594c5d8dc1ff4aaf67860b793fad0, type: 3}
+  gateTrigger: {fileID: 0}
 --- !u!82 &3551189236326580323
 AudioSource:
   m_ObjectHideFlags: 0
