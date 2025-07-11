@@ -79,7 +79,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2119438533
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -7763475090823894447, guid: 4aa344bff10ec564791f15a5b22503b1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -204,9 +204,21 @@ MonoBehaviour:
   healthBar: {fileID: 8859531047308257460}
   enterDamage: 30
   stayDamage: 0
+  expObjects:
+  - {fileID: 3085360803216928165, guid: 45c33d3ac580bd54583265db0b436b61, type: 3}
+  - {fileID: 8329027369469792152, guid: b4d303f82294a8043b1d3c140cd48c39, type: 3}
+  - {fileID: 0}
   knockbackForce: 15
   knockbackDuration: 0.6
-  explosionPrefab: {fileID: 4326256387911111308, guid: f12100fd7ab86f840978373dcd2af51b, type: 3}
+  miniEnemyPrefab: {fileID: 0}
+  spawnCount: 3
+  spawnCooldown: 8
+  attackDistance: 6
+  audioSource: {fileID: 0}
+  attackSound: {fileID: 0}
+  takeHitSound: {fileID: 0}
+  dieSound: {fileID: 0}
+  spawnSound: {fileID: 0}
 --- !u!1001 &480140642846380599
 PrefabInstance:
   m_ObjectHideFlags: 0

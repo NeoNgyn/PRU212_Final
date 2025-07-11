@@ -99745,6 +99745,7 @@ MonoBehaviour:
   healthBar: {fileID: 1427080487}
   enterDamage: 100
   stayDamage: 10
+  expObjects: []
   knockbackForce: 5
   knockbackDuration: 0.2
   bulletPrefabs: {fileID: 6027976266604030605, guid: 44441ef57ea976241a190886770cc122, type: 3}
@@ -109516,6 +109517,7 @@ MonoBehaviour:
   healthBar: {fileID: 480161581}
   enterDamage: 10
   stayDamage: 10
+  expObjects: []
   knockbackForce: 5
   knockbackDuration: 0.2
   patrolPointLeft: {fileID: 127098110}
@@ -118384,7 +118386,7 @@ MonoBehaviour:
   healthBar: {fileID: 574383163}
   maxEnergy: 100
   energyBar: {fileID: 802639225}
-  maxExp: 10
+  maxExp: 100
   level: 1
   gameManager: {fileID: 926095506}
   attackDetector: {fileID: 179071805}
