@@ -1,10 +1,10 @@
-//using UnityEngine;
+Ôªø//using UnityEngine;
 //using UnityEngine.Tilemaps;
 //using UnityEngine.SceneManagement;
 
 //public class GateTrigger : MonoBehaviour
 //{
-//	[SerializeField] private Tilemap gateTilemap;  // G¡N Tilemap Gate ? ?‚y
+//	[SerializeField] private Tilemap gateTilemap;  // G√ÅN Tilemap Gate ? ?√¢y
 //	[SerializeField] private int requiredEnergy = 10;
 
 //	private bool gateOpened = false;
@@ -34,9 +34,9 @@
 //	{
 //		if (gateOpened && collision.CompareTag("Player"))
 //		{
-//			if (Input.GetKeyDown(KeyCode.W))  // Nh?n W ?? v‡o map m?i
+//			if (Input.GetKeyDown(KeyCode.W))  // Nh?n W ?? v√†o map m?i
 //			{
-//				SceneManager.LoadScene("NextSceneName");  // ??i tÍn Scene t?i ?‚y
+//				SceneManager.LoadScene("NextSceneName");  // ??i t√™n Scene t?i ?√¢y
 //			}
 //		}
 //	}
@@ -50,8 +50,8 @@
 //{
 //	[SerializeField] private Tilemap gateTilemap;
 //	[SerializeField] private int requiredEnergy = 10;
-//	[SerializeField] private Text gateMessageText;  // G·n UI Text thÙng b·o
-//	[SerializeField] private AudioSource gateOpenSound;  // G·n AudioSource ch?a ‚m m? c?ng
+//	[SerializeField] private Text gateMessageText;  // G√°n UI Text th√¥ng b√°o
+//	[SerializeField] private AudioSource gateOpenSound;  // G√°n AudioSource ch?a √¢m m? c?ng
 
 //	private bool gateOpened = false;
 
@@ -74,17 +74,17 @@
 //			gateTilemap.gameObject.SetActive(false);
 //			gateOpened = true;
 
-//			// Ph·t ‚m thanh m? c?ng
+//			// Ph√°t √¢m thanh m? c?ng
 //			if (gateOpenSound != null)
 //			{
 //				gateOpenSound.Play();
 //			}
 
-//			// Hi?n th? thÙng b·o c?ng m?
+//			// Hi?n th? th√¥ng b√°o c?ng m?
 //			if (gateMessageText != null)
 //			{
 //				gateMessageText.text = "The Gate is Open!";
-//				Invoke(nameof(HideMessage), 2f);  // ?n sau 2 gi‚y (t˘y ch?nh)
+//				Invoke(nameof(HideMessage), 2f);  // ?n sau 2 gi√¢y (t√πy ch?nh)
 //			}
 //		}
 //	}
@@ -108,19 +108,21 @@
 //		}
 //	}
 //}
-using UnityEngine;
-using UnityEngine.Tilemaps;
+using Assets.Scripts.Controller;
+using System.Collections;
 using TMPro;
+using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Tilemaps;
 
 public class GateTrigger : MonoBehaviour
 {
 	[SerializeField] private Tilemap gateTilemap;
 	[SerializeField] private int requiredEnergy = 10;
-	[SerializeField] private TMP_Text gateMessageText;  // DŸNG TMP_Text
+	[SerializeField] private TMP_Text gateMessageText;  // D√ôNG TMP_Text
 	[SerializeField] private AudioSource gateOpenSound;
 	[SerializeField] private PlayerController player;
-	[SerializeField] private Collider2D gateCollider;  // TH M: KÈo Collider c?a c?ng v‡o ?‚y (Composite Collider ho?c Tilemap Collider 2D)
+	[SerializeField] private Collider2D gateCollider;  // TH√äM: K√©o Collider c?a c?ng v√†o ?√¢y (Composite Collider ho?c Tilemap Collider 2D)
 	[SerializeField] private int sceneIndexToLoad = 5;
 
     private bool gateOpened = false;
@@ -151,7 +153,7 @@ public class GateTrigger : MonoBehaviour
 		{
 			gateOpened = true;
 
-			// ?n Tilemap (?n hÏnh ?nh c?ng)
+			// ?n Tilemap (?n h√¨nh ?nh c?ng)
 			if (gateTilemap != null)
 			{
 				gateTilemap.gameObject.SetActive(false);
@@ -163,13 +165,13 @@ public class GateTrigger : MonoBehaviour
 				gateCollider.enabled = false;
 			}
 
-			// Ph·t ‚m thanh m? c?ng
+			// Ph√°t √¢m thanh m? c?ng
 			if (gateOpenSound != null)
 			{
 				gateOpenSound.Play();
 			}
 
-			// Hi?n thÙng b·o
+			// Hi?n th√¥ng b√°o
 			if (gateMessageText != null)
 			{
 				gateMessageText.text = "The Gate is Open!";
@@ -186,15 +188,32 @@ public class GateTrigger : MonoBehaviour
 		}
 	}
 
-	private void OnTriggerStay2D(Collider2D collision)
-	{
-		if (gateOpened && collision.CompareTag("Player"))
-		{
-			//if (Input.GetKeyDown(KeyCode.W))
-			//{
-				SceneManager.LoadScene(sceneIndexToLoad);
-			//}
-		}
-	}
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (gateOpened && collision.CompareTag("Player"))
+        {
+            PlayerController pc = collision.GetComponent<PlayerController>();
+            if (pc != null)
+            {
+                StartCoroutine(SaveAndLoadScene(pc));
+            }
+        }
+    }
+
+    private IEnumerator SaveAndLoadScene(PlayerController pc)
+    {
+        PlayerState.Level = pc.level;
+        PlayerState.MaxHp = pc.maxHp;
+        PlayerState.CurrentHp = pc.currentHp;
+        PlayerState.MaxExp = pc.maxExp;
+        PlayerState.CurrentExp = pc.currentExp;
+        PlayerState.MoveSpeed = pc.moveSpeed;
+        PlayerState.NormalDamge = pc.attackDetector.attackDamage;
+
+		Debug.Log("Save statistic");
+        yield return null; // ƒë·ª£i 1 frame ƒë·ªÉ ch·∫Øc ch·∫Øn d·ªØ li·ªáu l∆∞u xong
+
+        SceneManager.LoadScene(sceneIndexToLoad);
+    }
 }
 

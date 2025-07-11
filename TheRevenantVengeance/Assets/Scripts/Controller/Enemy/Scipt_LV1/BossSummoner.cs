@@ -6,7 +6,6 @@ public class BossSummoner : EnemyController
 {
     private Animator animator;
     private bool isAttacking = false;
-    protected bool isDead = false;
 
     [Header("General Boss Settings")]
     [SerializeField] private float attackAnimationDuration = 1.0f;

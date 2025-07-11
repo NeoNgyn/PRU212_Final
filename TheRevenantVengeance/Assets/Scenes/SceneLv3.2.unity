@@ -729,9 +729,9 @@ MonoBehaviour:
   level: 1
   gameManager: {fileID: 2089871528}
   attackDetector: {fileID: 1573582319}
-  fireballSpawnPoint: {fileID: 0}
+  fireballSpawnPoint: {fileID: 1337167692}
   fireballSpeed: 10
-  auraPrefab: {fileID: 0}
+  auraPrefab: {fileID: 6732595593057788650, guid: 248bdf5841709f342b191b5c5b87985c, type: 3}
   attackHitbox: {fileID: 1573582317}
   hitCooldown: 0.5
   audioSource: {fileID: 173187030}
@@ -743,7 +743,7 @@ MonoBehaviour:
   circleEffectPrefab: {fileID: 8741384446669436887, guid: cac2265e3b98a0e4f9c674a3ae74d3b1, type: 3}
   ultimateVideoPlayer: {fileID: 340439562}
   ultimateCanvas: {fileID: 1558425821}
-  ultimateRadius: 5
+  ultimateRadius: 10
   ultimateTimeScale: 0.1
   ultimateDuration: 3
 --- !u!50 &173187033
@@ -883,7 +883,7 @@ Transform:
   m_GameObject: {fileID: 173187029}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -26.11, y: 5.11, z: 0}
+  m_LocalPosition: {x: -24.66, y: 6.43, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -892,6 +892,7 @@ Transform:
   - {fileID: 59763933}
   - {fileID: 1573582322}
   - {fileID: 568278074}
+  - {fileID: 1337167692}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &186736762
@@ -14792,7 +14793,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -26.11, y: 5.11, z: -10}
+  m_LocalPosition: {x: -24.66, y: 6.43, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15258,7 +15259,7 @@ Transform:
   m_GameObject: {fileID: 685158509}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -26.11, y: 5.11, z: -10}
+  m_LocalPosition: {x: -24.66, y: 6.43, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -112803,6 +112804,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 766408192}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1337167691
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1337167692}
+  m_Layer: 0
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1337167692
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1337167691}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.33, y: -0.01, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 173187036}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1427080485
 PrefabInstance:
