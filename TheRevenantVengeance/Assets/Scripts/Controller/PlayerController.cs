@@ -1,7 +1,9 @@
-﻿using Assets.Scripts.Controller;
+﻿using System.Collections;
+using Assets.Scripts.Controller;
 using Assets.Scripts.Controller.Enemy.EnemyLv2;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class PlayerController : MonoBehaviour
 {
@@ -14,6 +16,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int maxEnergy = 10;
     private float currentEnergy;
     [SerializeField] private Image energyBar;
+    private bool isPoisoned = false;
+    private float poisonDamagePerSecond;
+    private float poisonTimer = 0f;
 
     [SerializeField] private int maxExp = 10;
     private float currentExp;
@@ -23,10 +28,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameManager gameManager;
     [SerializeField] private AttackDetector attackDetector;
 
+    private GameObject fireballPrefab;  // Prefab quả cầu (sẽ gán khi nhặt item)
+    public Transform fireballSpawnPoint;  // Điểm bắn quả cầu (thường là 1 empty object ở tay hoặc trước mặt)
+    public float fireballSpeed = 10f;
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
     private Animator animator;
 
+    [SerializeField] private GameObject auraPrefab;  // Gán prefab hào quang từ Inspector
+    private GameObject activeAura;  // Hào quang đang active
     // Biến để kiểm tra trạng thái tấn công
     private bool isAttacking = false;
 
@@ -39,6 +49,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip attackClip;
     [SerializeField] private AudioClip takeHitClip;
+    [SerializeField] private AudioClip ultiClip;
 
     [SerializeField] private GameObject swordSpinPrefab;
     [SerializeField] private Transform spinCenter;
@@ -48,6 +59,13 @@ public class PlayerController : MonoBehaviour
 
     private bool hasSwordSpin = false;
 
+    [SerializeField] private VideoPlayer ultimateVideoPlayer;
+    [SerializeField] private Canvas ultimateCanvas; 
+    [SerializeField] private float ultimateRadius = 7.5f;
+    [SerializeField] private float ultimateTimeScale = 0.1f;
+    [SerializeField] private float ultimateDuration = 3f;
+    private bool isUsingUltimate = false;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -56,9 +74,10 @@ public class PlayerController : MonoBehaviour
     }
 
     void Start()
-    {
+	{
+		ultimateCanvas.enabled = false;
         currentHp = maxHp;
-        UpdateHealthBar();
+		UpdateHealthBar();
 
         currentEnergy = 0;
         UpdateEnergyBar();
@@ -81,14 +100,46 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void ActivateAura(GameObject auraPrefab)
+    {
+        if (auraPrefab != null && activeAura == null)  // Chỉ tạo 1 lần
+        {
+            activeAura = Instantiate(auraPrefab, transform.position, Quaternion.identity);
+            activeAura.transform.SetParent(transform);  // Gắn theo Player
+            activeAura.transform.localPosition = Vector3.zero;  // Ở giữa Player
+            Debug.Log("Hào quang đã được kích hoạt!");
+        }
+    }
+
     void Update()
     {
-        Movement();
 
+        Movement();
+        currentEnergy = maxEnergy;
+        UpdateEnergyBar(); //test ultimate
         // Kiểm tra input tấn công
         if (Input.GetKeyDown(KeyCode.Space) && !isAttacking)
         {
             Attack();
+        }
+        AutoShootFireball();
+        if (isPoisoned)
+        {
+            poisonTimer -= Time.deltaTime;
+
+            // Mỗi frame gây damage từ từ
+            TakeDamage(poisonDamagePerSecond * Time.deltaTime);
+
+            if (poisonTimer <= 0f)
+            {
+                isPoisoned = false;
+                Debug.Log("Hết hiệu ứng độc.");
+            }
+        }  	
+			
+        if (!isUsingUltimate && Input.GetKeyDown(KeyCode.R) && currentEnergy >= maxEnergy)
+        {
+            StartCoroutine(UseUltimate());
         }
     }
 
@@ -190,7 +241,6 @@ public class PlayerController : MonoBehaviour
         currentHp -= damage;
         currentHp = Mathf.Max(currentHp, 0);
         UpdateHealthBar();
-
         if (currentHp <= 0)
         {
             animator.ResetTrigger("TakeHit");
@@ -306,16 +356,134 @@ public class PlayerController : MonoBehaviour
             attackHitbox.SetActive(false);
         }
 
-        // Tùy chọn: Hủy đối tượng sau một khoảng thời gian để animation chết có thể phát hết
-        // float deathAnimationLength = animator.GetCurrentAnimatorStateInfo(0).length; // Lấy độ dài của animation hiện tại trên layer 0
-        // Destroy(gameObject, deathAnimationLength); // Hủy sau khi animation chết phát hết
-        // Hoặc:
-        Destroy(gameObject, 3f); // Hủy sau 3 giây (đảm bảo animation có thời gian để phát)
+        Destroy(gameObject, 3f); // Hủy sau 2 giây (đảm bảo animation có thời gian để phát)
+    }
+    public void SetFireballPrefab(GameObject prefab)
+    {
+        fireballPrefab = prefab;
+        Debug.Log("Đã kích hoạt khả năng bắn quả cầu!");
     }
 
-    public float GetCurrentEnergy()
+    void ShootFireball()
     {
-        return currentEnergy;
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 direction = (mousePos - transform.position);
+        direction.Normalize();
+
+        GameObject fireball = Instantiate(fireballPrefab, fireballSpawnPoint.position, Quaternion.identity);
+
+        // Xoay đầu đạn về đúng hướng:
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        fireball.transform.rotation = Quaternion.Euler(0, 0, angle);
+
+        Rigidbody2D rb = fireball.GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.linearVelocity = direction * fireballSpeed;
+        }
+
+        Debug.Log("Đã bắn quả cầu tự động!");
+    }
+
+	public float GetCurrentEnergy()
+	{
+		return currentEnergy;
+	}
+    private IEnumerator UseUltimate()
+    {
+        isUsingUltimate = true;
+        currentEnergy = 0;
+        UpdateEnergyBar();
+
+        Debug.Log("Using Ultimate Ability");
+
+        if (ultimateCanvas != null) ultimateCanvas.enabled = true;
+        if (ultimateVideoPlayer != null && ultimateVideoPlayer.clip != null)
+        {
+            if (!ultimateVideoPlayer.isPrepared)
+            {
+                ultimateVideoPlayer.Prepare();
+                yield return new WaitUntil(() => ultimateVideoPlayer.isPrepared);
+            }
+
+            ultimateVideoPlayer.Play();
+            if (audioSource != null && ultiClip != null)
+            {
+                audioSource.PlayOneShot(ultiClip);
+            }
+            Debug.Log("Ultimate video started playing");
+        }
+        else
+        {
+            Debug.LogWarning("Ultimate video player or clip is not set!");
+        }
+
+        Time.timeScale = ultimateTimeScale;
+        Time.fixedDeltaTime = 0.02f * Time.timeScale;
+
+
+        yield return new WaitForSecondsRealtime(ultimateDuration);
+
+        if (ultimateVideoPlayer != null)
+        {
+            ultimateVideoPlayer.Stop();
+        }
+
+        if (ultimateCanvas != null)
+        {
+            ultimateCanvas.enabled = false;
+            Debug.Log("Ultimate canvas disabled");
+        }
+
+        Time.timeScale = 1f;
+        Time.fixedDeltaTime = 0.02f;
+
+        Collider2D[] hitObjects = Physics2D.OverlapCircleAll(transform.position, ultimateRadius);
+        foreach (Collider2D obj in hitObjects)
+        {
+            if (obj.CompareTag("Enemy"))
+            {
+                EnemyController ec = obj.GetComponent<EnemyController>();
+                if (ec != null)
+                {
+                    Vector2 knockbackDir = spriteRenderer.flipX ? Vector2.left : Vector2.right;
+                    ec.TakeDamage(ec.maxHp * 0.5f, knockbackDir);
+                }
+            }
+        }
+
+        isUsingUltimate = false;
+    }
+    public void ShowCircleEffect()
+    {
+        if (circleEffectPrefab == null) return;
+
+        if (currentCircleEffect == null)
+        {
+            currentCircleEffect = Instantiate(circleEffectPrefab, transform.position, Quaternion.identity);
+            currentCircleEffect.transform.SetParent(transform); // Gắn vòng tròn vào Player
+            currentCircleEffect.transform.localPosition = new Vector3(0, -0.7f, 0); // điều chỉnh xuống chân
+        }
+    }
+    float fireRate = 0.5f;  // Tốc độ bắn (0.5s/viên)
+    float nextFireTime = 0f;
+
+    void AutoShootFireball()
+    {
+        if (fireballPrefab == null) return;
+
+        if (Time.time >= nextFireTime)
+        {
+            ShootFireball();
+            nextFireTime = Time.time + fireRate;
+        }
+    }
+    public void ApplyPoison(float damagePerSecond, float duration)
+    {
+        poisonDamagePerSecond = damagePerSecond;
+        poisonTimer = duration;
+        isPoisoned = true;
+        Debug.Log("Player bị dính độc!");
     }
 
     public void ActivateSwordSpin()
@@ -334,18 +502,6 @@ public class PlayerController : MonoBehaviour
             spin.bossCenter = spinCenter;
             spin.angleOffset = i * 360f / swordCount;
             spin.InitPosition();
-        }
-    }
-
-    public void ShowCircleEffect()
-    {
-        if (circleEffectPrefab == null) return;
-
-        if (currentCircleEffect == null)
-        {
-            currentCircleEffect = Instantiate(circleEffectPrefab, transform.position, Quaternion.identity);
-            currentCircleEffect.transform.SetParent(transform); // Gắn vòng tròn vào Player
-            currentCircleEffect.transform.localPosition = new Vector3(0, -0.7f, 0); // điều chỉnh xuống chân
         }
     }
 }
