@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4533204403608468530}
   - component: {fileID: 3407512792662070366}
   - component: {fileID: 3588660607742374376}
-  - component: {fileID: 5157923993299064323}
+  - component: {fileID: -887864684519623496}
   m_Layer: 0
   m_Name: ItemFireball
   m_TagString: Untagged
@@ -125,7 +125,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: -0.019830704, y: -0.08764076}
   m_Radius: 1.4001045
---- !u!114 &5157923993299064323
+--- !u!114 &-887864684519623496
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,8 +134,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3072530224693814208}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51d0e449b1103e94eb980f4d4c7aa67e, type: 3}
+  m_Script: {fileID: 11500000, guid: 6d1e8b06baa8ff04a984efff4cbc379b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 1
   fireballPrefab: {fileID: 552179168387796223, guid: d27255f797a4bd247a9510f98e30eabb, type: 3}
   auraPrefab: {fileID: 6732595593057788650, guid: 248bdf5841709f342b191b5c5b87985c, type: 3}
+  pickupSound: {fileID: 0}

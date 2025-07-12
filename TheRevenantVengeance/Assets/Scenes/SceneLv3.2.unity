@@ -119,6 +119,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &35420810
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 35420811}
+  m_Layer: 0
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &35420811
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 35420810}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 27.220001, y: -51.82, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 173187036}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &40348841
 GameObject:
   m_ObjectHideFlags: 0
@@ -729,6 +760,9 @@ MonoBehaviour:
   level: 1
   gameManager: {fileID: 2089871528}
   attackDetector: {fileID: 1573582319}
+  fireballSpawnPoint: {fileID: 35420811}
+  fireballSpeed: 10
+  auraPrefab: {fileID: 6732595593057788650, guid: 248bdf5841709f342b191b5c5b87985c, type: 3}
   attackHitbox: {fileID: 1573582317}
   hitCooldown: 0.5
   audioSource: {fileID: 173187030}
@@ -889,6 +923,7 @@ Transform:
   - {fileID: 59763933}
   - {fileID: 1573582322}
   - {fileID: 568278074}
+  - {fileID: 35420811}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &186736762
@@ -1096,6 +1131,7 @@ MonoBehaviour:
   healthBar: {fileID: 1427080487}
   enterDamage: 100
   stayDamage: 10
+  expObjects: []
   knockbackForce: 5
   knockbackDuration: 0.2
   bulletPrefabs: {fileID: 6027976266604030605, guid: 44441ef57ea976241a190886770cc122, type: 3}
@@ -14957,7 +14993,7 @@ Transform:
   m_GameObject: {fileID: 568278073}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.09, y: -0.14, z: 0}
+  m_LocalPosition: {x: 0.9, y: -0.14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

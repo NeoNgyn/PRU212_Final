@@ -45,6 +45,7 @@ public class BossSummoner : EnemyController
     [Header("Drop Settings")]
     [SerializeField] private GameObject itemDropPrefab;  // Prefab món đồ rơi ra
 
+    [SerializeField] private GateTriggerBoss gateTrigger;
 
     protected override void Awake()
     {
@@ -169,9 +170,13 @@ public class BossSummoner : EnemyController
 
     protected override void Die()
     {
+        if (gateTrigger != null)
+        {
+            gateTrigger.OpenGate();
+        }
         if (isDead) return;
         isDead = true;
-
+        
         animator?.SetTrigger("Die");
         audioSource?.PlayOneShot(dieSound);
 

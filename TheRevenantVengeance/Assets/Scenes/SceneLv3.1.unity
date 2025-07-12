@@ -513,6 +513,7 @@ MonoBehaviour:
   healthBar: {fileID: 454194848}
   enterDamage: 10
   stayDamage: 10
+  expObjects: []
   knockbackForce: 0.5
   knockbackDuration: 0.2
   patrolPointLeft: {fileID: 747521204}
@@ -524,6 +525,10 @@ MonoBehaviour:
   radialFireballCooldown: 5
   radialFireballCount: 8
   attackAnimationDuration: 0.5
+  orbitFireballCount: 4
+  orbitRadius: 2
+  orbitSpeed: 100
+  orbitDuration: 5
   maxHealth: 100
   regenRate: 2
   gateTrigger: {fileID: 334721850}
@@ -532,6 +537,7 @@ MonoBehaviour:
   fireballSound: {fileID: 0}
   takeHitSound: {fileID: 0}
   dieSound: {fileID: 0}
+  bossActivated: 0
 --- !u!95 &177200863
 Animator:
   serializedVersion: 7
@@ -903,6 +909,7 @@ MonoBehaviour:
   healthBar: {fileID: 1427080487}
   enterDamage: 100
   stayDamage: 10
+  expObjects: []
   knockbackForce: 5
   knockbackDuration: 0.2
   bulletPrefabs: {fileID: 6027976266604030605, guid: 44441ef57ea976241a190886770cc122, type: 3}
@@ -2055,9 +2062,12 @@ MonoBehaviour:
   healthBar: {fileID: 429987255}
   enterDamage: 10
   stayDamage: 10
+  expObjects: []
   knockbackForce: 5
   knockbackDuration: 0.2
   attackAnimationDuration: 1
+  shieldDuration: 3
+  minionPerSummon: 2
   minionPrefab: {fileID: 5667707870469601095, guid: df6e14406a00d0d4b8cac2789b6cb106, type: 3}
   summonCooldown: 2
   summonPoints:
@@ -2065,20 +2075,19 @@ MonoBehaviour:
   - {fileID: 1727124621}
   - {fileID: 948217076}
   maxActiveMinions: 30
-  gateTrigger: {fileID: 334721850}
-  slamRadius: 3
-  slamDamage: 20
-  slamCooldown: 4
-  slamEffectPrefab: {fileID: 0}
+  spawnRange: 5
+  shieldFireballPrefab: {fileID: 0}
+  shieldFireballCount: 6
   fireballPrefab: {fileID: 0}
-  radialFireballOnHitCount: 8
-  hitReactionComboCooldown: 5
-  teleportCooldown: 6
-  teleportEffectPrefab: {fileID: 0}
-  minTeleportDistance: 8
+  radialFireballCount: 8
+  fireballAttackCooldown: 8
+  teleportPoints: []
   summonSound: {fileID: 0}
   dieSound: {fileID: 0}
+  takeHitSound: {fileID: 0}
   audioSource: {fileID: 0}
+  itemDropPrefab: {fileID: 0}
+  gateTrigger: {fileID: 334721850}
 --- !u!95 &686079895
 Animator:
   serializedVersion: 7
@@ -2371,6 +2380,7 @@ Transform:
   - {fileID: 3451500780685511970}
   - {fileID: 2137638118}
   - {fileID: 1248569481}
+  - {fileID: 1465148820}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &749432999
@@ -2468,6 +2478,9 @@ MonoBehaviour:
   level: 1
   gameManager: {fileID: 660200405}
   attackDetector: {fileID: 2137638121}
+  fireballSpawnPoint: {fileID: 1465148820}
+  fireballSpeed: 10
+  auraPrefab: {fileID: 6732595593057788650, guid: 248bdf5841709f342b191b5c5b87985c, type: 3}
   attackHitbox: {fileID: 2137638117}
   hitCooldown: 0.5
   audioSource: {fileID: 749433003}
@@ -51880,6 +51893,37 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1465148819
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1465148820}
+  m_Layer: 0
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1465148820
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465148819}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.61, y: -0.12, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 749432998}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1534421464
 GameObject:
   m_ObjectHideFlags: 0

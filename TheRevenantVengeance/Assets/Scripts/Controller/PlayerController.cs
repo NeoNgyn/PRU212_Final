@@ -66,6 +66,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float ultimateDuration = 3f;
     private bool isUsingUltimate = false;
 
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -97,6 +98,15 @@ public class PlayerController : MonoBehaviour
             ShowCircleEffect();
             ActivateSwordSpin();
             //PlayerState.acquiredSwordSpin = false;
+        }
+        if (PlayerState.acquiredFireball && PlayerState.savedFireballPrefab != null)
+        {
+            SetFireballPrefab(PlayerState.savedFireballPrefab);
+        }
+
+        if (PlayerState.acquiredAura && PlayerState.savedAuraPrefab != null)
+        {
+            ActivateAura(PlayerState.savedAuraPrefab);
         }
     }
 
