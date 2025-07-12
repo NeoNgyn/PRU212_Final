@@ -316,7 +316,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &152607665
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1566,6 +1566,72 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 669756344}
   m_CullTransparentMesh: 1
+--- !u!1 &754992490
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 754992491}
+  - component: {fileID: 754992492}
+  m_Layer: 0
+  m_Name: MusicManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &754992491
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754992490}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 283.11395, y: 659.2115, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &754992492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754992490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f323ce202e2cc9748962588498e12dd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startSceneMusic: {fileID: 0}
+  levelMusicList:
+  - sceneName: SceneLv1.1 1
+    musicClip: {fileID: 0}
+  - sceneName: SceneLv1.2
+    musicClip: {fileID: 0}
+  - sceneName: SceneLv1.3
+    musicClip: {fileID: 0}
+  - sceneName: SceneLv2
+    musicClip: {fileID: 8300000, guid: f5360eb55bad326428a88360b30f465b, type: 3}
+  - sceneName: SceneLv2-2
+    musicClip: {fileID: 8300000, guid: f5360eb55bad326428a88360b30f465b, type: 3}
+  - sceneName: SceneLv2-3
+    musicClip: {fileID: 8300000, guid: 9b6e26ff30d306040a6a4ac3c5a48285, type: 3}
+  - sceneName: SceneLv3.1
+    musicClip: {fileID: 8300000, guid: c7479328d16a8294a9779ca21c43ef75, type: 3}
+  - sceneName: SceneLv3.2
+    musicClip: {fileID: 8300000, guid: ef22f79bb8ecc9349be59d28bb372632, type: 3}
+  - sceneName: SceneLv3.3
+    musicClip: {fileID: 8300000, guid: 9e9f6c2d536aa88448bee06c48839a36, type: 3}
+  - sceneName: EndGameScene
+    musicClip: {fileID: 8300000, guid: 9e9f6c2d536aa88448bee06c48839a36, type: 3}
 --- !u!1 &1162680613
 GameObject:
   m_ObjectHideFlags: 0
@@ -3114,3 +3180,4 @@ SceneRoots:
   - {fileID: 611856782}
   - {fileID: 1924282535}
   - {fileID: 1395695363}
+  - {fileID: 754992491}

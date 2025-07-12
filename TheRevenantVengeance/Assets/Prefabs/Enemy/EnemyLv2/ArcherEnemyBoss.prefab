@@ -151,7 +151,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -206,6 +206,9 @@ MonoBehaviour:
   healthBar: {fileID: 3389052540871121589}
   enterDamage: 20
   stayDamage: 20
+  expObjects:
+  - {fileID: 8329027369469792152, guid: b4d303f82294a8043b1d3c140cd48c39, type: 3}
+  - {fileID: 8709908584246897573, guid: effadd4e8571a1e4dbc7ebd8e3c92f94, type: 3}
   knockbackForce: 5
   knockbackDuration: 0.2
   arrowPrefab: {fileID: 4100430081376865130, guid: d6fe03c895401cf489d11a46f3869e74, type: 3}
