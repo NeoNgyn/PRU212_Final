@@ -1,4 +1,4 @@
-//using UnityEngine;
+Ôªø//using UnityEngine;
 
 //public class ItemPickupLV1 : MonoBehaviour
 //{
@@ -19,28 +19,32 @@
 
 //}
 // ItemPickupLV1.cs
-using UnityEngine;
+//using UnityEngine;
 
-public class ItemPickupLV1 : MonoBehaviour
-{
-    public GameObject fireballPrefab;
-    [SerializeField] private GameObject auraPrefab;  // KÈo prefab h‡o quang v‡o ?‚y trong Inspector
+//public class ItemPickupLV1 : MonoBehaviour
+//{
+//    public GameObject fireballPrefab;
+//    [SerializeField] private GameObject auraPrefab;  // K√©o prefab h√†o quang v√†o ?√¢y trong Inspector
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            PlayerController player = collision.GetComponent<PlayerController>();
-            if (player != null)
-            {
-                // G·n kh? n?ng b?n qu? c?u
-                player.SetFireballPrefab(fireballPrefab);
+//    private void OnTriggerEnter2D(Collider2D collision)
+//    {
+//        if (collision.CompareTag("Player"))
+//        {
+//            PlayerController player = collision.GetComponent<PlayerController>();
+//            if (player != null)
+//            {
+//                // G√°n kh? n?ng b?n qu? c?u
+//                player.SetFireballPrefab(fireballPrefab);
 
-                // KÌch ho?t h‡o quang luÙn
-                player.ActivateAura(auraPrefab);
-            }
+//                // K√≠ch ho?t h√†o quang lu√¥n
+//                player.ActivateAura(auraPrefab);
+//                PlayerStateLv1.acquiredFireball = true;
+//                PlayerStateLv1.acquiredAura = true;
+//                PlayerStateLv1.savedFireballPrefab = fireballPrefab;
+//                PlayerStateLv1.savedAuraPrefab = auraPrefab;
+//            }
 
-            Destroy(gameObject);  // XÛa item sau khi nh?t
-        }
-    }
-}
+//            Destroy(gameObject);  // X√≥a item sau khi nh?t
+//        }
+//    }
+//}

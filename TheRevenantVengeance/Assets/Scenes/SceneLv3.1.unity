@@ -53058,6 +53058,7 @@ MonoBehaviour:
   takeHitSound: {fileID: 8300000, guid: b20bca41b7becc14482bd728dd06979a, type: 3}
   audioSource: {fileID: 1156526629}
   itemDropPrefab: {fileID: 0}
+  gateTrigger: {fileID: 0}
 --- !u!95 &1156526631
 Animator:
   serializedVersion: 7
@@ -54345,7 +54346,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 660200405}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: PlayGame
         m_Mode: 1

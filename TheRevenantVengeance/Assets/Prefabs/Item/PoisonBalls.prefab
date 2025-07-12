@@ -165,3 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17437aa91a6f6e24a8211ceb9d2af84f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
+  initialDamage: 10
+  poisonDamagePerSecond: 20
+  poisonDuration: 5
