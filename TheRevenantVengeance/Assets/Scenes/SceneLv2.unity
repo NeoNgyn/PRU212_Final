@@ -38137,7 +38137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  maxHp: 100000
+  maxHp: 100
   currentHp: 0
   healthBar: {fileID: 1173756673}
   maxEnergy: 100

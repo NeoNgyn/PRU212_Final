@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class BossSummoner : EnemyController
 {
     private Animator animator;
-    private bool isAttacking = false;
+    //private bool isAttacking = false;
 
     [Header("General Boss Settings")]
     [SerializeField] private float attackAnimationDuration = 1.0f;
