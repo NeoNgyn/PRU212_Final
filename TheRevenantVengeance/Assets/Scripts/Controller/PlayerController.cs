@@ -66,6 +66,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float ultimateDuration = 3f;
     private bool isUsingUltimate = false;
 
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -102,11 +103,15 @@ public class PlayerController : MonoBehaviour
             attackHitbox.SetActive(false);
         }
 
-        if (PlayerState.acquiredSwordSpin)
+        
+        if (PlayerState.acquiredFireball && PlayerState.savedFireballPrefab != null)
         {
-            ShowCircleEffect();
-            ActivateSwordSpin();
-            //PlayerState.acquiredSwordSpin = false;
+            SetFireballPrefab(PlayerState.savedFireballPrefab);
+        }
+
+        if (PlayerState.acquiredAura && PlayerState.savedAuraPrefab != null)
+        {
+            ActivateAura(PlayerState.savedAuraPrefab);
         }
     }
 
@@ -133,6 +138,14 @@ public class PlayerController : MonoBehaviour
             Attack();
         }
         AutoShootFireball();
+
+        if (PlayerState.acquiredSwordSpin)
+        {
+            ShowCircleEffect();
+            ActivateSwordSpin();
+            //PlayerState.acquiredSwordSpin = false;
+        }
+
         if (isPoisoned)
         {
             poisonTimer -= Time.deltaTime;
