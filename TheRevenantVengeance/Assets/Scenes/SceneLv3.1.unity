@@ -3155,7 +3155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerText: {fileID: 1020512460}
   countdownTime: 180
-  bossEnemy: {fileID: 0}
+  bossEnemy: {fileID: 1156526628}
   healthBar: {fileID: 1992905493}
   healthText: {fileID: 144804193}
   energyBar: {fileID: 1930561858}
@@ -53058,7 +53058,7 @@ MonoBehaviour:
   takeHitSound: {fileID: 8300000, guid: b20bca41b7becc14482bd728dd06979a, type: 3}
   audioSource: {fileID: 1156526629}
   itemDropPrefab: {fileID: 0}
-  gateTrigger: {fileID: 0}
+  gateTrigger: {fileID: 334721850}
 --- !u!95 &1156526631
 Animator:
   serializedVersion: 7
