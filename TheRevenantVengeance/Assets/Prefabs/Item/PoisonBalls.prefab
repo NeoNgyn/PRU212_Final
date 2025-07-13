@@ -167,5 +167,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   initialDamage: 10
-  poisonDamagePerSecond: 20
+  poisonDamagePerSecond: 2
   poisonDuration: 5

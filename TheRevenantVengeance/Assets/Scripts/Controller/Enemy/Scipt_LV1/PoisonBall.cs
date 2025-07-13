@@ -4,7 +4,7 @@ public class PoisonFireball : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
     [SerializeField] private float initialDamage = 10f;
-    [SerializeField] private float poisonDamagePerSecond = 3f;
+    [SerializeField] private int poisonDamagePerSecond = 3;
     [SerializeField] private float poisonDuration = 5f;
 
     private Vector2 direction;
@@ -27,7 +27,7 @@ public class PoisonFireball : MonoBehaviour
             if (player != null)
             {
                 player.TakeDamage(initialDamage);
-                player.ApplyPoison(poisonDamagePerSecond, poisonDuration);
+                player.ApplyPoison((int)poisonDamagePerSecond, poisonDuration);
             }
 
             Destroy(gameObject);
