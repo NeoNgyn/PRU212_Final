@@ -903,7 +903,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  maxHp: 100000
+  maxHp: 100
   currentHp: 0
   healthBar: {fileID: 316208506}
   maxEnergy: 100
@@ -113937,6 +113937,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4190905032595072403, guid: 22f8cc1ecddb9704ca24cf499105e7ed, type: 3}
+      propertyPath: maxHp
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190905032595072403, guid: 22f8cc1ecddb9704ca24cf499105e7ed, type: 3}
+      propertyPath: enemySpeed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190905032595072403, guid: 22f8cc1ecddb9704ca24cf499105e7ed, type: 3}
       propertyPath: itemPrefab
       value: 
       objectReference: {fileID: 0}
@@ -118165,7 +118173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 1127028369}
-  countdownTime: 180
+  countdownTime: 3
   bossEnemy: {fileID: 1159719636}
   healthBar: {fileID: 704232639}
   healthText: {fileID: 906098059}

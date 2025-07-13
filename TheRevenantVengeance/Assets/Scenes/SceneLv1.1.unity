@@ -105802,7 +105802,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 1766433190}
-  countdownTime: 5
+  countdownTime: 120
   bossEnemy: {fileID: 965019850}
   healthBar: {fileID: 844703766}
   healthText: {fileID: 1625082088}
@@ -120742,7 +120742,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  maxHp: 1000000
+  maxHp: 100
   currentHp: 0
   healthBar: {fileID: 574383163}
   maxEnergy: 100
