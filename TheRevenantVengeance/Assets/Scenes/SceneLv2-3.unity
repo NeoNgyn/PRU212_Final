@@ -173347,7 +173347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  maxHp: 100000
+  maxHp: 100
   currentHp: 0
   healthBar: {fileID: 1173756673}
   maxEnergy: 100
@@ -183928,9 +183928,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 586838731366744368, guid: 22f8cc1ecddb9704ca24cf499105e7ed, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1533006342383993212, guid: 22f8cc1ecddb9704ca24cf499105e7ed, type: 3}
       propertyPath: m_Volume
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190905032595072403, guid: 22f8cc1ecddb9704ca24cf499105e7ed, type: 3}
+      propertyPath: maxHp
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190905032595072403, guid: 22f8cc1ecddb9704ca24cf499105e7ed, type: 3}
+      propertyPath: enemySpeed
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4190905032595072403, guid: 22f8cc1ecddb9704ca24cf499105e7ed, type: 3}
       propertyPath: gateTrigger
