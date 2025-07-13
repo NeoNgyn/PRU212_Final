@@ -66,6 +66,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float ultimateDuration = 3f;
     private bool isUsingUltimate = false;
 
+    private Coroutine poisonCoroutine;
 
     private void Awake()
     {
@@ -144,20 +145,6 @@ public class PlayerController : MonoBehaviour
             ShowCircleEffect();
             ActivateSwordSpin();
             //PlayerState.acquiredSwordSpin = false;
-        }
-
-        if (isPoisoned)
-        {
-            poisonTimer -= Time.deltaTime;
-
-            // Mỗi frame gây damage từ từ
-            TakeDamage(poisonDamagePerSecond * Time.deltaTime);
-
-            if (poisonTimer <= 0f)
-            {
-                isPoisoned = false;
-                Debug.Log("Hết hiệu ứng độc.");
-            }
         }
 
         if (!isUsingUltimate && Input.GetKeyDown(KeyCode.R) && currentEnergy >= maxEnergy)
@@ -501,14 +488,36 @@ public class PlayerController : MonoBehaviour
             nextFireTime = Time.time + fireRate;
         }
     }
-    public void ApplyPoison(float damagePerSecond, float duration)
+    //public void ApplyPoison(float damagePerSecond, float duration)
+    //{
+    //    poisonDamagePerSecond = damagePerSecond;
+    //    poisonTimer = duration;
+    //    isPoisoned = true;
+    //    Debug.Log("Player bị dính độc!");
+    //}
+    public void ApplyPoison(int damagePerSecond, float duration)
     {
-        poisonDamagePerSecond = damagePerSecond;
-        poisonTimer = duration;
-        isPoisoned = true;
-        Debug.Log("Player bị dính độc!");
-    }
+        if (poisonCoroutine != null)
+            StopCoroutine(poisonCoroutine);
 
+        poisonCoroutine = StartCoroutine(PoisonEffect(damagePerSecond, duration));
+    }
+    private IEnumerator PoisonEffect(int damagePerSecond, float duration)
+    {
+        float elapsed = 0f;
+        isPoisoned = true;
+
+        while (elapsed < duration)
+        {
+            TakeDamage(damagePerSecond);
+            yield return new WaitForSeconds(1f);
+            elapsed += 1f;
+        }
+
+        isPoisoned = false;
+        poisonCoroutine = null;
+        Debug.Log("Hết hiệu ứng độc.");
+    }
     public void ActivateSwordSpin()
     {
         if (hasSwordSpin) return; // Không cho kích hoạt lại nếu đã có

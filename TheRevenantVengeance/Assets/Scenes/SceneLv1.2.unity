@@ -301,7 +301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gateTilemap: {fileID: 760269437}
-  gateMessageText: {fileID: 525837656}
+  gateMessageText: {fileID: 1006612948}
   gateOpenSound: {fileID: 0}
   gateCollider: {fileID: 12318106}
   targetSceneName: SceneLv1.3
@@ -99849,7 +99849,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -99998,7 +99998,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpeed: 1
-  maxHp: 100
+  maxHp: 1000
   healthBar: {fileID: 1675031860}
   enterDamage: 10
   stayDamage: 10
@@ -100018,7 +100018,6 @@ MonoBehaviour:
   orbitRadius: 5
   orbitSpeed: 100
   orbitDuration: 5
-  maxHealth: 200
   regenRate: 2
   gateTrigger: {fileID: 12318105}
   audioSource: {fileID: 161346067}
@@ -100026,7 +100025,6 @@ MonoBehaviour:
   fireballSound: {fileID: 8300000, guid: 71c23d4f52b507c469af0709e8affc4f, type: 3}
   takeHitSound: {fileID: 8300000, guid: b20bca41b7becc14482bd728dd06979a, type: 3}
   dieSound: {fileID: 8300000, guid: a9b5d18137f88394b92164fff6f11e18, type: 3}
-  bossActivated: 0
 --- !u!82 &161346067
 AudioSource:
   m_ObjectHideFlags: 0
