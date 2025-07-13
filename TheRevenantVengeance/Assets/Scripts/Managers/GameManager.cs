@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
     {
         introduction.SetActive(false);
         playerController.SetActive(true);
-        uiComponent.SetActive(false);
+        uiComponent.SetActive(true);
 
     }
 

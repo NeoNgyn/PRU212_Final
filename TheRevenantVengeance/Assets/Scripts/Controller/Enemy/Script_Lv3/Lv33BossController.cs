@@ -30,6 +30,7 @@ public class Lv33BossController : EnemyController
     private float summonCooldown = 2.5f;
     private float nextSummonTime = 0f;
     private bool enraged = false;
+    private bool isInvincible = false;
     private float spiralAngle = 0f;
 
     [SerializeField] private float meleeAttackCooldown = 3f;
@@ -89,7 +90,9 @@ public class Lv33BossController : EnemyController
                 }
                 else
                 {
+                    isInvincible = true;
                     animator.SetTrigger("Combo");
+                    StartCoroutine(EndInvincibilityAfterAnimation("Combo"));
                     if (audioSource != null && attackSound != null)
                     {
                         audioSource.PlayOneShot(attackSound);
@@ -99,6 +102,28 @@ public class Lv33BossController : EnemyController
             }
         }
     }
+    private IEnumerator EndInvincibilityAfterAnimation(string animationName)
+    {
+        AnimatorStateInfo state = animator.GetCurrentAnimatorStateInfo(0);
+
+        while (!state.IsName(animationName))
+        {
+            yield return null;
+            state = animator.GetCurrentAnimatorStateInfo(0);
+        }
+
+        yield return new WaitForSeconds(state.length);
+
+        isInvincible = false;
+    }
+
+    public override void TakeDamage(float damage, Vector2 knockbackDirection)
+    {
+        if (isInvincible) return; 
+
+        base.TakeDamage(damage, knockbackDirection);
+    }
+
 
     private void EnterEnragedState()
     {
