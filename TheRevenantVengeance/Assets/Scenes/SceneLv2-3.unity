@@ -716,6 +716,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultMusic: {fileID: 8300000, guid: f5360eb55bad326428a88360b30f465b, type: 3}
+  Lv11Music: {fileID: 8300000, guid: 08d4ad320e4c41644a0af3f81b877b67, type: 3}
+  Lv12Music: {fileID: 8300000, guid: 08d4ad320e4c41644a0af3f81b877b67, type: 3}
+  Lv13Music: {fileID: 8300000, guid: fe749bdecfa6af44b82f079fa8e0426e, type: 3}
   Lv2Music: {fileID: 8300000, guid: f5360eb55bad326428a88360b30f465b, type: 3}
   Lv22Music: {fileID: 8300000, guid: f5360eb55bad326428a88360b30f465b, type: 3}
   Lv23Music: {fileID: 8300000, guid: 9b6e26ff30d306040a6a4ac3c5a48285, type: 3}
@@ -843,7 +846,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 60718297
-  m_SortingLayer: -14
+  m_SortingLayer: -15
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -145638,7 +145641,7 @@ GameObject:
   - component: {fileID: 179851436}
   - component: {fileID: 179851435}
   - component: {fileID: 179851434}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Rocks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145702,7 +145705,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 831713227
-  m_SortingLayer: -13
+  m_SortingLayer: -14
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -151102,7 +151105,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2119438533
-  m_SortingLayer: 5
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: -3699697277425479114, guid: 802ba4aa4732c844991b239d2d6edc25, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -151507,6 +151510,8 @@ MonoBehaviour:
   introduction: {fileID: 1719580613}
   dead: {fileID: 723623542}
   uiComponent: {fileID: 762782506}
+  deathAudioSource: {fileID: 0}
+  deathClip: {fileID: 0}
 --- !u!4 &319111798
 Transform:
   m_ObjectHideFlags: 0
@@ -151842,7 +151847,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 581624327
-  m_SortingLayer: -6
+  m_SortingLayer: -7
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -158732,7 +158737,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: -46.7, z: -10}
+  m_LocalPosition: {x: 0.9, y: -36.54, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -159012,7 +159017,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 678808283
-  m_SortingLayer: -9
+  m_SortingLayer: -10
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -172633,7 +172638,7 @@ Transform:
   m_GameObject: {fileID: 685158509}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: -46.7, z: -10}
+  m_LocalPosition: {x: 0.9, y: -36.54, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -173491,7 +173496,7 @@ GameObject:
   - component: {fileID: 749433001}
   - component: {fileID: 749433002}
   - component: {fileID: 749433003}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -173562,7 +173567,7 @@ Transform:
   m_GameObject: {fileID: 749432996}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: -46.7, z: 0}
+  m_LocalPosition: {x: 0.9, y: -36.54, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -173986,6 +173991,7 @@ MonoBehaviour:
   - {fileID: 5964038500432494917, guid: 19ab8d5954e583c4e96e46e11a575a73, type: 3}
   - {fileID: 2309872560824219054, guid: e103ef9eadc7c754297040f0b6a50a53, type: 3}
   - {fileID: 525978846963190391, guid: 0154fcd13d6dc4c4dbe46747bdfca57d, type: 3}
+  - {fileID: 6881754498771338574, guid: b9ec62bfa41dfc14bbbfeec9cabcab94, type: 3}
   spawnPoints:
   - {fileID: 121242406}
   - {fileID: 1825153659}
@@ -174902,131 +174908,9 @@ CompositeCollider2D:
   m_GeometryType: 0
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths:
-  - m_Collider: {fileID: 1022243947}
-    m_ColliderPaths:
-    - - X: -71250000
-        Y: 486875008
-      - X: -71875000
-        Y: 490000000
-      - X: -70000000
-        Y: 490624992
-      - X: -70000000
-        Y: 500000000
-      - X: -80000000
-        Y: 500000000
-      - X: -80000000
-        Y: 490000000
-      - X: -77500000
-        Y: 490000000
-      - X: -78750000
-        Y: 485000000
-      - X: -78750000
-        Y: 480000000
-      - X: -71250000
-        Y: 480000000
-    - - X: 78750000
-        Y: 486875008
-      - X: 78125000
-        Y: 490000000
-      - X: 80000000
-        Y: 490624992
-      - X: 80000000
-        Y: 500000000
-      - X: 70000000
-        Y: 500000000
-      - X: 70000000
-        Y: 490000000
-      - X: 72500000
-        Y: 490000000
-      - X: 71250000
-        Y: 485000000
-      - X: 71250000
-        Y: 480000000
-      - X: 78750000
-        Y: 480000000
-    - - X: -71250000
-        Y: 336875008
-      - X: -71875000
-        Y: 340000000
-      - X: -70000000
-        Y: 340624992
-      - X: -70000000
-        Y: 350000000
-      - X: -80000000
-        Y: 350000000
-      - X: -80000000
-        Y: 340000000
-      - X: -77500000
-        Y: 340000000
-      - X: -78750000
-        Y: 335000000
-      - X: -78750000
-        Y: 330000000
-      - X: -71250000
-        Y: 330000000
-    - - X: 78750000
-        Y: 336875008
-      - X: 78125000
-        Y: 340000000
-      - X: 80000000
-        Y: 340624992
-      - X: 80000000
-        Y: 350000000
-      - X: 70000000
-        Y: 350000000
-      - X: 70000000
-        Y: 340000000
-      - X: 72500000
-        Y: 340000000
-      - X: 71250000
-        Y: 335000000
-      - X: 71250000
-        Y: 330000000
-      - X: 78750000
-        Y: 330000000
+  m_ColliderPaths: []
   m_CompositePaths:
-    m_Paths:
-    - - {x: 7.8749704, y: 48}
-      - {x: 7.8749995, y: 48.687504}
-      - {x: 7.8125243, y: 49.000008}
-      - {x: 8, y: 49.06252}
-      - {x: 7.9999704, y: 50}
-      - {x: 7, y: 49.999973}
-      - {x: 7.0000296, y: 49}
-      - {x: 7.2499905, y: 48.99996}
-      - {x: 7.125, y: 48.499996}
-      - {x: 7.1250296, y: 48}
-    - - {x: -7.1250296, y: 48}
-      - {x: -7.125001, y: 48.687504}
-      - {x: -7.187476, y: 49.000008}
-      - {x: -7, y: 49.06252}
-      - {x: -7.0000296, y: 50}
-      - {x: -8, y: 49.999973}
-      - {x: -7.9999704, y: 49}
-      - {x: -7.7500095, y: 48.99996}
-      - {x: -7.875, y: 48.499996}
-      - {x: -7.8749704, y: 48}
-    - - {x: 7.8749704, y: 33}
-      - {x: 7.8749995, y: 33.687504}
-      - {x: 7.8125243, y: 34.000008}
-      - {x: 8, y: 34.06252}
-      - {x: 7.9999704, y: 35}
-      - {x: 7, y: 34.999973}
-      - {x: 7.0000296, y: 34}
-      - {x: 7.2499905, y: 33.99996}
-      - {x: 7.125, y: 33.499996}
-      - {x: 7.1250296, y: 33}
-    - - {x: -7.1250296, y: 33}
-      - {x: -7.125001, y: 33.687504}
-      - {x: -7.187476, y: 34.000008}
-      - {x: -7, y: 34.06252}
-      - {x: -7.0000296, y: 35}
-      - {x: -8, y: 34.999973}
-      - {x: -7.9999704, y: 34}
-      - {x: -7.7500095, y: 33.99996}
-      - {x: -7.875, y: 33.499996}
-      - {x: -7.8749704, y: 33}
+    m_Paths: []
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
@@ -175288,7 +175172,7 @@ TilemapCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_CompositeOperation: 1
+  m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
@@ -175882,7 +175766,7 @@ GameObject:
   - component: {fileID: 1294164535}
   - component: {fileID: 1294164534}
   - component: {fileID: 1294164533}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175946,7 +175830,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 831713227
-  m_SortingLayer: -13
+  m_SortingLayer: -14
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -184798,22 +184682,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 586838731366744368, guid: 22f8cc1ecddb9704ca24cf499105e7ed, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1533006342383993212, guid: 22f8cc1ecddb9704ca24cf499105e7ed, type: 3}
-      propertyPath: m_Volume
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4190905032595072403, guid: 22f8cc1ecddb9704ca24cf499105e7ed, type: 3}
-      propertyPath: maxHp
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 4190905032595072403, guid: 22f8cc1ecddb9704ca24cf499105e7ed, type: 3}
-      propertyPath: enemySpeed
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 4190905032595072403, guid: 22f8cc1ecddb9704ca24cf499105e7ed, type: 3}
       propertyPath: gateTrigger
       value: 
@@ -184861,10 +184729,6 @@ PrefabInstance:
     - target: {fileID: 7783546616830762170, guid: 22f8cc1ecddb9704ca24cf499105e7ed, type: 3}
       propertyPath: m_Name
       value: Boss
-      objectReference: {fileID: 0}
-    - target: {fileID: 7783546616830762170, guid: 22f8cc1ecddb9704ca24cf499105e7ed, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
