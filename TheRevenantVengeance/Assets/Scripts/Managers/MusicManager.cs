@@ -92,7 +92,7 @@ public class MusicManager : MonoBehaviour
     //	}
     //}
 
-    public static MusicManager instance;
+    public static MusicManager Instance;
 
     private AudioSource audioSource;
 
@@ -109,9 +109,9 @@ public class MusicManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
             DontDestroyOnLoad(gameObject);
 
             audioSource = GetComponent<AudioSource>();
@@ -188,5 +188,23 @@ public class MusicManager : MonoBehaviour
     public void SetVolume(float volume)
     {
         audioSource.volume = Mathf.Clamp01(volume);
+    }
+    public void PauseMusic()
+    {
+        if (audioSource.isPlaying)
+            audioSource.Pause();
+    }
+
+    public void ResumeMusic()
+    {
+        if (!audioSource.isPlaying)
+            audioSource.UnPause();
+    }
+
+    public void RestartMusic()
+    {
+        audioSource.Stop();
+        audioSource.time = 0f;
+        audioSource.Play();
     }
 }

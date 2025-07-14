@@ -67,6 +67,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float ultimateDuration = 3f;
     private bool isUsingUltimate = false;
 
+    private Coroutine poisonCoroutine;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -103,11 +105,15 @@ public class PlayerController : MonoBehaviour
             attackHitbox.SetActive(false);
         }
 
-        if (PlayerState.acquiredSwordSpin)
+        
+        if (PlayerState.acquiredFireball && PlayerState.savedFireballPrefab != null)
         {
-            ShowCircleEffect();
-            ActivateSwordSpin();
-            //PlayerState.acquiredSwordSpin = false;
+            SetFireballPrefab(PlayerState.savedFireballPrefab);
+        }
+
+        if (PlayerState.acquiredAura && PlayerState.savedAuraPrefab != null)
+        {
+            ActivateAura(PlayerState.savedAuraPrefab);
         }
     }
 
@@ -134,18 +140,12 @@ public class PlayerController : MonoBehaviour
             Attack();
         }
         AutoShootFireball();
-        if (isPoisoned)
+
+        if (PlayerState.acquiredSwordSpin)
         {
-            poisonTimer -= Time.deltaTime;
-
-            // Mỗi frame gây damage từ từ
-            TakeDamage(poisonDamagePerSecond * Time.deltaTime);
-
-            if (poisonTimer <= 0f)
-            {
-                isPoisoned = false;
-                Debug.Log("Hết hiệu ứng độc.");
-            }
+            ShowCircleEffect();
+            ActivateSwordSpin();
+            //PlayerState.acquiredSwordSpin = false;
         }
 
         if (!isUsingUltimate && Input.GetKeyDown(KeyCode.R) && currentEnergy >= maxEnergy)
@@ -493,14 +493,36 @@ public class PlayerController : MonoBehaviour
             nextFireTime = Time.time + fireRate;
         }
     }
-    public void ApplyPoison(float damagePerSecond, float duration)
+    //public void ApplyPoison(float damagePerSecond, float duration)
+    //{
+    //    poisonDamagePerSecond = damagePerSecond;
+    //    poisonTimer = duration;
+    //    isPoisoned = true;
+    //    Debug.Log("Player bị dính độc!");
+    //}
+    public void ApplyPoison(int damagePerSecond, float duration)
     {
-        poisonDamagePerSecond = damagePerSecond;
-        poisonTimer = duration;
-        isPoisoned = true;
-        Debug.Log("Player bị dính độc!");
-    }
+        if (poisonCoroutine != null)
+            StopCoroutine(poisonCoroutine);
 
+        poisonCoroutine = StartCoroutine(PoisonEffect(damagePerSecond, duration));
+    }
+    private IEnumerator PoisonEffect(int damagePerSecond, float duration)
+    {
+        float elapsed = 0f;
+        isPoisoned = true;
+
+        while (elapsed < duration)
+        {
+            TakeDamage(damagePerSecond);
+            yield return new WaitForSeconds(1f);
+            elapsed += 1f;
+        }
+
+        isPoisoned = false;
+        poisonCoroutine = null;
+        Debug.Log("Hết hiệu ứng độc.");
+    }
     public void ActivateSwordSpin()
     {
         if (hasSwordSpin) return; // Không cho kích hoạt lại nếu đã có

@@ -23,7 +23,7 @@ public class PoisonBossEnemy : EnemyController
     [SerializeField] private float orbitDuration = 5f;
 
     [Header("Health Settings")]
-    [SerializeField] private float maxHealth = 100f;
+    //[SerializeField] private float maxHealth = 100f;
     [SerializeField] private float regenRate = 2f;
     [SerializeField] private GateTriggerBoss gateTrigger;
 
@@ -34,7 +34,7 @@ public class PoisonBossEnemy : EnemyController
     [SerializeField] private AudioClip takeHitSound;
     [SerializeField] private AudioClip dieSound;
 
-    [SerializeField] private bool bossActivated = false;
+    
 
     private Vector3 nextPatrolTarget;
     private float fireballTimer = 0f;
@@ -54,7 +54,7 @@ public class PoisonBossEnemy : EnemyController
     protected override void Start()
     {
         base.Start();
-        maxHp = maxHealth;
+        //maxHp = maxHp;
         currentHp = maxHp;
 
         nextPatrolTarget = patrolPointRight.position;
@@ -63,7 +63,7 @@ public class PoisonBossEnemy : EnemyController
 
     protected override void Update()
     {
-        if (!bossActivated || isDead) return;
+        if (isDead) return;
         base.Update();
 
         if (player == null) return;
@@ -279,7 +279,7 @@ public class PoisonBossEnemy : EnemyController
     protected override void Die()
     {
         if (isDead) return;
-        isDead = true;
+        //isDead = true;
         animator?.SetTrigger("Die");
 
         if (dieSound != null && audioSource != null)
@@ -289,12 +289,9 @@ public class PoisonBossEnemy : EnemyController
         {
             gateTrigger.OpenGate();
         }
-
-        Destroy(gameObject, 3f);
+        base.Die();
+        //Destroy(gameObject, 3f);
     }
 
-    public void ActivateBoss()
-    {
-        bossActivated = true;
-    }
+  
 }
