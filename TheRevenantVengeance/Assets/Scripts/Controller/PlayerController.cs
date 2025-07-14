@@ -372,7 +372,19 @@ public class PlayerController : MonoBehaviour
         }
 
         Destroy(gameObject, 3f); // Hủy sau 2 giây (đảm bảo animation có thời gian để phát)
+
+        HandleDeath();
     }
+
+    private IEnumerator HandleDeath()
+    {
+        yield return new WaitForSeconds(5f); 
+
+        gameManager.Dead();
+        
+    }
+
+
     public void SetFireballPrefab(GameObject prefab)
     {
         fireballPrefab = prefab;
