@@ -1,5 +1,6 @@
 ﻿using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -17,16 +18,18 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI levelText;
 
     [SerializeField] private GameObject introduction;
-    [SerializeField] private GameObject playerController;
+    [SerializeField] private GameObject dead;
     [SerializeField] private GameObject uiComponent;
 
+    [SerializeField] private AudioSource deathAudioSource; // Assign in Inspector
+    [SerializeField] private AudioClip deathClip; // Your death sound
 
 
     void Start()
     {
         // Mở introduction trước khi chơi
+        Time.timeScale = 0f;
         introduction.SetActive(true);
-        playerController.SetActive(false);
         uiComponent.SetActive(false);
 
         UpdateTimerUI();
@@ -51,10 +54,27 @@ public class GameManager : MonoBehaviour
 
     public void PlayGame()
     {
+        Time.timeScale = 1f;
         introduction.SetActive(false);
-        playerController.SetActive(true);
         uiComponent.SetActive(true);
 
+    }
+
+    public void Dead()
+    {
+        Time.timeScale = 0f;
+        dead.SetActive(true);
+    }
+
+    public void PlayAgain()
+    {
+        Time.timeScale = 1f; // Ensure the game is not paused
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void BackMenu()
+    {
+        SceneManager.LoadScene("StartMenuScene");
     }
 
     public void UpdateHealthBarUI(float currentHp, float maxHp)

@@ -50,6 +50,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioClip attackClip;
     [SerializeField] private AudioClip takeHitClip;
     [SerializeField] private AudioClip ultiClip;
+    [SerializeField] private AudioClip deathClip;
 
     [SerializeField] private GameObject swordSpinPrefab;
     [SerializeField] private Transform spinCenter;
@@ -346,6 +347,10 @@ public class PlayerController : MonoBehaviour
     {
         // Kích hoạt animation chết
         animator.SetTrigger("Die");
+        if (audioSource != null && deathClip != null)
+        {
+            audioSource.PlayOneShot(deathClip);
+        }
         animator.SetBool("isDead", true);
 
         // Ngăn chặn các hành động khác của người chơi sau khi chết
@@ -367,7 +372,19 @@ public class PlayerController : MonoBehaviour
         }
 
         Destroy(gameObject, 3f); // Hủy sau 2 giây (đảm bảo animation có thời gian để phát)
+
+        HandleDeath();
     }
+
+    private IEnumerator HandleDeath()
+    {
+        yield return new WaitForSeconds(5f); 
+
+        gameManager.Dead();
+        
+    }
+
+
     public void SetFireballPrefab(GameObject prefab)
     {
         fireballPrefab = prefab;
