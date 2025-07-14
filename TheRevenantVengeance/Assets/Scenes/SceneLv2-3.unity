@@ -151507,6 +151507,8 @@ MonoBehaviour:
   introduction: {fileID: 1719580613}
   dead: {fileID: 723623542}
   uiComponent: {fileID: 762782506}
+  deathAudioSource: {fileID: 0}
+  deathClip: {fileID: 0}
 --- !u!4 &319111798
 Transform:
   m_ObjectHideFlags: 0
@@ -173688,6 +173690,7 @@ MonoBehaviour:
   ultimateRadius: 20
   ultimateTimeScale: 0.1
   ultimateDuration: 3
+  damageTextPrefab: {fileID: 7958397516696462843, guid: 3f714a41d1df0a544bfe1ad42b092f56, type: 3}
 --- !u!95 &749433002
 Animator:
   serializedVersion: 7
@@ -184735,6 +184738,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDamage: 30
+  damageTextPrefab: {fileID: 7958397516696462843, guid: 76e04eb410b32834d9fade2ae5204731, type: 3}
 --- !u!212 &2137638122
 SpriteRenderer:
   m_ObjectHideFlags: 0
