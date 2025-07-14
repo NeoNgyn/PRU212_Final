@@ -99685,6 +99685,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDamage: 10
+  damageTextPrefab: {fileID: 7958397516696462843, guid: 76e04eb410b32834d9fade2ae5204731, type: 3}
 --- !u!61 &179071806
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -102068,7 +102069,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 35627602503788784, guid: 385abbc9f63ce4e4aba22b710eb46077, type: 3}
-  - {fileID: 4025130909941794204, guid: 1af9bae8aff646d409dc42acdba8b8ba, type: 3}
+  - {fileID: 4025130909941794204, guid: 6ad40d286f8ac174b93ca66bf1f6ad83, type: 3}
   - {fileID: 6812418131490326761, guid: 1efaed18e91870f469bf6ccc724aa442, type: 3}
   - {fileID: 7750394345160083386, guid: 98b3ab617d84061419fef1e766e391b7, type: 3}
   spawnPoints:
@@ -102077,7 +102078,7 @@ MonoBehaviour:
   - {fileID: 1844124890}
   - {fileID: 1124557096}
   - {fileID: 1870066661}
-  timeDelay: 3
+  timeDelay: 1
 --- !u!1001 &802639223
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -105869,15 +105870,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerText: {fileID: 1211547118}
   countdownTime: 180
-  bossEnemy: {fileID: 0}
+  bossEnemy: {fileID: 965019850}
   healthBar: {fileID: 1087265791}
   healthText: {fileID: 721643369}
   energyBar: {fileID: 59510353}
   expBar: {fileID: 322130544}
   levelText: {fileID: 1799076447}
-  introduction: {fileID: 696407704}
+  introduction: {fileID: 1520351958}
   dead: {fileID: 1048750258}
   uiComponent: {fileID: 413810245}
+  deathAudioSource: {fileID: 0}
+  deathClip: {fileID: 0}
 --- !u!4 &926095507
 Transform:
   m_ObjectHideFlags: 0
@@ -121838,6 +121841,7 @@ MonoBehaviour:
   ultimateRadius: 7.5
   ultimateTimeScale: 0.1
   ultimateDuration: 3
+  damageTextPrefab: {fileID: 7958397516696462843, guid: 3f714a41d1df0a544bfe1ad42b092f56, type: 3}
 --- !u!50 &2115518379
 Rigidbody2D:
   serializedVersion: 5
