@@ -65,6 +65,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float ultimateRadius = 7.5f;
     [SerializeField] private float ultimateTimeScale = 0.1f;
     [SerializeField] private float ultimateDuration = 3f;
+
+    [SerializeField] private GameObject damageTextPrefab;
+
     private bool isUsingUltimate = false;
 
     private Coroutine poisonCoroutine;
@@ -252,6 +255,17 @@ public class PlayerController : MonoBehaviour
         currentHp -= damage;
         currentHp = Mathf.Max(currentHp, 0);
         UpdateHealthBar();
+        if (damageTextPrefab != null)
+        {
+            Vector3 spawnPos = transform.position + new Vector3(0, 1.2f, 0); // bay lên đầu player
+            GameObject textObj = Instantiate(damageTextPrefab, spawnPos, Quaternion.identity);
+
+            DamageText dmgText = textObj.GetComponent<DamageText>();
+            if (dmgText != null)
+            {
+                dmgText.SetDamage(damage);
+            }
+        }
         if (currentHp <= 0)
         {
             animator.ResetTrigger("TakeHit");

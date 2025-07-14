@@ -99716,6 +99716,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDamage: 10
+  damageTextPrefab: {fileID: 7958397516696462843, guid: 76e04eb410b32834d9fade2ae5204731, type: 3}
 --- !u!61 &179071806
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -106041,13 +106042,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerText: {fileID: 1211547118}
   countdownTime: 180
-  bossEnemy: {fileID: 0}
+  bossEnemy: {fileID: 965019850}
   healthBar: {fileID: 1087265791}
   healthText: {fileID: 721643369}
   energyBar: {fileID: 59510353}
   expBar: {fileID: 322130544}
   levelText: {fileID: 1799076447}
-  introduction: {fileID: 696407704}
+  introduction: {fileID: 1520351958}
   dead: {fileID: 1048750258}
   uiComponent: {fileID: 413810245}
   deathAudioSource: {fileID: 0}
@@ -122108,6 +122109,7 @@ MonoBehaviour:
   ultimateRadius: 7.5
   ultimateTimeScale: 0.1
   ultimateDuration: 3
+  damageTextPrefab: {fileID: 7958397516696462843, guid: 3f714a41d1df0a544bfe1ad42b092f56, type: 3}
 --- !u!50 &2115518379
 Rigidbody2D:
   serializedVersion: 5

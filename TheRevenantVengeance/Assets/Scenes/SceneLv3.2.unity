@@ -1067,6 +1067,7 @@ MonoBehaviour:
   ultimateRadius: 10
   ultimateTimeScale: 0.1
   ultimateDuration: 3
+  damageTextPrefab: {fileID: 7958397516696462843, guid: 3f714a41d1df0a544bfe1ad42b092f56, type: 3}
 --- !u!50 &173187033
 Rigidbody2D:
   serializedVersion: 5
@@ -117672,6 +117673,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDamage: 30
+  damageTextPrefab: {fileID: 7958397516696462843, guid: 76e04eb410b32834d9fade2ae5204731, type: 3}
 --- !u!61 &1573582320
 BoxCollider2D:
   m_ObjectHideFlags: 0
