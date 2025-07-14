@@ -373,15 +373,12 @@ public class PlayerController : MonoBehaviour
 
         Destroy(gameObject, 3f); // Hủy sau 2 giây (đảm bảo animation có thời gian để phát)
 
-        HandleDeath();
+        Invoke(nameof(HandleDeath), 1f);
     }
 
-    private IEnumerator HandleDeath()
+    private void HandleDeath()
     {
-        yield return new WaitForSeconds(5f); 
-
         gameManager.Dead();
-        
     }
 
 
