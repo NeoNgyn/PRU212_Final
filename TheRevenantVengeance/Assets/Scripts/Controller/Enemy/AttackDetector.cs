@@ -59,12 +59,15 @@
 //	}
 //}
 using UnityEngine;
+using TMPro;
 
 public class AttackDetector : MonoBehaviour
 {
 	[SerializeField] public float attackDamage = 10f;
+    [SerializeField] private GameObject damageTextPrefab; // Prefab ?ã t?o
 
-	private void OnTriggerEnter2D(Collider2D collision)
+
+    private void OnTriggerEnter2D(Collider2D collision)
 	{
 		Debug.Log($"Va ch?m v?i: {collision.name} (Tag: {collision.tag})");
 
@@ -73,12 +76,25 @@ public class AttackDetector : MonoBehaviour
 			Debug.Log("Enemy ho?c Boss b? chém!");
 
 			EnemyController enemy = collision.GetComponent<EnemyController>();
-			if (enemy != null)
-			{
-				Vector2 knockbackDir = transform.parent.localScale.x < 0 ? Vector2.left : Vector2.right;
-				enemy.TakeDamage(attackDamage, knockbackDir);
-			}
-			else
+            if (enemy != null)
+            {
+                Vector2 knockbackDir = transform.parent.localScale.x < 0 ? Vector2.left : Vector2.right;
+                enemy.TakeDamage(attackDamage, knockbackDir);
+
+                // ?? Hi?n th? s? damage
+                if (damageTextPrefab != null)
+                {
+                    Vector3 spawnPos = collision.transform.position + new Vector3(0, 1, 0); // h?i trên ??u enemy
+                    GameObject textObj = Instantiate(damageTextPrefab, spawnPos, Quaternion.identity);
+
+                    DamageText dmgText = textObj.GetComponent<DamageText>();
+                    if (dmgText != null)
+                    {
+                        dmgText.SetDamage(attackDamage);
+                    }
+                }
+            }
+            else
 			{
 				Debug.LogWarning("Không tìm th?y EnemyController trong " + collision.name);
 			}
