@@ -48630,7 +48630,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 1482363237}
-  countdownTime: 3
+  countdownTime: 120
   bossEnemy: {fileID: 416089837}
   healthBar: {fileID: 969869966}
   healthText: {fileID: 681315634}
@@ -49413,7 +49413,7 @@ GameObject:
   - component: {fileID: 2032514556}
   - component: {fileID: 2032514555}
   - component: {fileID: 2032514554}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
