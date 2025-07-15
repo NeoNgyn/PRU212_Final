@@ -158272,10 +158272,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "The holy blade breaks upon ancient guilt.\r\n \u201CForgive me,\u201D
-    the once-friend whispers.\n(The holy blade breaks upon ancient guilt.\r\n \u201CForgive
-    me,\u201D the once-friend whispers.)\n\r\n He says nothing. The path of the forsaken
-    needs no forgiveness.\n(\xD4ng \u1EA5y kh\xF4ng n\xF3i g\xEC c\u1EA3. Con \u0111\u01B0\u1EDDng
-    c\u1EE7a k\u1EBB b\u1ECB b\u1ECF r\u01A1i kh\xF4ng c\u1EA7n s\u1EF1 tha th\u1EE9.)\r\n\r"
+    the once-friend whispers.\n He says nothing. The path of the forsaken needs no
+    forgiveness.\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fa229efd4ad92cf4c989adb39c96f90b, type: 2}
   m_sharedMaterial: {fileID: 6413047107904668315, guid: fa229efd4ad92cf4c989adb39c96f90b, type: 2}
@@ -173669,6 +173667,7 @@ MonoBehaviour:
   currentHp: 0
   healthBar: {fileID: 1173756673}
   maxEnergy: 100
+  currentEnergy: 0
   energyBar: {fileID: 8960665529090028046}
   maxExp: 10
   currentExp: 0
@@ -173687,6 +173686,8 @@ MonoBehaviour:
   deathClip: {fileID: 0}
   swordSpinPrefab: {fileID: 6612760209944274038, guid: 42cce2e7e964b0a49b5695c3cc9bc6a7, type: 3}
   spinCenter: {fileID: 1382654421}
+  swordSpin: {fileID: 0}
+  fireBall: {fileID: 0}
   circleEffectPrefab: {fileID: 8741384446669436887, guid: cac2265e3b98a0e4f9c674a3ae74d3b1, type: 3}
   ultimateVideoPlayer: {fileID: 23743320}
   ultimateCanvas: {fileID: 106221311}

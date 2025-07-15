@@ -121087,13 +121087,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "The gatekeeper falls, his chains broken by one who knows true death.\r\n(Ng\u01B0\u1EDDi
-    g\xE1c c\u1ED5ng ng\xE3 xu\u1ED1ng, xi\u1EC1ng x\xEDch c\u1EE7a anh ta b\u1ECB
-    ph\xE1 v\u1EE1 b\u1EDFi m\u1ED9t ng\u01B0\u1EDDi bi\u1EBFt \u0111\u1EBFn c\xE1i
-    ch\u1EBFt th\u1EF1c s\u1EF1.)\n\r\nThe way forward opens\u2014not into light,
-    but into the world that forgot.\n(Con \u0111\u01B0\u1EDDng ph\xEDa tr\u01B0\u1EDBc
-    m\u1EDF ra\u2014kh\xF4ng ph\u1EA3i h\u01B0\u1EDBng t\u1EDBi \xE1nh s\xE1ng, m\xE0
-    h\u01B0\u1EDBng t\u1EDBi th\u1EBF gi\u1EDBi \u0111\xE3 b\u1ECB l\xE3ng qu\xEAn.)\n\r"
+  m_text: "The gatekeeper falls, his chains broken by one who knows true death.\r\nThe
+    way forward opens\u2014not into light, but into the world that forgot."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fa229efd4ad92cf4c989adb39c96f90b, type: 2}
   m_sharedMaterial: {fileID: 6413047107904668315, guid: fa229efd4ad92cf4c989adb39c96f90b, type: 2}
@@ -122050,6 +122045,7 @@ MonoBehaviour:
   currentHp: 0
   healthBar: {fileID: 1173756673}
   maxEnergy: 100
+  currentEnergy: 0
   energyBar: {fileID: 8960665529090028046}
   maxExp: 10
   currentExp: 0
@@ -122068,6 +122064,8 @@ MonoBehaviour:
   deathClip: {fileID: 0}
   swordSpinPrefab: {fileID: 0}
   spinCenter: {fileID: 0}
+  swordSpin: {fileID: 0}
+  fireBall: {fileID: 0}
   circleEffectPrefab: {fileID: 0}
   ultimateVideoPlayer: {fileID: 2005404478}
   ultimateCanvas: {fileID: 2104664123}
@@ -137785,7 +137783,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 941711255}
-  countdownTime: 120
+  countdownTime: 5
   bossEnemy: {fileID: 821564170}
   healthBar: {fileID: 1503531938}
   healthText: {fileID: 505724688}

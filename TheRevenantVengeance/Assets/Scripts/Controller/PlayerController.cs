@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Image healthBar;
 
     [SerializeField] private int maxEnergy = 10;
-    private float currentEnergy;
+    public float currentEnergy;
     [SerializeField] private Image energyBar;
     private bool isPoisoned = false;
     private float poisonDamagePerSecond;
@@ -329,7 +329,7 @@ public class PlayerController : MonoBehaviour
         moveSpeed += 0.2f;
         maxHp += 10;
         currentHp = maxHp;
-        maxExp += 20;
+        maxExp += 100;
         currentExp = 0;
         attackDetector.attackDamage += 2;
         if (fireBall) fireBall.damage += 2;

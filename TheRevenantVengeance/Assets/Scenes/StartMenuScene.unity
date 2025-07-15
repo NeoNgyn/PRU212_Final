@@ -1610,28 +1610,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f323ce202e2cc9748962588498e12dd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSceneMusic: {fileID: 0}
-  levelMusicList:
-  - sceneName: SceneLv1.1 1
-    musicClip: {fileID: 0}
-  - sceneName: SceneLv1.2
-    musicClip: {fileID: 0}
-  - sceneName: SceneLv1.3
-    musicClip: {fileID: 0}
-  - sceneName: SceneLv2
-    musicClip: {fileID: 8300000, guid: f5360eb55bad326428a88360b30f465b, type: 3}
-  - sceneName: SceneLv2-2
-    musicClip: {fileID: 8300000, guid: f5360eb55bad326428a88360b30f465b, type: 3}
-  - sceneName: SceneLv2-3
-    musicClip: {fileID: 8300000, guid: 9b6e26ff30d306040a6a4ac3c5a48285, type: 3}
-  - sceneName: SceneLv3.1
-    musicClip: {fileID: 8300000, guid: c7479328d16a8294a9779ca21c43ef75, type: 3}
-  - sceneName: SceneLv3.2
-    musicClip: {fileID: 8300000, guid: ef22f79bb8ecc9349be59d28bb372632, type: 3}
-  - sceneName: SceneLv3.3
-    musicClip: {fileID: 8300000, guid: 9e9f6c2d536aa88448bee06c48839a36, type: 3}
-  - sceneName: EndGameScene
-    musicClip: {fileID: 8300000, guid: 9e9f6c2d536aa88448bee06c48839a36, type: 3}
+  defaultMusic: {fileID: 0}
+  Lv11Music: {fileID: 0}
+  Lv12Music: {fileID: 0}
+  Lv13Music: {fileID: 0}
+  Lv2Music: {fileID: 0}
+  Lv22Music: {fileID: 0}
+  Lv23Music: {fileID: 0}
+  Lv31Music: {fileID: 0}
+  Lv32Music: {fileID: 0}
+  Lv33Music: {fileID: 0}
 --- !u!1 &1162680613
 GameObject:
   m_ObjectHideFlags: 0
@@ -2077,34 +2065,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "When the Black Dragon fell from the sky, it scorched nations and shattered
-    lands.\n(Khi R\u1ED3ng \u0110en gi\xE1ng xu\u1ED1ng t\u1EEB tr\u1EDDi, thi\xEAu
-    r\u1EE5i mu\xF4n d\xE2n, c\xE0y n\xE1t \u0111\u1EA5t \u0111ai.)\n\nNo heroes
-    rose\u2014only one silent soul stepped forward.\n(Ch\u1EB3ng m\u1ED9t anh h\xF9ng
-    n\xE0o \u0111\u1EE9ng d\u1EADy \u2013 ch\u1EC9 c\xF3 m\u1ED9t con ng\u01B0\u1EDDi
-    \xE2m th\u1EA7m ti\u1EBFn b\u01B0\u1EDBc.)\n\r\nHe sought no crown, craved no
-    reward. He only wished to end the world\u2019s burning agony.\n(H\u1EAFn kh\xF4ng
-    c\u1EA7n v\u01B0\u01A1ng mi\u1EC7n, ch\u1EB3ng m\u01A1 ph\u1EA7n th\u01B0\u1EDFng.
-    H\u1EAFn ch\u1EC9 mu\u1ED1n ch\u1EA5m d\u1EE9t n\u1ED7i \u0111au \u0111ang thi\xEAu
-    \u0111\u1ED1t th\u1EBF gi\u1EDBi.)\n\r\nAnd he succeeded.\n(V\xE0 h\u1EAFn \u0111\xE3
-    th\xE0nh c\xF4ng.)\n\r\nBloodied, broken, but unbowed, he walked from the dragon\u2019s
-    corpse. The world hailed him a beacon of hope.\n(M\xE1u me \u0111\u1EA7y m\xECnh,
-    th\xE2n th\u1EC3 t\xE0n t\u1EA1, nh\u01B0ng \xE1nh m\u1EAFt v\u1EABn ki\xEAn
-    c\u01B0\u1EDDng \u2013 h\u1EAFn b\u01B0\u1EDBc ra t\u1EEB x\xE1c r\u1ED3ng. Th\u1EBF
-    gi\u1EDBi tung h\xF4 h\u1EAFn l\xE0 bi\u1EC3u t\u01B0\u1EE3ng c\u1EE7a hy v\u1ECDng.)\n\r\nBut
-    hope... is fickle.\n(Nh\u01B0ng hy v\u1ECDng... lu\xF4n d\u1EC5 \u0111\u1ED5i
-    thay.)\n\r\nBetrayed by those he bled for\u2014cast out, condemned, and called
-    a demon\u2014he met his end not by blade, but by the trust he once held.\n(B\u1ECB
-    ph\u1EA3n b\u1ED9i b\u1EDFi ch\xEDnh nh\u1EEFng k\u1EBB h\u1EAFn t\u1EEBng b\u1EA3o
-    v\u1EC7 \u2013 b\u1ECB \u0111\xE0y \u0111\u1ECDa, k\u1EBFt t\u1ED9i, g\u1ECDi
-    l\xE0 qu\u1EF7 \u0111\u1ED9i l\u1ED1t ng\u01B0\u1EDDi \u2013 h\u1EAFn ch\u1EBFt
-    kh\xF4ng v\xEC g\u01B0\u01A1m, m\xE0 v\xEC l\xF2ng tin t\u1EEBng \u0111\u1EB7t
-    sai ch\u1ED7.)\n\r\nYet justice does not sleep in death.\n(Nh\u01B0ng c\xF4ng
-    l\xFD kh\xF4ng k\u1EBFt th\xFAc b\u1EB1ng c\xE1i ch\u1EBFt.)\n\r\nBeneath the
-    stone, as darkness stirred and ancient power awoke...\n(D\u01B0\u1EDBi l\xF2ng
-    \u0111\u1EA5t, trong b\xF3ng t\u1ED1i, m\u1ED9t s\u1EE9c m\u1EA1nh c\u1ED5 x\u01B0a
-    th\u1EE9c t\u1EC9nh...)\n\r\nHe rose\u2014not as a man\u2014but as reckoning.\r\n(H\u1EAFn
-    tr\u1ED7i d\u1EADy \u2013 kh\xF4ng c\xF2n l\xE0 con ng\u01B0\u1EDDi \u2013 m\xE0
-    l\xE0 s\u1EF1 ph\xE1n x\xE9t.)"
+    lands.\n\nNo heroes rose\u2014only one silent soul stepped forward.\n\r\nHe sought
+    no crown, craved no reward. He only wished to end the world\u2019s burning agony.\n\r\nAnd
+    he succeeded.\n\r\nBloodied, broken, but unbowed, he walked from the dragon\u2019s
+    corpse. The world hailed him a beacon of hope.\n\r\nBut hope... is fickle.\n\r\nBetrayed
+    by those he bled for\u2014cast out, condemned, and called a demon\u2014he met
+    his end not by blade, but by the trust he once held.\n\r\nYet justice does not
+    sleep in death.\n\r\nBeneath the stone, as darkness stirred and ancient power
+    awoke...\n\nHe rose\u2014not as a man\u2014but as reckoning.\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fa229efd4ad92cf4c989adb39c96f90b, type: 2}
   m_sharedMaterial: {fileID: 6413047107904668315, guid: fa229efd4ad92cf4c989adb39c96f90b, type: 2}
