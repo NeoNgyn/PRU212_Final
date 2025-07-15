@@ -7,17 +7,19 @@ public class StartMenuManager : MonoBehaviour
     [Header("Panel")]
     [SerializeField] private GameObject startMenu;
     [SerializeField] private GameObject introduction;
+    [SerializeField] private GameObject instructionPanel;
 
 
     void Start()
     {
         startMenu.SetActive(true);
         introduction.SetActive(false);
+        instructionPanel.SetActive(false);
     }
 
     private void Update()
     {
-        
+
     }
 
     public void StartGame()
@@ -26,8 +28,24 @@ public class StartMenuManager : MonoBehaviour
         introduction.SetActive(true);
     }
 
+    public void ShowInstructions()
+    {
+        instructionPanel.SetActive(true);
+    }
+    public void HideInstructions()
+    {
+        instructionPanel.SetActive(false);
+    }
     public void SkipIntro()
     {
         SceneManager.LoadScene("SceneLv1.1");
+    }
+    public void OnQuitButtonClicked()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+    Application.Quit();
+#endif
     }
 }
