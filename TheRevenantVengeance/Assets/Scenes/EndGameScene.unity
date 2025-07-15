@@ -1150,23 +1150,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "As the last scream fades and the fires dim, he stands alone atop the ruin.\n(Khi
-    ti\u1EBFng g\xE0o th\xE9t cu\u1ED1i c\xF9ng tan bi\u1EBFn, l\u1EEDa t\xE0n, h\u1EAFn
-    \u0111\u1EE9ng m\u1ED9t m\xECnh tr\xEAn \u0111\u1ED1ng \u0111\u1ED5 n\xE1t.)\n\r\nNot
-    as a demon, nor savior\u2014but as memory.\n(Kh\xF4ng c\xF2n l\xE0 qu\u1EF7,
-    ch\u1EB3ng ph\u1EA3i th\xE1nh \u2013 m\xE0 l\xE0 k\xFD \u1EE9c.)\n\r\nThe chains
-    of vengeance fall away. The rage melts into light.\n(Xi\u1EC1ng x\xEDch th\xF9
-    h\u1EADn r\u01A1i xu\u1ED1ng. C\u01A1n gi\u1EADn h\xF3a th\xE0nh \xE1nh s\xE1ng.)\n\r\nHe
-    looks skyward. For the first time in countless moons, his soul knows quiet.\n(H\u1EAFn
-    ng\u1EA9ng \u0111\u1EA7u nh\xECn b\u1EA7u tr\u1EDDi. Sau bao \u0111\xEAm d\xE0i,
-    linh h\u1ED3n h\u1EAFn cu\u1ED1i c\xF9ng c\u0169ng \u0111\u01B0\u1EE3c y\xEAn
-    ngh\u1EC9.)\n\r\nWings of flame become wings of dawn.\n(\u0110\xF4i c\xE1nh l\u1EEDa
-    h\xF3a th\xE0nh c\xE1nh b\xECnh minh.)\n\r\nHe ascends\u2014not to rule, not
-    to punish\u2014but to rest.\n(H\u1EAFn bay l\xEAn \u2013 kh\xF4ng \u0111\u1EC3
-    cai tr\u1ECB, c\u0169ng ch\u1EB3ng \u0111\u1EC3 tr\u1EEBng ph\u1EA1t \u2013 m\xE0
-    \u0111\u1EC3 \u0111\u01B0\u1EE3c gi\u1EA3i tho\xE1t.)\n\r\nJustice has been done.
-    And so, he is free.\n(C\xF4ng l\xFD \u0111\xE3 th\u1EF1c thi. V\xE0 gi\u1EDD,
-    h\u1EAFn t\u1EF1 do.)\r\n"
+  m_text: "As the last scream fades and the fires dim, he stands alone atop the ruin.\n\r\nNot
+    as a demon, nor savior\u2014but as memory.\n\r\nThe chains of vengeance fall
+    away. The rage melts into light.\n\r\nHe looks skyward. For the first time in
+    countless moons, his soul knows quiet.\n\r\nWings of flame become wings of dawn.\n\r\nHe
+    ascends\u2014not to rule, not to punish\u2014but to rest.\n\r\nJustice has been
+    done. And so, he is free.\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fa229efd4ad92cf4c989adb39c96f90b, type: 2}
   m_sharedMaterial: {fileID: 6413047107904668315, guid: fa229efd4ad92cf4c989adb39c96f90b, type: 2}

@@ -21,8 +21,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject dead;
     [SerializeField] private GameObject uiComponent;
 
-    [SerializeField] private AudioSource deathAudioSource; // Assign in Inspector
-    [SerializeField] private AudioClip deathClip; // Your death sound
+    [SerializeField] private AudioSource deathAudioSource; 
+    [SerializeField] private AudioClip deathClip; 
 
 
     void Start()
@@ -62,13 +62,49 @@ public class GameManager : MonoBehaviour
 
     public void Dead()
     {
+        MuteAllAudioSources();
+
+        // Play death sound
+        if (deathAudioSource != null && deathClip != null)
+        {
+            deathAudioSource.clip = deathClip;
+            deathAudioSource.Play();
+        }
+
         Time.timeScale = 0f;
         dead.SetActive(true);
     }
 
+    private void MuteAllAudioSources()
+    {
+        AudioSource[] allAudioSources = FindObjectsOfType<AudioSource>();
+        foreach (AudioSource src in allAudioSources)
+        {
+            if (src != deathAudioSource) // Don't mute the death sound
+            {
+                src.mute = true;
+            }
+        }
+    }
+
+    private void UnmuteAllAudioSources()
+    {
+        AudioSource[] allAudioSources = FindObjectsOfType<AudioSource>();
+        foreach (AudioSource src in allAudioSources)
+        {
+            if (src != deathAudioSource)
+            {
+                src.mute = false;
+            }
+            else
+                src.mute = true;
+        }
+    }
+
     public void PlayAgain()
     {
-        Time.timeScale = 1f; // Ensure the game is not paused
+        UnmuteAllAudioSources();
+        Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

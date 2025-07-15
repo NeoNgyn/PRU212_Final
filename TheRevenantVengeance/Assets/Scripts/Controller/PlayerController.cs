@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Image healthBar;
 
     [SerializeField] private int maxEnergy = 10;
-    private float currentEnergy;
+    public float currentEnergy;
     [SerializeField] private Image energyBar;
     private bool isPoisoned = false;
     private float poisonDamagePerSecond;
@@ -55,6 +55,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject swordSpinPrefab;
     [SerializeField] private Transform spinCenter;
 
+    [SerializeField] private SwordSpin swordSpin;
+    [SerializeField] private FireballDamage fireBall;
+
+
     [SerializeField] private GameObject circleEffectPrefab;
     private GameObject currentCircleEffect;
 
@@ -91,6 +95,8 @@ public class PlayerController : MonoBehaviour
         currentExp = PlayerState.CurrentExp;
         moveSpeed = PlayerState.MoveSpeed;
         attackDetector.attackDamage = PlayerState.NormalDamge;
+        fireBall.damage = PlayerState.Skill1Damge;
+        swordSpin.damage = PlayerState.Skill2Damge;
 
         currentHp = maxHp;
         UpdateHealthBar();
@@ -320,12 +326,14 @@ public class PlayerController : MonoBehaviour
     protected void LevelUp()
     {
         level += 1;
-        moveSpeed += 1;
+        moveSpeed += 0.2f;
         maxHp += 10;
         currentHp = maxHp;
-        maxExp += 10;
+        maxExp += 100;
         currentExp = 0;
-        attackDetector.attackDamage += 5;
+        attackDetector.attackDamage += 2;
+        if (fireBall) fireBall.damage += 2;
+        if (swordSpin) swordSpin.damage += 1;
 
         UpdateHealthBar();
         UpdateExpBar();
@@ -387,15 +395,12 @@ public class PlayerController : MonoBehaviour
 
         Destroy(gameObject, 3f); // Hủy sau 2 giây (đảm bảo animation có thời gian để phát)
 
-        HandleDeath();
+        Invoke(nameof(HandleDeath), 1f);
     }
 
-    private IEnumerator HandleDeath()
+    private void HandleDeath()
     {
-        yield return new WaitForSeconds(5f); 
-
         gameManager.Dead();
-        
     }
 
 
