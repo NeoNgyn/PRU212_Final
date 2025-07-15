@@ -101580,6 +101580,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultMusic: {fileID: 8300000, guid: f5360eb55bad326428a88360b30f465b, type: 3}
+  Lv11Music: {fileID: 8300000, guid: 08d4ad320e4c41644a0af3f81b877b67, type: 3}
+  Lv12Music: {fileID: 8300000, guid: 08d4ad320e4c41644a0af3f81b877b67, type: 3}
+  Lv13Music: {fileID: 8300000, guid: fe749bdecfa6af44b82f079fa8e0426e, type: 3}
   Lv2Music: {fileID: 8300000, guid: f5360eb55bad326428a88360b30f465b, type: 3}
   Lv22Music: {fileID: 8300000, guid: f5360eb55bad326428a88360b30f465b, type: 3}
   Lv23Music: {fileID: 8300000, guid: 9b6e26ff30d306040a6a4ac3c5a48285, type: 3}
@@ -101655,7 +101658,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 35627602503788784, guid: 385abbc9f63ce4e4aba22b710eb46077, type: 3}
-  - {fileID: 4025130909941794204, guid: 1af9bae8aff646d409dc42acdba8b8ba, type: 3}
+  - {fileID: 4025130909941794204, guid: 6ad40d286f8ac174b93ca66bf1f6ad83, type: 3}
   - {fileID: 6812418131490326761, guid: 1efaed18e91870f469bf6ccc724aa442, type: 3}
   - {fileID: 7750394345160083386, guid: 98b3ab617d84061419fef1e766e391b7, type: 3}
   spawnPoints:
@@ -113130,8 +113133,10 @@ MonoBehaviour:
   expBar: {fileID: 143678178}
   levelText: {fileID: 503331703}
   introduction: {fileID: 0}
-  playerController: {fileID: 0}
+  dead: {fileID: 0}
   uiComponent: {fileID: 0}
+  deathAudioSource: {fileID: 0}
+  deathClip: {fileID: 0}
 --- !u!1 &1188194117
 GameObject:
   m_ObjectHideFlags: 0
@@ -119425,6 +119430,7 @@ MonoBehaviour:
   attackClip: {fileID: 8300000, guid: d27894f708009524b8140bf1e01847d7, type: 3}
   takeHitClip: {fileID: 8300000, guid: 8944a28c23ce3d84d9c67fcf2de4fe63, type: 3}
   ultiClip: {fileID: 0}
+  deathClip: {fileID: 0}
   swordSpinPrefab: {fileID: 0}
   spinCenter: {fileID: 0}
   circleEffectPrefab: {fileID: 0}

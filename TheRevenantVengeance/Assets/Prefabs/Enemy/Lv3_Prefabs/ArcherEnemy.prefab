@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1403571918747548296}
   - component: {fileID: 5733029991164169165}
   - component: {fileID: 7668764498395606466}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ArcherEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2119438533
-  m_SortingLayer: 5
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: -2059313341184450652, guid: 4b20f223789c54142a7e30a81665d796, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -120,7 +120,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &5492212390341217510
 BoxCollider2D:
   m_ObjectHideFlags: 0

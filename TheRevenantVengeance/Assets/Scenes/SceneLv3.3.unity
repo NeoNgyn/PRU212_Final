@@ -804,7 +804,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2119438533
-  m_SortingLayer: 5
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: -3699697277425479114, guid: 802ba4aa4732c844991b239d2d6edc25, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3234,6 +3234,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultMusic: {fileID: 8300000, guid: f5360eb55bad326428a88360b30f465b, type: 3}
+  Lv11Music: {fileID: 8300000, guid: 08d4ad320e4c41644a0af3f81b877b67, type: 3}
+  Lv12Music: {fileID: 8300000, guid: 08d4ad320e4c41644a0af3f81b877b67, type: 3}
+  Lv13Music: {fileID: 8300000, guid: fe749bdecfa6af44b82f079fa8e0426e, type: 3}
   Lv2Music: {fileID: 8300000, guid: f5360eb55bad326428a88360b30f465b, type: 3}
   Lv22Music: {fileID: 8300000, guid: f5360eb55bad326428a88360b30f465b, type: 3}
   Lv23Music: {fileID: 8300000, guid: 9b6e26ff30d306040a6a4ac3c5a48285, type: 3}
@@ -3270,7 +3273,7 @@ GameObject:
   - component: {fileID: 749433001}
   - component: {fileID: 749433002}
   - component: {fileID: 749433003}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -3915,7 +3918,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 60718297
-  m_SortingLayer: -14
+  m_SortingLayer: -15
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -50240,7 +50243,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 831713227
-  m_SortingLayer: -13
+  m_SortingLayer: -14
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}

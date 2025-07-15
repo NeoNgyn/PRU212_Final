@@ -106,6 +106,7 @@ namespace Assets.Scripts.Controller.Enemy.EnemyLv2
         {
             //isDead = true;
             animator?.SetTrigger("Die");
+           
             if (audioSource != null && deathSound != null)
             {
                 audioSource.PlayOneShot(deathSound);
