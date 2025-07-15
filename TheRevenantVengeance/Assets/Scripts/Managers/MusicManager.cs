@@ -98,6 +98,9 @@ public class MusicManager : MonoBehaviour
 
     // Cấu hình ánh xạ tên scene → AudioClip
     [SerializeField] private AudioClip defaultMusic;
+    [SerializeField] private AudioClip Lv11Music;
+    [SerializeField] private AudioClip Lv12Music;
+    [SerializeField] private AudioClip Lv13Music;
     [SerializeField] private AudioClip Lv2Music;
     [SerializeField] private AudioClip Lv22Music;
     [SerializeField] private AudioClip Lv23Music;
@@ -126,6 +129,9 @@ public class MusicManager : MonoBehaviour
             // Tạo mapping giữa scene và nhạc
             sceneMusicMap = new Dictionary<string, AudioClip>
             {
+                { "SceneLv1.1", Lv11Music },
+                { "SceneLv1.2", Lv12Music },
+                { "SceneLv1.3", Lv13Music },
                 { "SceneLv2", Lv2Music },
                 { "SceneLv2-2", Lv22Music },
                 { "SceneLv2-3", Lv23Music },

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6700676512703912393}
   - component: {fileID: 356662655855707528}
   - component: {fileID: 724759313623795480}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Gangster
   m_TagString: Enemy
   m_Icon: {fileID: 0}
