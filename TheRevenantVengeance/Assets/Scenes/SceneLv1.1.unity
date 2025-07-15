@@ -106041,7 +106041,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 1211547118}
-  countdownTime: 180
+  countdownTime: 120
   bossEnemy: {fileID: 965019850}
   healthBar: {fileID: 1087265791}
   healthText: {fileID: 721643369}
@@ -106215,7 +106215,7 @@ GameObject:
   - component: {fileID: 958133134}
   - component: {fileID: 958133136}
   - component: {fileID: 958133135}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110925,7 +110925,7 @@ GameObject:
   - component: {fileID: 965019855}
   - component: {fileID: 965019856}
   - component: {fileID: 965019857}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PoisonBoss
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -111122,7 +111122,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -116553,7 +116553,7 @@ GameObject:
   - component: {fileID: 1802166709}
   - component: {fileID: 1802166708}
   - component: {fileID: 1802166707}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ItemsMap
   m_TagString: Untagged
   m_Icon: {fileID: 0}

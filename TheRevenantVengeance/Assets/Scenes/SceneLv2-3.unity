@@ -151598,7 +151598,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 1541089707}
-  countdownTime: 30
+  countdownTime: 120
   bossEnemy: {fileID: 80148740282017638}
   healthBar: {fileID: 7567809}
   healthText: {fileID: 1153875728}
