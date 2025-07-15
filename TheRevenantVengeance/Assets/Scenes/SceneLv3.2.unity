@@ -1043,6 +1043,7 @@ MonoBehaviour:
   currentHp: 0
   healthBar: {fileID: 316208506}
   maxEnergy: 100
+  currentEnergy: 0
   energyBar: {fileID: 59763932}
   maxExp: 10
   currentExp: 0
@@ -1061,6 +1062,8 @@ MonoBehaviour:
   deathClip: {fileID: 0}
   swordSpinPrefab: {fileID: 6612760209944274038, guid: 42cce2e7e964b0a49b5695c3cc9bc6a7, type: 3}
   spinCenter: {fileID: 568278074}
+  swordSpin: {fileID: 0}
+  fireBall: {fileID: 0}
   circleEffectPrefab: {fileID: 8741384446669436887, guid: cac2265e3b98a0e4f9c674a3ae74d3b1, type: 3}
   ultimateVideoPlayer: {fileID: 340439562}
   ultimateCanvas: {fileID: 1558425821}
@@ -118448,6 +118451,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1873069730}
   - component: {fileID: 1873069731}
+  - component: {fileID: 1873069732}
   m_Layer: 0
   m_Name: MusicManager
   m_TagString: Untagged
@@ -118492,6 +118496,103 @@ MonoBehaviour:
   Lv31Music: {fileID: 8300000, guid: c7479328d16a8294a9779ca21c43ef75, type: 3}
   Lv32Music: {fileID: 8300000, guid: ef22f79bb8ecc9349be59d28bb372632, type: 3}
   Lv33Music: {fileID: 8300000, guid: 9e9f6c2d536aa88448bee06c48839a36, type: 3}
+--- !u!82 &1873069732
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873069728}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1893405242
 GameObject:
   m_ObjectHideFlags: 0
@@ -119050,7 +119151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 1127028369}
-  countdownTime: 3
+  countdownTime: 30
   bossEnemy: {fileID: 1159719636}
   healthBar: {fileID: 704232639}
   healthText: {fileID: 906098059}
@@ -119060,8 +119161,8 @@ MonoBehaviour:
   introduction: {fileID: 288658018}
   dead: {fileID: 347382762}
   uiComponent: {fileID: 2103277411}
-  deathAudioSource: {fileID: 0}
-  deathClip: {fileID: 0}
+  deathAudioSource: {fileID: 1873069732}
+  deathClip: {fileID: 8300000, guid: 34d2df7a254cbfc4a9dd165e68623c76, type: 3}
 --- !u!4 &2089871529
 Transform:
   m_ObjectHideFlags: 0
