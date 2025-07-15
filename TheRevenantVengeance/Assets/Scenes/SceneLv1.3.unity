@@ -121097,8 +121097,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "The gatekeeper falls, his chains broken by one who knows true death.\r\nThe
-    way forward opens\u2014not into light, but into the world that forgot."
+  m_text: "The gatekeeper falls, his chains broken by one who knows true death.\n(Ng\u01B0\u1EDDi
+    g\xE1c c\u1ED5ng ng\xE3 xu\u1ED1ng, xi\u1EC1ng x\xEDch c\u1EE7a anh ta b\u1ECB
+    ph\xE1 v\u1EE1 b\u1EDFi m\u1ED9t ng\u01B0\u1EDDi bi\u1EBFt \u0111\u1EBFn c\xE1i
+    ch\u1EBFt th\u1EF1c s\u1EF1.)\r\n\r\nThe way forward opens\u2014not into light,
+    but into the world that forgot."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fa229efd4ad92cf4c989adb39c96f90b, type: 2}
   m_sharedMaterial: {fileID: 6413047107904668315, guid: fa229efd4ad92cf4c989adb39c96f90b, type: 2}
@@ -122051,7 +122054,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  maxHp: 100
+  maxHp: 1200
   currentHp: 0
   healthBar: {fileID: 1173756673}
   maxEnergy: 100
@@ -122501,7 +122504,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -122650,7 +122653,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpeed: 1
-  maxHp: 1200
+  maxHp: 10
   healthBar: {fileID: 2001083833}
   enterDamage: 10
   stayDamage: 10
@@ -137891,7 +137894,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 941711255}
-  countdownTime: 30
+  countdownTime: 5
   bossEnemy: {fileID: 821564170}
   healthBar: {fileID: 1503531938}
   healthText: {fileID: 505724688}

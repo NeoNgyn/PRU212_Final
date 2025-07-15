@@ -111065,7 +111065,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpeed: 1
-  maxHp: 2000
+  maxHp: 800
   healthBar: {fileID: 480161581}
   enterDamage: 10
   stayDamage: 10
@@ -116359,7 +116359,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 1.2052922, y: -3.2048535}
+  m_Offset: {x: 1.7189174, y: 1.0424485}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -116369,7 +116369,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 5.8604918, y: 10.663215}
+  m_Size: {x: 3.0070205, y: 3.498394}
   m_EdgeRadius: 0
 --- !u!114 &1686275036
 MonoBehaviour:
@@ -116384,7 +116384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gateTilemap: {fileID: 1099146413}
-  gateMessageText: {fileID: 0}
+  gateMessageText: {fileID: 855932697}
   gateOpenSound: {fileID: 0}
   gateCollider: {fileID: 1686275035}
   targetSceneName: SceneLv1.2

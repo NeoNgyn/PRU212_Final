@@ -339,7 +339,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 1.2052922, y: -3.2048535}
+  m_Offset: {x: 1.2052922, y: 0.672724}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -349,7 +349,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 5.8604918, y: 10.663215}
+  m_Size: {x: 5.8604918, y: 2.9080615}
   m_EdgeRadius: 0
 --- !u!1 &13910674
 GameObject:
@@ -100015,7 +100015,7 @@ MonoBehaviour:
   radialFireballCount: 8
   attackAnimationDuration: 0.5
   orbitFireballCount: 8
-  orbitRadius: 5
+  orbitRadius: 2.5
   orbitSpeed: 100
   orbitDuration: 5
   regenRate: 2
@@ -100655,7 +100655,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 1228583463}
-  countdownTime: 30
+  countdownTime: 120
   bossEnemy: {fileID: 161346060}
   healthBar: {fileID: 1645239176}
   healthText: {fileID: 1359750905}
