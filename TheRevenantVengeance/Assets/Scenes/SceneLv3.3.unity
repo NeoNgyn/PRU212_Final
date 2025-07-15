@@ -804,7 +804,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2119438533
-  m_SortingLayer: 5
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: -3699697277425479114, guid: 802ba4aa4732c844991b239d2d6edc25, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2483,15 +2483,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Thrones burn.\r\n Masks fall.\r\n And the god that puppeted the world
-    is silenced\u2014not by power, but by a truth it could not kill.\r\r\n(Ngai v\xE0ng
-    b\u1ECB thi\xEAu r\u1EE5i.\r\nM\u1EB7t n\u1EA1 r\u01A1i xu\u1ED1ng.\r\nV\xE0
-    v\u1ECB th\u1EA7n thao t\xFAng th\u1EBF gi\u1EDBi b\u1ECB b\u1ECBt mi\u1EC7ng\u2014kh\xF4ng
-    ph\u1EA3i b\u1EDFi quy\u1EC1n l\u1EF1c, m\xE0 b\u1EDFi m\u1ED9t s\u1EF1 th\u1EADt
-    m\xE0 n\xF3 kh\xF4ng th\u1EC3 gi\u1EBFt ch\u1EBFt.)\r\n\nVengeance was never
-    the goal.\r\n Only peace through understanding of betrayal.\r\n(\r  S\u1EF1 tr\u1EA3
-    th\xF9 ch\u01B0a bao gi\u1EDD l\xE0 m\u1EE5c ti\xEAu.\r\nCh\u1EC9 c\xF3 h\xF2a
-    b\xECnh th\xF4ng qua s\u1EF1 th\u1EA5u hi\u1EC3u v\u1EC1 s\u1EF1 ph\u1EA3n b\u1ED9i.)"
+  m_text: "Thrones burn.\r\nMasks fall.\r\nAnd the god that puppeted the world is
+    silenced\u2014not by power, but by a truth it could not kill.\r\r\r\nVengeance
+    was never the goal.\r\nOnly peace through understanding of betrayal."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fa229efd4ad92cf4c989adb39c96f90b, type: 2}
   m_sharedMaterial: {fileID: 6413047107904668315, guid: fa229efd4ad92cf4c989adb39c96f90b, type: 2}
@@ -3214,6 +3208,7 @@ GameObject:
   m_Component:
   - component: {fileID: 737474235}
   - component: {fileID: 737474234}
+  - component: {fileID: 737474236}
   m_Layer: 0
   m_Name: MusicManager
   m_TagString: Untagged
@@ -3234,6 +3229,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultMusic: {fileID: 8300000, guid: f5360eb55bad326428a88360b30f465b, type: 3}
+  Lv11Music: {fileID: 8300000, guid: 08d4ad320e4c41644a0af3f81b877b67, type: 3}
+  Lv12Music: {fileID: 8300000, guid: 08d4ad320e4c41644a0af3f81b877b67, type: 3}
+  Lv13Music: {fileID: 8300000, guid: fe749bdecfa6af44b82f079fa8e0426e, type: 3}
   Lv2Music: {fileID: 8300000, guid: f5360eb55bad326428a88360b30f465b, type: 3}
   Lv22Music: {fileID: 8300000, guid: f5360eb55bad326428a88360b30f465b, type: 3}
   Lv23Music: {fileID: 8300000, guid: 9b6e26ff30d306040a6a4ac3c5a48285, type: 3}
@@ -3255,6 +3253,103 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &737474236
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737474233}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &749432996
 GameObject:
   m_ObjectHideFlags: 0
@@ -3270,7 +3365,7 @@ GameObject:
   - component: {fileID: 749433001}
   - component: {fileID: 749433002}
   - component: {fileID: 749433003}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -3443,6 +3538,7 @@ MonoBehaviour:
   currentHp: 0
   healthBar: {fileID: 1173756673}
   maxEnergy: 100
+  currentEnergy: 0
   energyBar: {fileID: 8960665529090028046}
   maxExp: 10
   currentExp: 0
@@ -3461,6 +3557,8 @@ MonoBehaviour:
   deathClip: {fileID: 0}
   swordSpinPrefab: {fileID: 6612760209944274038, guid: 42cce2e7e964b0a49b5695c3cc9bc6a7, type: 3}
   spinCenter: {fileID: 1030448487}
+  swordSpin: {fileID: 0}
+  fireBall: {fileID: 0}
   circleEffectPrefab: {fileID: 8741384446669436887, guid: cac2265e3b98a0e4f9c674a3ae74d3b1, type: 3}
   ultimateVideoPlayer: {fileID: 524136963}
   ultimateCanvas: {fileID: 1575414253}
@@ -3915,7 +4013,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 60718297
-  m_SortingLayer: -14
+  m_SortingLayer: -15
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -48627,7 +48725,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 1482363237}
-  countdownTime: 3
+  countdownTime: 120
   bossEnemy: {fileID: 416089837}
   healthBar: {fileID: 969869966}
   healthText: {fileID: 681315634}
@@ -48637,8 +48735,8 @@ MonoBehaviour:
   introduction: {fileID: 1044537172}
   dead: {fileID: 181758896}
   uiComponent: {fileID: 1816445935}
-  deathAudioSource: {fileID: 0}
-  deathClip: {fileID: 0}
+  deathAudioSource: {fileID: 737474236}
+  deathClip: {fileID: 8300000, guid: 34d2df7a254cbfc4a9dd165e68623c76, type: 3}
 --- !u!4 &1587140139
 Transform:
   m_ObjectHideFlags: 0
@@ -49410,7 +49508,7 @@ GameObject:
   - component: {fileID: 2032514556}
   - component: {fileID: 2032514555}
   - component: {fileID: 2032514554}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50240,7 +50338,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 831713227
-  m_SortingLayer: -13
+  m_SortingLayer: -14
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}

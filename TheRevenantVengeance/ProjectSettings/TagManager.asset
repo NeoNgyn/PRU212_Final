@@ -15,6 +15,7 @@ TagManager:
   - Boss
   - FallingSword
   - Exp
+  - PauseMenu
   layers:
   - Default
   - TransparentFX
@@ -24,10 +25,10 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Enemy
+  - Wall
+  - Rock
   - 
   - 
   - 
@@ -85,6 +86,9 @@ TagManager:
   - name: circleEffect
     uniqueID: 2827843533
     locked: 0
+  - name: Enemy
+    uniqueID: 2119438533
+    locked: 0
   - name: Player
     uniqueID: 1157584871
     locked: 0
@@ -105,9 +109,6 @@ TagManager:
     locked: 0
   - name: Weapon
     uniqueID: 1014179845
-    locked: 0
-  - name: Enemy
-    uniqueID: 2119438533
     locked: 0
   - name: Blood
     uniqueID: 4209752359

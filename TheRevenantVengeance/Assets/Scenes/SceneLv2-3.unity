@@ -696,6 +696,7 @@ GameObject:
   m_Component:
   - component: {fileID: 120562287}
   - component: {fileID: 120562286}
+  - component: {fileID: 120562288}
   m_Layer: 0
   m_Name: MusicManager
   m_TagString: Untagged
@@ -716,6 +717,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultMusic: {fileID: 8300000, guid: f5360eb55bad326428a88360b30f465b, type: 3}
+  Lv11Music: {fileID: 8300000, guid: 08d4ad320e4c41644a0af3f81b877b67, type: 3}
+  Lv12Music: {fileID: 8300000, guid: 08d4ad320e4c41644a0af3f81b877b67, type: 3}
+  Lv13Music: {fileID: 8300000, guid: fe749bdecfa6af44b82f079fa8e0426e, type: 3}
   Lv2Music: {fileID: 8300000, guid: f5360eb55bad326428a88360b30f465b, type: 3}
   Lv22Music: {fileID: 8300000, guid: f5360eb55bad326428a88360b30f465b, type: 3}
   Lv23Music: {fileID: 8300000, guid: 9b6e26ff30d306040a6a4ac3c5a48285, type: 3}
@@ -737,6 +741,103 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &120562288
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 120562285}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &121242405
 GameObject:
   m_ObjectHideFlags: 0
@@ -843,7 +944,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 60718297
-  m_SortingLayer: -14
+  m_SortingLayer: -15
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -145638,7 +145739,7 @@ GameObject:
   - component: {fileID: 179851436}
   - component: {fileID: 179851435}
   - component: {fileID: 179851434}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Rocks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145702,7 +145803,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 831713227
-  m_SortingLayer: -13
+  m_SortingLayer: -14
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -151102,7 +151203,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2119438533
-  m_SortingLayer: 5
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: -3699697277425479114, guid: 802ba4aa4732c844991b239d2d6edc25, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -151497,7 +151598,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 1541089707}
-  countdownTime: 3
+  countdownTime: 120
   bossEnemy: {fileID: 80148740282017638}
   healthBar: {fileID: 7567809}
   healthText: {fileID: 1153875728}
@@ -151507,8 +151608,8 @@ MonoBehaviour:
   introduction: {fileID: 1719580613}
   dead: {fileID: 723623542}
   uiComponent: {fileID: 762782506}
-  deathAudioSource: {fileID: 0}
-  deathClip: {fileID: 0}
+  deathAudioSource: {fileID: 120562288}
+  deathClip: {fileID: 8300000, guid: 34d2df7a254cbfc4a9dd165e68623c76, type: 3}
 --- !u!4 &319111798
 Transform:
   m_ObjectHideFlags: 0
@@ -151844,7 +151945,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 581624327
-  m_SortingLayer: -6
+  m_SortingLayer: -7
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -158269,10 +158370,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "The holy blade breaks upon ancient guilt.\r\n \u201CForgive me,\u201D
-    the once-friend whispers.\n(The holy blade breaks upon ancient guilt.\r\n \u201CForgive
-    me,\u201D the once-friend whispers.)\n\r\n He says nothing. The path of the forsaken
-    needs no forgiveness.\n(\xD4ng \u1EA5y kh\xF4ng n\xF3i g\xEC c\u1EA3. Con \u0111\u01B0\u1EDDng
-    c\u1EE7a k\u1EBB b\u1ECB b\u1ECF r\u01A1i kh\xF4ng c\u1EA7n s\u1EF1 tha th\u1EE9.)\r\n\r"
+    the once-friend whispers.\n He says nothing. The path of the forsaken needs no
+    forgiveness.\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fa229efd4ad92cf4c989adb39c96f90b, type: 2}
   m_sharedMaterial: {fileID: 6413047107904668315, guid: fa229efd4ad92cf4c989adb39c96f90b, type: 2}
@@ -158734,7 +158833,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: -46.7, z: -10}
+  m_LocalPosition: {x: 0.9, y: -36.54, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -159014,7 +159113,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 678808283
-  m_SortingLayer: -9
+  m_SortingLayer: -10
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -172635,7 +172734,7 @@ Transform:
   m_GameObject: {fileID: 685158509}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: -46.7, z: -10}
+  m_LocalPosition: {x: 0.9, y: -36.54, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -173493,7 +173592,7 @@ GameObject:
   - component: {fileID: 749433001}
   - component: {fileID: 749433002}
   - component: {fileID: 749433003}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -173564,7 +173663,7 @@ Transform:
   m_GameObject: {fileID: 749432996}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: -46.7, z: 0}
+  m_LocalPosition: {x: 0.9, y: -36.54, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -173666,6 +173765,7 @@ MonoBehaviour:
   currentHp: 0
   healthBar: {fileID: 1173756673}
   maxEnergy: 100
+  currentEnergy: 0
   energyBar: {fileID: 8960665529090028046}
   maxExp: 10
   currentExp: 0
@@ -173684,6 +173784,8 @@ MonoBehaviour:
   deathClip: {fileID: 0}
   swordSpinPrefab: {fileID: 6612760209944274038, guid: 42cce2e7e964b0a49b5695c3cc9bc6a7, type: 3}
   spinCenter: {fileID: 1382654421}
+  swordSpin: {fileID: 0}
+  fireBall: {fileID: 0}
   circleEffectPrefab: {fileID: 8741384446669436887, guid: cac2265e3b98a0e4f9c674a3ae74d3b1, type: 3}
   ultimateVideoPlayer: {fileID: 23743320}
   ultimateCanvas: {fileID: 106221311}
@@ -173989,6 +174091,7 @@ MonoBehaviour:
   - {fileID: 5964038500432494917, guid: 19ab8d5954e583c4e96e46e11a575a73, type: 3}
   - {fileID: 2309872560824219054, guid: e103ef9eadc7c754297040f0b6a50a53, type: 3}
   - {fileID: 525978846963190391, guid: 0154fcd13d6dc4c4dbe46747bdfca57d, type: 3}
+  - {fileID: 6881754498771338574, guid: b9ec62bfa41dfc14bbbfeec9cabcab94, type: 3}
   spawnPoints:
   - {fileID: 121242406}
   - {fileID: 1825153659}
@@ -174905,131 +175008,9 @@ CompositeCollider2D:
   m_GeometryType: 0
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths:
-  - m_Collider: {fileID: 1022243947}
-    m_ColliderPaths:
-    - - X: -71250000
-        Y: 486875008
-      - X: -71875000
-        Y: 490000000
-      - X: -70000000
-        Y: 490624992
-      - X: -70000000
-        Y: 500000000
-      - X: -80000000
-        Y: 500000000
-      - X: -80000000
-        Y: 490000000
-      - X: -77500000
-        Y: 490000000
-      - X: -78750000
-        Y: 485000000
-      - X: -78750000
-        Y: 480000000
-      - X: -71250000
-        Y: 480000000
-    - - X: 78750000
-        Y: 486875008
-      - X: 78125000
-        Y: 490000000
-      - X: 80000000
-        Y: 490624992
-      - X: 80000000
-        Y: 500000000
-      - X: 70000000
-        Y: 500000000
-      - X: 70000000
-        Y: 490000000
-      - X: 72500000
-        Y: 490000000
-      - X: 71250000
-        Y: 485000000
-      - X: 71250000
-        Y: 480000000
-      - X: 78750000
-        Y: 480000000
-    - - X: -71250000
-        Y: 336875008
-      - X: -71875000
-        Y: 340000000
-      - X: -70000000
-        Y: 340624992
-      - X: -70000000
-        Y: 350000000
-      - X: -80000000
-        Y: 350000000
-      - X: -80000000
-        Y: 340000000
-      - X: -77500000
-        Y: 340000000
-      - X: -78750000
-        Y: 335000000
-      - X: -78750000
-        Y: 330000000
-      - X: -71250000
-        Y: 330000000
-    - - X: 78750000
-        Y: 336875008
-      - X: 78125000
-        Y: 340000000
-      - X: 80000000
-        Y: 340624992
-      - X: 80000000
-        Y: 350000000
-      - X: 70000000
-        Y: 350000000
-      - X: 70000000
-        Y: 340000000
-      - X: 72500000
-        Y: 340000000
-      - X: 71250000
-        Y: 335000000
-      - X: 71250000
-        Y: 330000000
-      - X: 78750000
-        Y: 330000000
+  m_ColliderPaths: []
   m_CompositePaths:
-    m_Paths:
-    - - {x: 7.8749704, y: 48}
-      - {x: 7.8749995, y: 48.687504}
-      - {x: 7.8125243, y: 49.000008}
-      - {x: 8, y: 49.06252}
-      - {x: 7.9999704, y: 50}
-      - {x: 7, y: 49.999973}
-      - {x: 7.0000296, y: 49}
-      - {x: 7.2499905, y: 48.99996}
-      - {x: 7.125, y: 48.499996}
-      - {x: 7.1250296, y: 48}
-    - - {x: -7.1250296, y: 48}
-      - {x: -7.125001, y: 48.687504}
-      - {x: -7.187476, y: 49.000008}
-      - {x: -7, y: 49.06252}
-      - {x: -7.0000296, y: 50}
-      - {x: -8, y: 49.999973}
-      - {x: -7.9999704, y: 49}
-      - {x: -7.7500095, y: 48.99996}
-      - {x: -7.875, y: 48.499996}
-      - {x: -7.8749704, y: 48}
-    - - {x: 7.8749704, y: 33}
-      - {x: 7.8749995, y: 33.687504}
-      - {x: 7.8125243, y: 34.000008}
-      - {x: 8, y: 34.06252}
-      - {x: 7.9999704, y: 35}
-      - {x: 7, y: 34.999973}
-      - {x: 7.0000296, y: 34}
-      - {x: 7.2499905, y: 33.99996}
-      - {x: 7.125, y: 33.499996}
-      - {x: 7.1250296, y: 33}
-    - - {x: -7.1250296, y: 33}
-      - {x: -7.125001, y: 33.687504}
-      - {x: -7.187476, y: 34.000008}
-      - {x: -7, y: 34.06252}
-      - {x: -7.0000296, y: 35}
-      - {x: -8, y: 34.999973}
-      - {x: -7.9999704, y: 34}
-      - {x: -7.7500095, y: 33.99996}
-      - {x: -7.875, y: 33.499996}
-      - {x: -7.8749704, y: 33}
+    m_Paths: []
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
@@ -175291,7 +175272,7 @@ TilemapCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_CompositeOperation: 1
+  m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
@@ -175885,7 +175866,7 @@ GameObject:
   - component: {fileID: 1294164535}
   - component: {fileID: 1294164534}
   - component: {fileID: 1294164533}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175949,7 +175930,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 831713227
-  m_SortingLayer: -13
+  m_SortingLayer: -14
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -184802,22 +184783,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 586838731366744368, guid: 22f8cc1ecddb9704ca24cf499105e7ed, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1533006342383993212, guid: 22f8cc1ecddb9704ca24cf499105e7ed, type: 3}
-      propertyPath: m_Volume
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4190905032595072403, guid: 22f8cc1ecddb9704ca24cf499105e7ed, type: 3}
-      propertyPath: maxHp
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 4190905032595072403, guid: 22f8cc1ecddb9704ca24cf499105e7ed, type: 3}
-      propertyPath: enemySpeed
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 4190905032595072403, guid: 22f8cc1ecddb9704ca24cf499105e7ed, type: 3}
       propertyPath: gateTrigger
       value: 
@@ -184865,10 +184830,6 @@ PrefabInstance:
     - target: {fileID: 7783546616830762170, guid: 22f8cc1ecddb9704ca24cf499105e7ed, type: 3}
       propertyPath: m_Name
       value: Boss
-      objectReference: {fileID: 0}
-    - target: {fileID: 7783546616830762170, guid: 22f8cc1ecddb9704ca24cf499105e7ed, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
