@@ -55,8 +55,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject swordSpinPrefab;
     [SerializeField] private Transform spinCenter;
 
-    [SerializeField] private SwordSpin swordSpin;
-    [SerializeField] private FireballDamage fireBall;
+    [SerializeField] public SwordSpin swordSpin;
+    [SerializeField] public FireballDamage fireBall;
 
 
     [SerializeField] private GameObject circleEffectPrefab;
@@ -177,6 +177,8 @@ public class PlayerController : MonoBehaviour
     void Movement()
     {
         Vector2 playerInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+
+        playerInput.Normalize();
 
         // Chỉ di chuyển khi không tấn công
         if (!isAttacking)
