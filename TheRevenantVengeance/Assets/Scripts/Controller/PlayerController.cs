@@ -332,9 +332,9 @@ public class PlayerController : MonoBehaviour
     {
         level += 1;
         moveSpeed += 0.2f;
-        maxHp += 10;
+        maxHp += 30;
         currentHp = maxHp;
-        maxExp += 100;
+        maxExp += 50;
         currentExp = 0;
         attackDetector.attackDamage += 2;
         if (fireBall) fireBall.damage += 2;
@@ -400,7 +400,7 @@ public class PlayerController : MonoBehaviour
 
         Destroy(gameObject, 3f); // Hủy sau 2 giây (đảm bảo animation có thời gian để phát)
 
-        Invoke(nameof(HandleDeath), 1f);
+        Invoke(nameof(HandleDeath), 2f);
     }
 
     private void HandleDeath()

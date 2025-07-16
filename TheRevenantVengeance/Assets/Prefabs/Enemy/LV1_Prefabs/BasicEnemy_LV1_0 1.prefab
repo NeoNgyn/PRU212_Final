@@ -204,7 +204,7 @@ MonoBehaviour:
   maxHp: 50
   currentHp: 0
   healthBar: {fileID: 2263475710950736348}
-  enterDamage: 20
+  enterDamage: 10
   stayDamage: 10
   expObjects:
   - {fileID: 3085360803216928165, guid: 45c33d3ac580bd54583265db0b436b61, type: 3}
