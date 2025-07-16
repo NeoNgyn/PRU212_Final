@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using Assets.Scripts.Controller;
 using Assets.Scripts.Controller.Enemy.EnemyLv2;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
@@ -56,8 +55,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject swordSpinPrefab;
     [SerializeField] private Transform spinCenter;
 
-    [SerializeField] public SwordSpin swordSpin;
-    [SerializeField] public FireballDamage fireBall;
+    [SerializeField] private SwordSpin swordSpin;
+    [SerializeField] private FireballDamage fireBall;
 
 
     [SerializeField] private GameObject circleEffectPrefab;
@@ -96,8 +95,8 @@ public class PlayerController : MonoBehaviour
         currentExp = PlayerState.CurrentExp;
         moveSpeed = PlayerState.MoveSpeed;
         attackDetector.attackDamage = PlayerState.NormalDamge;
-        fireBall.damage = PlayerState.Skill1Damge;
-        swordSpin.damage = PlayerState.Skill2Damge;
+        if (fireBall != null) fireBall.damage = PlayerState.Skill1Damge;
+        if (swordSpin != null) swordSpin.damage = PlayerState.Skill2Damge;
 
         currentHp = maxHp;
         UpdateHealthBar();
@@ -127,8 +126,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    
-
     public void ActivateAura(GameObject auraPrefab)
     {
         if (auraPrefab != null && activeAura == null)  // Chỉ tạo 1 lần
@@ -146,8 +143,6 @@ public class PlayerController : MonoBehaviour
         UpdateEnergyBar();
         UpdateExpBar();
         gameManager.UpdateLevelUI(level);
-
-
         Movement();
         //currentEnergy = maxEnergy;
         //UpdateEnergyBar(); //test ultimate
