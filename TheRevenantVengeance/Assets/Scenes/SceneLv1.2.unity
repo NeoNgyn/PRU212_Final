@@ -99998,7 +99998,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpeed: 1
-  maxHp: 1000
+  maxHp: 500
   currentHp: 0
   healthBar: {fileID: 1675031860}
   enterDamage: 10
@@ -100657,7 +100657,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 1228583463}
-  countdownTime: 10
+  countdownTime: 30
   bossEnemy: {fileID: 161346060}
   healthBar: {fileID: 1645239176}
   healthText: {fileID: 1359750905}

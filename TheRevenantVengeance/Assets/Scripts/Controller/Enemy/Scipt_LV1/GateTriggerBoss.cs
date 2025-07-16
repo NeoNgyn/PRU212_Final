@@ -276,6 +276,10 @@ public class GateTriggerBoss : MonoBehaviour
         PlayerState.CurrentExp = pc.currentExp;
         PlayerState.MoveSpeed = pc.moveSpeed;
         PlayerState.NormalDamge = pc.attackDetector.attackDamage;
+        PlayerState.Skill1Damge = pc.fireBall.damage;
+        PlayerState.Skill2Damge = pc.swordSpin.damage;
+
+
 
         Debug.Log("Save statistic");
         yield return null; // đợi 1 frame để chắc chắn dữ liệu lưu xong

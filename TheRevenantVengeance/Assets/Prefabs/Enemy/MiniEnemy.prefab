@@ -200,10 +200,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpeed: 5
-  maxHp: 20
+  maxHp: 10
   currentHp: 0
   healthBar: {fileID: 8216113103709376946}
-  enterDamage: 15
+  enterDamage: 5
   stayDamage: 1
   expObjects: []
   knockbackForce: 5

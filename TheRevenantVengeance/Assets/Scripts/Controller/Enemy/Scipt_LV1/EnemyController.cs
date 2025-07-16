@@ -133,11 +133,11 @@ public abstract class EnemyController : MonoBehaviour
 
         if (expObjects != null && expObjects.Length > 0)
         {
-            int randomChange = Random.Range(1, 301);
+            int randomChange = Random.Range(1, 151);
             int expCount = 1;
-            if (randomChange <= 100)
+            if (randomChange <= 50)
                 expCount = 1;
-            else if (randomChange <= 200)
+            else if (randomChange <= 100)
                 expCount = 2;
             else
                 expCount = 3;
