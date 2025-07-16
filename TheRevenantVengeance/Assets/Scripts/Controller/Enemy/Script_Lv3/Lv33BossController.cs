@@ -86,7 +86,7 @@ public class Lv33BossController : EnemyController
                     {
                         audioSource.PlayOneShot(attackSound);
                     }
-                    player.TakeDamage(10f);
+                    player.TakeDamage(20f);
                 }
                 else
                 {
@@ -97,7 +97,7 @@ public class Lv33BossController : EnemyController
                     {
                         audioSource.PlayOneShot(attackSound);
                     }
-                    player.TakeDamage(18f);
+                    player.TakeDamage(50f);
                 }
             }
         }

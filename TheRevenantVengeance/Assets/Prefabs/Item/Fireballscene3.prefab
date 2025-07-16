@@ -165,5 +165,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6cfdefb937037743b1c66961e27efb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireballDamage: 15
-  playerKnockbackForce: 15
+  rotationSpeed: 120
+  damage: 25
