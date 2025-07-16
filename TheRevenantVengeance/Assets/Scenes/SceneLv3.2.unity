@@ -1581,7 +1581,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 250}
+  m_AnchoredPosition: {x: 0, y: 100}
   m_SizeDelta: {x: 1200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &195802518
@@ -1605,12 +1605,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Gold-plated justice cracks under blood-soaked truth.Behind each general\u2019s
-    command lies the whisper of something older... fouler.\n(\r( \u0110\u1EB1ng sau
-    m\u1EC7nh l\u1EC7nh c\u1EE7a m\u1ED7i v\u1ECB t\u01B0\u1EDBng l\xE0 ti\u1EBFng
-    th\xEC th\u1EA7m c\u1EE7a m\u1ED9t \u0111i\u1EC1u g\xEC \u0111\xF3 c\u0169 k\u1EF9
-    h\u01A1n... b\u1EA9n th\u1EC9u h\u01A1n.)\r\n\n He cuts not only through men,
-    but illusions.\n(Anh ta kh\xF4ng ch\u1EC9 c\u1EAFt xuy\xEAn qua con ng\u01B0\u1EDDi
-    m\xE0 c\xF2n c\u1EAFt xuy\xEAn qua c\u1EA3 \u1EA3o t\u01B0\u1EDFng.)\r\n"
+    command lies the whisper of something older... fouler.\nHe cuts not only through
+    men, but illusions.\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fa229efd4ad92cf4c989adb39c96f90b, type: 2}
   m_sharedMaterial: {fileID: 6413047107904668315, guid: fa229efd4ad92cf4c989adb39c96f90b, type: 2}
@@ -114180,7 +114176,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 350}
+  m_AnchoredPosition: {x: 0, y: 300}
   m_SizeDelta: {x: 1200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1043955971
@@ -119151,7 +119147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 1127028369}
-  countdownTime: 120
+  countdownTime: 10
   bossEnemy: {fileID: 1159719636}
   healthBar: {fileID: 704232639}
   healthText: {fileID: 906098059}
@@ -119161,7 +119157,6 @@ MonoBehaviour:
   introduction: {fileID: 288658018}
   dead: {fileID: 347382762}
   uiComponent: {fileID: 2103277411}
-  deathAudioSource: {fileID: 1873069732}
   deathClip: {fileID: 8300000, guid: 34d2df7a254cbfc4a9dd165e68623c76, type: 3}
 --- !u!4 &2089871529
 Transform:

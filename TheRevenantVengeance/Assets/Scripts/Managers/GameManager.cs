@@ -21,13 +21,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject dead;
     [SerializeField] private GameObject uiComponent;
 
-    [SerializeField] private AudioSource deathAudioSource; 
-    [SerializeField] private AudioClip deathClip; 
-
+    [SerializeField] private AudioClip deathClip;
 
     void Start()
     {
-        // Mở introduction trước khi chơi
         Time.timeScale = 0f;
         introduction.SetActive(true);
         uiComponent.SetActive(false);
@@ -57,18 +54,21 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         introduction.SetActive(false);
         uiComponent.SetActive(true);
-
     }
 
     public void Dead()
     {
         MuteAllAudioSources();
 
-        // Play death sound
-        if (deathAudioSource != null && deathClip != null)
+        // Dynamically create and play death sound
+        if (deathClip != null)
         {
+            AudioSource deathAudioSource = gameObject.AddComponent<AudioSource>();
             deathAudioSource.clip = deathClip;
             deathAudioSource.Play();
+
+            // Optionally destroy the AudioSource after the clip finishes
+            Destroy(deathAudioSource, deathClip.length);
         }
 
         Time.timeScale = 0f;
@@ -80,10 +80,7 @@ public class GameManager : MonoBehaviour
         AudioSource[] allAudioSources = FindObjectsOfType<AudioSource>();
         foreach (AudioSource src in allAudioSources)
         {
-            if (src != deathAudioSource) // Don't mute the death sound
-            {
-                src.mute = true;
-            }
+            src.mute = true;
         }
     }
 
@@ -92,12 +89,7 @@ public class GameManager : MonoBehaviour
         AudioSource[] allAudioSources = FindObjectsOfType<AudioSource>();
         foreach (AudioSource src in allAudioSources)
         {
-            if (src != deathAudioSource)
-            {
-                src.mute = false;
-            }
-            else
-                src.mute = true;
+            src.mute = false;
         }
     }
 
@@ -161,6 +153,4 @@ public class GameManager : MonoBehaviour
         timerText.fontSize = 72;
         timerText.color = Color.red;
     }
-
-
 }

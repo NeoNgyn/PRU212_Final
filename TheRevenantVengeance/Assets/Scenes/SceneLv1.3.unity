@@ -120823,7 +120823,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 350}
+  m_AnchoredPosition: {x: 0, y: 300}
   m_SizeDelta: {x: 1200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &579137882
@@ -121074,7 +121074,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 250}
+  m_AnchoredPosition: {x: 0, y: 100}
   m_SizeDelta: {x: 1200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &624769088
@@ -121097,11 +121097,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "The gatekeeper falls, his chains broken by one who knows true death.\n(Ng\u01B0\u1EDDi
-    g\xE1c c\u1ED5ng ng\xE3 xu\u1ED1ng, xi\u1EC1ng x\xEDch c\u1EE7a anh ta b\u1ECB
-    ph\xE1 v\u1EE1 b\u1EDFi m\u1ED9t ng\u01B0\u1EDDi bi\u1EBFt \u0111\u1EBFn c\xE1i
-    ch\u1EBFt th\u1EF1c s\u1EF1.)\r\n\r\nThe way forward opens\u2014not into light,
-    but into the world that forgot."
+  m_text: "The gatekeeper falls, his chains broken by one who knows true death.\r\nThe
+    way forward opens\u2014not into light, but into the world that forgot."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fa229efd4ad92cf4c989adb39c96f90b, type: 2}
   m_sharedMaterial: {fileID: 6413047107904668315, guid: fa229efd4ad92cf4c989adb39c96f90b, type: 2}
@@ -137894,7 +137891,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 941711255}
-  countdownTime: 5
+  countdownTime: 10
   bossEnemy: {fileID: 821564170}
   healthBar: {fileID: 1503531938}
   healthText: {fileID: 505724688}
@@ -137904,7 +137901,6 @@ MonoBehaviour:
   introduction: {fileID: 472085410}
   dead: {fileID: 442366473}
   uiComponent: {fileID: 1057355254}
-  deathAudioSource: {fileID: 1102060000}
   deathClip: {fileID: 8300000, guid: 34d2df7a254cbfc4a9dd165e68623c76, type: 3}
 --- !u!4 &1175550724
 Transform:
