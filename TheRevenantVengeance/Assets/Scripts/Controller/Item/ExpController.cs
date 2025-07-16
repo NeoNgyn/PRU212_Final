@@ -4,8 +4,10 @@ public class ExpController : MonoBehaviour
 {
     [SerializeField] private float expValue = 10f;
     [SerializeField] private float attractRange = 3f;   
-    [SerializeField] private float moveSpeed = 5f;      
+    [SerializeField] private float moveSpeed = 5f;
 
+    [Header("Âm thanh thu thập EXP")]
+    [SerializeField] private AudioClip collectExpClip;
     private Transform player;
 
     void Start()
@@ -38,6 +40,10 @@ public class ExpController : MonoBehaviour
             if (playerController != null)
             {
                 playerController.GetExp(expValue);
+                if (collectExpClip != null)
+                {
+                    AudioSource.PlayClipAtPoint(collectExpClip, transform.position);
+                }
                 Destroy(gameObject);
             }
         }

@@ -4249,6 +4249,7 @@ MonoBehaviour:
   ultimateTimeScale: 0.1
   ultimateDuration: 2
   damageTextPrefab: {fileID: 7958397516696462843, guid: 3f714a41d1df0a544bfe1ad42b092f56, type: 3}
+  fireballShootClip: {fileID: 8300000, guid: ec2e91ba450339a4ca0ebcf95b227c1b, type: 3}
 --- !u!95 &749433002
 Animator:
   serializedVersion: 7
