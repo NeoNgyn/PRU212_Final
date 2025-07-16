@@ -99442,7 +99442,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 250}
+  m_AnchoredPosition: {x: 0, y: 100}
   m_SizeDelta: {x: 1200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &110247479
@@ -99465,14 +99465,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "The roots remember.\n(R\u1EC5 c\xE2y ghi nh\u1EDB.)\r\nThey whisper of
-    a hero buried not in peace, but in betrayal.\n(Ch\xFAng th\xEC th\u1EA7m v\u1EC1
-    m\u1ED9t anh h\xF9ng kh\xF4ng \u0111\u01B0\u1EE3c y\xEAn ngh\u1EC9, m\xE0 b\u1ECB
-    ch\xF4n v\xF9i trong ph\u1EA3n b\u1ED9i.)\r\nWolves feast where mourners should
-    stand.\n(S\xF3i r\u1EEBng g\u1EB7m x\u01B0\u01A1ng n\u01A1i l\u1EBD ra d\xE0nh
-    cho k\u1EBB \u0111\u1EBFn vi\u1EBFng.)\r\nThe forest weeps, and yet, the soil
-    stirs.\n\r(Khu r\u1EEBng kh\xF3c \u2013 v\xE0 \u0111\u1EA5t b\u1EAFt \u0111\u1EA7u
-    chuy\u1EC3n m\xECnh.)"
+  m_text: 'The roots remember.
+
+    They whisper of a hero buried not in peace,
+    but in betrayal.
+
+    Wolves feast where mourners should stand.
+
+    The forest
+    weeps, and yet, the soil stirs.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fa229efd4ad92cf4c989adb39c96f90b, type: 2}
   m_sharedMaterial: {fileID: 6413047107904668315, guid: fa229efd4ad92cf4c989adb39c96f90b, type: 2}
@@ -102006,7 +102007,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 350}
+  m_AnchoredPosition: {x: 0, y: 300}
   m_SizeDelta: {x: 1200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &728414326
@@ -106041,7 +106042,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 1211547118}
-  countdownTime: 120
+  countdownTime: 10
   bossEnemy: {fileID: 965019850}
   healthBar: {fileID: 1087265791}
   healthText: {fileID: 721643369}
@@ -106051,7 +106052,6 @@ MonoBehaviour:
   introduction: {fileID: 1520351958}
   dead: {fileID: 1048750258}
   uiComponent: {fileID: 413810245}
-  deathAudioSource: {fileID: 2111491550}
   deathClip: {fileID: 8300000, guid: 34d2df7a254cbfc4a9dd165e68623c76, type: 3}
 --- !u!4 &926095507
 Transform:
@@ -111065,7 +111065,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpeed: 1
-  maxHp: 2000
+  maxHp: 800
   healthBar: {fileID: 480161581}
   enterDamage: 10
   stayDamage: 10
@@ -115569,7 +115569,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1520351959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116359,7 +116359,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 1.2052922, y: -3.2048535}
+  m_Offset: {x: 1.7189174, y: 1.0424485}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -116369,7 +116369,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 5.8604918, y: 10.663215}
+  m_Size: {x: 3.0070205, y: 3.498394}
   m_EdgeRadius: 0
 --- !u!114 &1686275036
 MonoBehaviour:
@@ -116384,7 +116384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gateTilemap: {fileID: 1099146413}
-  gateMessageText: {fileID: 0}
+  gateMessageText: {fileID: 855932697}
   gateOpenSound: {fileID: 0}
   gateCollider: {fileID: 1686275035}
   targetSceneName: SceneLv1.2

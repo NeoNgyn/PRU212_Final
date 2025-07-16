@@ -2463,7 +2463,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 250}
+  m_AnchoredPosition: {x: 0, y: 100}
   m_SizeDelta: {x: 1200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &505833583
@@ -2486,11 +2486,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Gold-plated justice cracks under blood-soaked truth.\r\n(C\xF4ng l\xFD
-    m\u1EA1 v\xE0ng v\u1EE1 v\u1EE5n d\u01B0\u1EDBi s\u1EF1 th\u1EADt nhu\u1ED1m
-    m\xE1u.)\r\n\nThe nobles tremble as shadow reclaims what glory once stole.\n(C\xE1c
-    qu\xFD t\u1ED9c run s\u1EE3 khi b\xF3ng t\u1ED1i \u0111\xF2i l\u1EA1i \u0111i\u1EC1u
-    m\xE0 vinh quang t\u1EEBng c\u01B0\u1EDBp \u0111i.)"
+  m_text: 'Gold-plated justice cracks under blood-soaked truth.
+
+    The nobles
+    tremble as shadow reclaims what glory once stole.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fa229efd4ad92cf4c989adb39c96f90b, type: 2}
   m_sharedMaterial: {fileID: 6413047107904668315, guid: fa229efd4ad92cf4c989adb39c96f90b, type: 2}
@@ -3496,7 +3495,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 1020512460}
-  countdownTime: 120
+  countdownTime: 10
   bossEnemy: {fileID: 1156526628}
   healthBar: {fileID: 1992905493}
   healthText: {fileID: 144804193}
@@ -3506,7 +3505,6 @@ MonoBehaviour:
   introduction: {fileID: 1333909577}
   dead: {fileID: 1588412295}
   uiComponent: {fileID: 1800458242}
-  deathAudioSource: {fileID: 1354564042}
   deathClip: {fileID: 8300000, guid: 34d2df7a254cbfc4a9dd165e68623c76, type: 3}
 --- !u!4 &660200406
 Transform:
