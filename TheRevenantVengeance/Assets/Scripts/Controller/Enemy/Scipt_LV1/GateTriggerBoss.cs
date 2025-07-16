@@ -257,7 +257,9 @@ public class GateTriggerBoss : MonoBehaviour
 				if (!string.IsNullOrEmpty(targetSceneName)) // ??m b?o tên c?nh không r?ng
 				{
 					Debug.Log("Ng??i ch?i b?m W! ?ang t?i scene: " + targetSceneName + "..."); // Log tên c?nh ?ích
-	                SceneTransitionManager.instance.TransitionToScene(targetSceneName);
+                      //SceneTransitionManager.instance.TransitionToScene(targetSceneName);
+                SceneManager.LoadScene(targetSceneName);
+
             }
             else
 				{

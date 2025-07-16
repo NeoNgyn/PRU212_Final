@@ -161,3 +161,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   energyValue: 20
+  attractRange: 3
+  moveSpeed: 5
+  collectEnergyClip: {fileID: 8300000, guid: c89cad60db379544c9291a4969860d6c, type: 3}
