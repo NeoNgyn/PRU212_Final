@@ -121521,6 +121521,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: HealthBar
       objectReference: {fileID: 0}
+    - target: {fileID: 6384009851166948741, guid: 2e5b1c46857bdc44f80641b56f1dc79a, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6647774995655105709, guid: 2e5b1c46857bdc44f80641b56f1dc79a, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284817888492765753, guid: 2e5b1c46857bdc44f80641b56f1dc79a, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8960665529757760131, guid: 2e5b1c46857bdc44f80641b56f1dc79a, type: 3}
       propertyPath: m_Color.g
       value: 0
@@ -122507,7 +122519,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -122531,7 +122543,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 821564170}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -122656,7 +122668,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpeed: 1
-  maxHp: 10
+  maxHp: 800
   currentHp: 0
   healthBar: {fileID: 2001083833}
   enterDamage: 10
@@ -138877,7 +138889,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 941711255}
-  countdownTime: 120
+  countdownTime: 30
   bossEnemy: {fileID: 821564170}
   healthBar: {fileID: 1503531938}
   healthText: {fileID: 505724688}

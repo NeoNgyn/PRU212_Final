@@ -55,8 +55,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject swordSpinPrefab;
     [SerializeField] private Transform spinCenter;
 
-    [SerializeField] private SwordSpin swordSpin;
-    [SerializeField] private FireballDamage fireBall;
+    [SerializeField] public SwordSpin swordSpin;
+    [SerializeField] public FireballDamage fireBall;
 
 
     [SerializeField] private GameObject circleEffectPrefab;
@@ -170,13 +170,15 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.CompareTag("EnemyBullet"))
         {
-            TakeDamage(10f);
+            TakeDamage(30f);
         }
     }
 
     void Movement()
     {
         Vector2 playerInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+
+        playerInput.Normalize();
 
         // Chỉ di chuyển khi không tấn công
         if (!isAttacking)
@@ -330,9 +332,9 @@ public class PlayerController : MonoBehaviour
     {
         level += 1;
         moveSpeed += 0.2f;
-        maxHp += 10;
+        maxHp += 30;
         currentHp = maxHp;
-        maxExp += 100;
+        maxExp += 50;
         currentExp = 0;
         attackDetector.attackDamage += 2;
         if (fireBall) fireBall.damage += 2;
@@ -398,7 +400,7 @@ public class PlayerController : MonoBehaviour
 
         Destroy(gameObject, 3f); // Hủy sau 2 giây (đảm bảo animation có thời gian để phát)
 
-        Invoke(nameof(HandleDeath), 1f);
+        Invoke(nameof(HandleDeath), 2f);
     }
 
     private void HandleDeath()
