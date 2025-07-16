@@ -95,8 +95,8 @@ public class PlayerController : MonoBehaviour
         currentExp = PlayerState.CurrentExp;
         moveSpeed = PlayerState.MoveSpeed;
         attackDetector.attackDamage = PlayerState.NormalDamge;
-        fireBall.damage = PlayerState.Skill1Damge;
-        swordSpin.damage = PlayerState.Skill2Damge;
+        if (fireBall != null) fireBall.damage = PlayerState.Skill1Damge;
+        if (swordSpin != null) swordSpin.damage = PlayerState.Skill2Damge;
 
         currentHp = maxHp;
         UpdateHealthBar();
@@ -139,7 +139,10 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-
+        UpdateHealthBar();
+        UpdateEnergyBar();
+        UpdateExpBar();
+        gameManager.UpdateLevelUI(level);
         Movement();
         //currentEnergy = maxEnergy;
         //UpdateEnergyBar(); //test ultimate

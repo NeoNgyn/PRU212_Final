@@ -99467,13 +99467,13 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'The roots remember.
 
-    They whisper of a hero buried not in peace,
-    but in betrayal.
+    They whisper of a hero buried not in peace, but
+    in betrayal.
 
     Wolves feast where mourners should stand.
 
-    The forest
-    weeps, and yet, the soil stirs.'
+    The forest weeps,
+    and yet, the soil stirs.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fa229efd4ad92cf4c989adb39c96f90b, type: 2}
   m_sharedMaterial: {fileID: 6413047107904668315, guid: fa229efd4ad92cf4c989adb39c96f90b, type: 2}
@@ -99993,6 +99993,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemySpeed: 1
   maxHp: 1000
+  currentHp: 0
   healthBar: {fileID: 1427080487}
   enterDamage: 100
   stayDamage: 10
@@ -106042,7 +106043,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 1211547118}
-  countdownTime: 10
+  countdownTime: 120
   bossEnemy: {fileID: 965019850}
   healthBar: {fileID: 1087265791}
   healthText: {fileID: 721643369}
@@ -111066,6 +111067,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemySpeed: 1
   maxHp: 800
+  currentHp: 0
   healthBar: {fileID: 480161581}
   enterDamage: 10
   stayDamage: 10
