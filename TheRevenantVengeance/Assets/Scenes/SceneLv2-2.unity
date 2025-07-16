@@ -774,6 +774,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemySpeed: 1
   maxHp: 1000
+  currentHp: 0
   healthBar: {fileID: 1427080487}
   enterDamage: 100
   stayDamage: 10
@@ -19149,7 +19150,7 @@ MonoBehaviour:
   - {fileID: 1294231520}
   - {fileID: 792323166}
   - {fileID: 1591085505}
-  timeDelay: 1.5
+  timeDelay: 10
 --- !u!1 &785161398
 GameObject:
   m_ObjectHideFlags: 0
@@ -221425,11 +221426,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6702933792975405655, guid: 1ec44a27a56fa4c49b182947f6942e06, type: 3}
       propertyPath: maxHp
-      value: 700
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 6702933792975405655, guid: 1ec44a27a56fa4c49b182947f6942e06, type: 3}
       propertyPath: enemySpeed
-      value: 5.5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6702933792975405655, guid: 1ec44a27a56fa4c49b182947f6942e06, type: 3}
       propertyPath: gateTrigger
