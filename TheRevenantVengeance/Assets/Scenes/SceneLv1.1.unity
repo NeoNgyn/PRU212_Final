@@ -102338,7 +102338,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 525, y: 300}
+  m_AnchoredPosition: {x: 525, y: 435}
   m_SizeDelta: {x: 670, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &855932697
@@ -106054,6 +106054,7 @@ MonoBehaviour:
   dead: {fileID: 1048750258}
   uiComponent: {fileID: 413810245}
   deathClip: {fileID: 8300000, guid: 34d2df7a254cbfc4a9dd165e68623c76, type: 3}
+  gateMessageText: {fileID: 855932697}
 --- !u!4 &926095507
 Transform:
   m_ObjectHideFlags: 0
@@ -111095,6 +111096,7 @@ MonoBehaviour:
   fireballSound: {fileID: 8300000, guid: 71c23d4f52b507c469af0709e8affc4f, type: 3}
   takeHitSound: {fileID: 8300000, guid: b20bca41b7becc14482bd728dd06979a, type: 3}
   dieSound: {fileID: 8300000, guid: a9b5d18137f88394b92164fff6f11e18, type: 3}
+  gameManager: {fileID: 926095506}
 --- !u!61 &965019857
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -116418,6 +116420,7 @@ GameObject:
   - component: {fileID: 1686275037}
   - component: {fileID: 1686275036}
   - component: {fileID: 1686275035}
+  - component: {fileID: 1686275038}
   m_Layer: 0
   m_Name: Gate (1)
   m_TagString: Untagged
@@ -116484,8 +116487,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gateTilemap: {fileID: 1099146413}
-  gateMessageText: {fileID: 855932697}
-  gateOpenSound: {fileID: 0}
+  gateOpenSound: {fileID: 1686275038}
   gateCollider: {fileID: 1686275035}
   targetSceneName: SceneLv1.2
 --- !u!4 &1686275037
@@ -116503,6 +116505,103 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1686275038
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686275034}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 216b3315ca62aa54ab9648d3645c3b31, type: 3}
+  m_Resource: {fileID: 8300000, guid: 216b3315ca62aa54ab9648d3645c3b31, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1799076445
 GameObject:
   m_ObjectHideFlags: 0

@@ -120,7 +120,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &5492212390341217510
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -218,6 +218,7 @@ MonoBehaviour:
   audioSource: {fileID: 3108792517061702608}
   attackSound: {fileID: 8300000, guid: 8938d9ae2e82d8d4b820ea692717b424, type: 3}
   deathSound: {fileID: 8300000, guid: 798594c5d8dc1ff4aaf67860b793fad0, type: 3}
+  gameManager: {fileID: 0}
 --- !u!82 &3108792517061702608
 AudioSource:
   m_ObjectHideFlags: 0

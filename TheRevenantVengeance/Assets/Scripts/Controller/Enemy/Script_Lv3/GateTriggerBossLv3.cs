@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GateTriggerBossLv3 : MonoBehaviour
 {
     [SerializeField] private Tilemap gateTilemap;
-    [SerializeField] private TMP_Text gateMessageText;
+    //[SerializeField] private TMP_Text gateMessageText;
     [SerializeField] private AudioSource gateOpenSound;
     [SerializeField] private Collider2D gateCollider;
 
@@ -35,19 +35,19 @@ public class GateTriggerBossLv3 : MonoBehaviour
                 gateOpenSound.Play();
             }
 
-            if (gateMessageText != null)
-            {
-                gateMessageText.text = "The Gate is Open!";
-                Invoke(nameof(HideMessage), 2f);
-            }
+            //if (gateMessageText != null)
+            //{
+            //    gateMessageText.text = "The Gate is Open!";
+            //    Invoke(nameof(HideMessage), 2f);
+            //}
         }
     }
 
-    private void HideMessage()
-    {
-        if (gateMessageText != null)
-            gateMessageText.text = "";
-    }
+    //private void HideMessage()
+    //{
+    //    if (gateMessageText != null)
+    //        gateMessageText.text = "";
+    //}
 
     private void OnTriggerStay2D(Collider2D collision)
     {
