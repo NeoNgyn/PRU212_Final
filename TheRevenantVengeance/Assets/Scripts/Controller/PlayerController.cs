@@ -493,7 +493,7 @@ public class PlayerController : MonoBehaviour
                 if (ec != null)
                 {
                     Vector2 knockbackDir = spriteRenderer.flipX ? Vector2.left : Vector2.right;
-                    ec.TakeDamage(ec.maxHp * 0.5f, knockbackDir);
+                    ec.TakeDamage(ec.currentHp * 0.5f, knockbackDir);
                 }
             }
         }
