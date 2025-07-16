@@ -1532,6 +1532,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemySpeed: 1
   maxHp: 1000
+  currentHp: 0
   healthBar: {fileID: 1427080487}
   enterDamage: 100
   stayDamage: 10
@@ -17097,7 +17098,7 @@ MonoBehaviour:
   - {fileID: 1294231520}
   - {fileID: 792323166}
   - {fileID: 1591085505}
-  timeDelay: 2
+  timeDelay: 0.5
 --- !u!1 &792323165
 GameObject:
   m_ObjectHideFlags: 0

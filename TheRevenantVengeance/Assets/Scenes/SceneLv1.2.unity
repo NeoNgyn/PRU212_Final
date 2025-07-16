@@ -100011,9 +100011,9 @@ MonoBehaviour:
   patrolSpeed: 2
   attackRange: 8
   fireballPrefab: {fileID: 801667502988187174, guid: db898f3ff7c67ba4d9db11244ea2659b, type: 3}
-  fireballCooldown: 3
-  radialFireballCooldown: 5
-  radialFireballCount: 8
+  fireballCooldown: 2
+  radialFireballCooldown: 3
+  radialFireballCount: 10
   attackAnimationDuration: 0.5
   orbitFireballCount: 8
   orbitRadius: 2.5
@@ -100657,7 +100657,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 1228583463}
-  countdownTime: 120
+  countdownTime: 10
   bossEnemy: {fileID: 161346060}
   healthBar: {fileID: 1645239176}
   healthText: {fileID: 1359750905}

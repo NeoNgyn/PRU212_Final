@@ -151342,6 +151342,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemySpeed: 1
   maxHp: 1000
+  currentHp: 0
   healthBar: {fileID: 1427080487}
   enterDamage: 100
   stayDamage: 10
@@ -184783,6 +184784,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4190905032595072403, guid: 22f8cc1ecddb9704ca24cf499105e7ed, type: 3}
+      propertyPath: enemySpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190905032595072403, guid: 22f8cc1ecddb9704ca24cf499105e7ed, type: 3}
       propertyPath: gateTrigger
       value: 
       objectReference: {fileID: 1377465923}
@@ -184825,6 +184830,10 @@ PrefabInstance:
     - target: {fileID: 5830629426274976933, guid: 22f8cc1ecddb9704ca24cf499105e7ed, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6380795273695925836, guid: 22f8cc1ecddb9704ca24cf499105e7ed, type: 3}
+      propertyPath: m_BodyType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7783546616830762170, guid: 22f8cc1ecddb9704ca24cf499105e7ed, type: 3}
       propertyPath: m_Name
