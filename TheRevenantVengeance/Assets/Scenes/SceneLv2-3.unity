@@ -151466,7 +151466,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 350}
+  m_AnchoredPosition: {x: 0, y: 300}
   m_SizeDelta: {x: 1200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &266294424
@@ -151598,7 +151598,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 1541089707}
-  countdownTime: 120
+  countdownTime: 10
   bossEnemy: {fileID: 80148740282017638}
   healthBar: {fileID: 7567809}
   healthText: {fileID: 1153875728}
@@ -151608,7 +151608,6 @@ MonoBehaviour:
   introduction: {fileID: 1719580613}
   dead: {fileID: 723623542}
   uiComponent: {fileID: 762782506}
-  deathAudioSource: {fileID: 120562288}
   deathClip: {fileID: 8300000, guid: 34d2df7a254cbfc4a9dd165e68623c76, type: 3}
 --- !u!4 &319111798
 Transform:
@@ -158346,7 +158345,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 250}
+  m_AnchoredPosition: {x: 0, y: 100}
   m_SizeDelta: {x: 1500, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &470554703
@@ -158370,7 +158369,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "The holy blade breaks upon ancient guilt.\r\n \u201CForgive me,\u201D
-    the once-friend whispers.\n He says nothing. The path of the forsaken needs no
+    the once-friend whispers.\nHe says nothing. The path of the forsaken needs no
     forgiveness.\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fa229efd4ad92cf4c989adb39c96f90b, type: 2}
