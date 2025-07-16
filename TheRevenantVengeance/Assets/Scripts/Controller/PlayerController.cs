@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using Assets.Scripts.Controller;
 using Assets.Scripts.Controller.Enemy.EnemyLv2;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
@@ -55,8 +56,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject swordSpinPrefab;
     [SerializeField] private Transform spinCenter;
 
-    [SerializeField] private SwordSpin swordSpin;
-    [SerializeField] private FireballDamage fireBall;
+    [SerializeField] public SwordSpin swordSpin;
+    [SerializeField] public FireballDamage fireBall;
 
 
     [SerializeField] private GameObject circleEffectPrefab;
@@ -126,6 +127,8 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    
+
     public void ActivateAura(GameObject auraPrefab)
     {
         if (auraPrefab != null && activeAura == null)  // Chỉ tạo 1 lần
@@ -139,6 +142,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        UpdateHealthBar();
+        UpdateEnergyBar();
+        UpdateExpBar();
+        gameManager.UpdateLevelUI(level);
+
 
         Movement();
         //currentEnergy = maxEnergy;
