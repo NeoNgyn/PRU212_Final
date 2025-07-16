@@ -1206,6 +1206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemySpeed: 1
   maxHp: 1000
+  currentHp: 0
   healthBar: {fileID: 1427080487}
   enterDamage: 100
   stayDamage: 10
@@ -44849,7 +44850,7 @@ PrefabInstance:
       objectReference: {fileID: 1785620377}
     - target: {fileID: 5492212390341217510, guid: f649080e75da5a649b16817ed6b64c8e, type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7386776229223138442, guid: f649080e75da5a649b16817ed6b64c8e, type: 3}
       propertyPath: m_Constraints
