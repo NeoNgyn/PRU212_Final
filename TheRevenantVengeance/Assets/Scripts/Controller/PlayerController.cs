@@ -139,7 +139,10 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-
+        UpdateHealthBar();
+        UpdateEnergyBar();
+        UpdateExpBar();
+        gameManager.UpdateLevelUI(level);
         Movement();
         //currentEnergy = maxEnergy;
         //UpdateEnergyBar(); //test ultimate
