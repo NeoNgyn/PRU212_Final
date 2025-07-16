@@ -943,6 +943,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemySpeed: 1
   maxHp: 1000
+  currentHp: 0
   healthBar: {fileID: 1427080487}
   enterDamage: 100
   stayDamage: 10
@@ -3883,7 +3884,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 35627602503788784, guid: 385abbc9f63ce4e4aba22b710eb46077, type: 3}
-  - {fileID: 4025130909941794204, guid: 1af9bae8aff646d409dc42acdba8b8ba, type: 3}
+  - {fileID: 4025130909941794204, guid: 6ad40d286f8ac174b93ca66bf1f6ad83, type: 3}
   - {fileID: 6812418131490326761, guid: 1efaed18e91870f469bf6ccc724aa442, type: 3}
   - {fileID: 6639285853732437987, guid: a98c3e0efcc44a5428de446a1d858ec8, type: 3}
   - {fileID: 5703981776682762238, guid: 359b760939d356b408dbcdcd166f65e9, type: 3}
@@ -3906,7 +3907,7 @@ MonoBehaviour:
   - {fileID: 1294231520}
   - {fileID: 792323166}
   - {fileID: 1591085505}
-  timeDelay: 1
+  timeDelay: 0.25
 --- !u!1 &792323165
 GameObject:
   m_ObjectHideFlags: 0

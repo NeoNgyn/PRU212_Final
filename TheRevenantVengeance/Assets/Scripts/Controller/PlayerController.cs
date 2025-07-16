@@ -170,7 +170,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.CompareTag("EnemyBullet"))
         {
-            TakeDamage(10f);
+            TakeDamage(30f);
         }
     }
 
