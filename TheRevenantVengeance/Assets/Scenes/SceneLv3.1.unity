@@ -1587,6 +1587,7 @@ GameObject:
   - component: {fileID: 334721849}
   - component: {fileID: 334721847}
   - component: {fileID: 334721850}
+  - component: {fileID: 334721851}
   m_Layer: 0
   m_Name: GateTrigger
   m_TagString: Untagged
@@ -1668,10 +1669,106 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gateTilemap: {fileID: 218387638}
-  gateMessageText: {fileID: 0}
-  gateOpenSound: {fileID: 0}
+  gateOpenSound: {fileID: 334721851}
   gateCollider: {fileID: 334721847}
   targetSceneName: SceneLv3.2
+--- !u!82 &334721851
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 334721846}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 216b3315ca62aa54ab9648d3645c3b31, type: 3}
+  m_Resource: {fileID: 8300000, guid: 216b3315ca62aa54ab9648d3645c3b31, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &353717809
 GameObject:
   m_ObjectHideFlags: 0
@@ -1876,6 +1973,7 @@ MonoBehaviour:
   fireballSound: {fileID: 8300000, guid: 0ec8566a5566804418d6970c5d5ab4e7, type: 3}
   takeHitSound: {fileID: 8300000, guid: b20bca41b7becc14482bd728dd06979a, type: 3}
   dieSound: {fileID: 8300000, guid: a9b5d18137f88394b92164fff6f11e18, type: 3}
+  gameManager: {fileID: 0}
 --- !u!95 &393487128
 Animator:
   serializedVersion: 7
@@ -3508,6 +3606,7 @@ MonoBehaviour:
   dead: {fileID: 1588412295}
   uiComponent: {fileID: 1800458242}
   deathClip: {fileID: 8300000, guid: 34d2df7a254cbfc4a9dd165e68623c76, type: 3}
+  gateMessageText: {fileID: 2013109651}
 --- !u!4 &660200406
 Transform:
   m_ObjectHideFlags: 0
@@ -53489,6 +53588,7 @@ MonoBehaviour:
   audioSource: {fileID: 1156526629}
   itemDropPrefab: {fileID: 0}
   gateTrigger: {fileID: 334721850}
+  gameManager: {fileID: 660200405}
 --- !u!95 &1156526631
 Animator:
   serializedVersion: 7
@@ -56964,7 +57064,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 525, y: 300}
+  m_AnchoredPosition: {x: 525, y: 435}
   m_SizeDelta: {x: 670, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2013109651

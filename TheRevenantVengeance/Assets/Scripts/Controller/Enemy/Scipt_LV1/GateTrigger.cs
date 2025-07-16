@@ -209,8 +209,18 @@ public class GateTrigger : MonoBehaviour
         PlayerState.CurrentExp = pc.currentExp;
         PlayerState.MoveSpeed = pc.moveSpeed;
         PlayerState.NormalDamge = pc.attackDetector.attackDamage;
-        PlayerState.Skill1Damge = pc.fireBall.damage;
-        PlayerState.Skill2Damge = pc.swordSpin.damage;
+        //PlayerState.Skill1Damge = pc.fireBall.damage;
+        //PlayerState.Skill2Damge = pc.swordSpin.damage;
+
+        if (pc.fireBall != null)
+        {
+            PlayerState.Skill1Damge = pc.fireBall.damage;
+        }     
+
+        if (pc.swordSpin != null)
+        {
+            PlayerState.Skill2Damge = pc.swordSpin.damage;
+        }
 
         Debug.Log("Save statistic");
         yield return null; // đợi 1 frame để chắc chắn dữ liệu lưu xong

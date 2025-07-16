@@ -21,8 +21,11 @@ public class FireBallScene3 : MonoBehaviour
             Rigidbody2D rb = collision.GetComponent<Rigidbody2D>();
             if (rb != null)
             {
-                Vector2 dir = (collision.transform.position - transform.parent.position).normalized;
-                rb.AddForce(dir * 500f);
+                if (transform.parent != null)
+                {
+                    Vector2 dir = (collision.transform.position - transform.parent.position).normalized;
+                    rb.AddForce(dir * 500f);
+                }
             }
 
             // ✅ Gây damage cho Player

@@ -21,6 +21,7 @@ namespace Assets.Scripts.Controller.Enemy.EnemyLv2
         [SerializeField] private AudioSource audioSource;
         [SerializeField] private AudioClip attackSound;
         [SerializeField] private AudioClip deathSound;
+        [SerializeField] private GameManager gameManager;
         protected override void Awake()
         {
             base.Awake();
@@ -117,6 +118,7 @@ namespace Assets.Scripts.Controller.Enemy.EnemyLv2
             {
                 gateTrigger.OpenGate();
             }
+            gameManager.OnBossDead();
             base.Die();
             //Destroy(gameObject, 2f);
         }

@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Controller.Enemy.EnemyLv2
 {
-    public class KnightHeal : EnemyController
+    public class GothicBoss : EnemyController
     {
         [SerializeField] private GameObject heartObject;
         [SerializeField] private float healValue = 20f;
@@ -22,6 +22,8 @@ namespace Assets.Scripts.Controller.Enemy.EnemyLv2
         [SerializeField] private AudioClip attackSound;
         [SerializeField] private AudioClip deathSound;
 
+        [SerializeField] private GateTriggerBoss gateTrigger;
+        [SerializeField] private GameManager gameManager;
         protected override void Awake()
         {
             base.Awake();
@@ -85,27 +87,12 @@ namespace Assets.Scripts.Controller.Enemy.EnemyLv2
                 }
             }
         }
-        //private void OnTriggerEnter2D(Collider2D collision)
-        //{
-        //    if (collision.CompareTag("Player"))
-        //    {
-        //        player.TakeDamage(enterDamage);
-        //    }
-        //}
-
-        //private void OnTriggerStay2D(Collider2D collision)
-        //{
-        //    if (collision.CompareTag("Player"))
-        //    {
-        //        player.TakeDamage(stayDamage);
-        //    }
-        //}
 
         protected override void Die()
         {
             //isDead = true;
             animator?.SetTrigger("Die");
-           
+
             if (audioSource != null && deathSound != null)
             {
                 audioSource.PlayOneShot(deathSound);
@@ -115,7 +102,11 @@ namespace Assets.Scripts.Controller.Enemy.EnemyLv2
                 GameObject heart = Instantiate(heartObject, transform.position, Quaternion.identity);
                 Destroy(heart, 6f);
             }
-            
+            if (gateTrigger != null)
+            {
+                gateTrigger.OpenGate();
+            }
+            gameManager.OnBossDead();
             base.Die();
             //Destroy(gameObject, 2f);
         }
@@ -126,5 +117,4 @@ namespace Assets.Scripts.Controller.Enemy.EnemyLv2
                 player.Heal(healValue);
         }
     }
-
 }
