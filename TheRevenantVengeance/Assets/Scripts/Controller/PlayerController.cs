@@ -332,9 +332,9 @@ public class PlayerController : MonoBehaviour
     {
         level += 1;
         moveSpeed += 0.2f;
-        maxHp += 30;
+        maxHp += 20;
         currentHp = maxHp;
-        maxExp += 50;
+        maxExp += 100;
         currentExp = 0;
         attackDetector.attackDamage += 2;
         if (fireBall) fireBall.damage += 2;

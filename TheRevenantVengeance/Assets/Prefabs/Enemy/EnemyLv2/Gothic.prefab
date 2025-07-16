@@ -201,10 +201,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpeed: 4
-  maxHp: 700
+  maxHp: 800
   currentHp: 0
   healthBar: {fileID: 123045051613383450}
-  enterDamage: 40
+  enterDamage: 50
   stayDamage: 15
   expObjects:
   - {fileID: 8329027369469792152, guid: b4d303f82294a8043b1d3c140cd48c39, type: 3}

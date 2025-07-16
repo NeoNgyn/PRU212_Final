@@ -80,7 +80,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2119438533
-  m_SortingLayer: 5
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: 4944230376442633554, guid: ab19dd0d026e09941ae566a54eb4d897, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -200,10 +200,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04adcfbb16224ee428797bf143472df1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpeed: 1
-  maxHp: 50
+  enemySpeed: 3
+  maxHp: 140
+  currentHp: 0
   healthBar: {fileID: 5846428665096912194}
-  enterDamage: 10
+  enterDamage: 30
   stayDamage: 10
   expObjects:
   - {fileID: 3085360803216928165, guid: 45c33d3ac580bd54583265db0b436b61, type: 3}
