@@ -116,6 +116,7 @@ public class MusicManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            Debug.Log("MusicManager initialized and preserved");
 
             audioSource = GetComponent<AudioSource>();
             if (audioSource == null)
@@ -145,6 +146,7 @@ public class MusicManager : MonoBehaviour
         }
         else
         {
+            Debug.Log("Duplicate MusicManager destroyed");
             Destroy(gameObject);
         }
     }

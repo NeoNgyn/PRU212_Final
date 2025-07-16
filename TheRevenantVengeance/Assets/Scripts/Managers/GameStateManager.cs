@@ -17,11 +17,11 @@ public class GameStateManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        else if (instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
+        //else if (instance != this)
+        //{
+        //    Destroy(gameObject);
+        //    return;
+        //}
     }
     void Update()
     {
