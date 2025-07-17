@@ -44195,7 +44195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 1976998065}
-  countdownTime: 10
+  countdownTime: 30
   bossEnemy: {fileID: 524961325}
   healthBar: {fileID: 1019660100}
   healthText: {fileID: 1286324325}
@@ -44843,6 +44843,14 @@ PrefabInstance:
     - target: {fileID: 525978846963190391, guid: f649080e75da5a649b16817ed6b64c8e, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2977275262544998253, guid: f649080e75da5a649b16817ed6b64c8e, type: 3}
+      propertyPath: maxHp
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 2977275262544998253, guid: f649080e75da5a649b16817ed6b64c8e, type: 3}
+      propertyPath: enemySpeed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2977275262544998253, guid: f649080e75da5a649b16817ed6b64c8e, type: 3}
       propertyPath: gateTrigger
