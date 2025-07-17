@@ -3555,11 +3555,12 @@ MonoBehaviour:
   attackClip: {fileID: 8300000, guid: d27894f708009524b8140bf1e01847d7, type: 3}
   takeHitClip: {fileID: 8300000, guid: 8944a28c23ce3d84d9c67fcf2de4fe63, type: 3}
   ultiClip: {fileID: 8300000, guid: 95536ddc4c4c2034785a11c39d79560d, type: 3}
-  deathClip: {fileID: 0}
+  deathClip: {fileID: 8300000, guid: 26b94bd1fac52cd4e9dc67752d1eedc5, type: 3}
+  levelUpClip: {fileID: 8300000, guid: 9b8d53485f812514e9d3a176cbc6488e, type: 3}
   swordSpinPrefab: {fileID: 6612760209944274038, guid: 42cce2e7e964b0a49b5695c3cc9bc6a7, type: 3}
   spinCenter: {fileID: 1030448487}
-  swordSpin: {fileID: 0}
-  fireBall: {fileID: 0}
+  swordSpin: {fileID: 8792174930152747383, guid: 42cce2e7e964b0a49b5695c3cc9bc6a7, type: 3}
+  fireBall: {fileID: 7865378796058465710, guid: d27255f797a4bd247a9510f98e30eabb, type: 3}
   circleEffectPrefab: {fileID: 8741384446669436887, guid: cac2265e3b98a0e4f9c674a3ae74d3b1, type: 3}
   ultimateVideoPlayer: {fileID: 524136963}
   ultimateCanvas: {fileID: 1575414253}
@@ -3908,7 +3909,7 @@ MonoBehaviour:
   - {fileID: 1294231520}
   - {fileID: 792323166}
   - {fileID: 1591085505}
-  timeDelay: 0.25
+  timeDelay: 0.5
 --- !u!1 &792323165
 GameObject:
   m_ObjectHideFlags: 0
@@ -48727,7 +48728,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 1482363237}
-  countdownTime: 10
+  countdownTime: 30
   bossEnemy: {fileID: 416089837}
   healthBar: {fileID: 969869966}
   healthText: {fileID: 681315634}
@@ -48738,6 +48739,7 @@ MonoBehaviour:
   dead: {fileID: 181758896}
   uiComponent: {fileID: 1816445935}
   deathClip: {fileID: 8300000, guid: 34d2df7a254cbfc4a9dd165e68623c76, type: 3}
+  gateMessageText: {fileID: 0}
 --- !u!4 &1587140139
 Transform:
   m_ObjectHideFlags: 0

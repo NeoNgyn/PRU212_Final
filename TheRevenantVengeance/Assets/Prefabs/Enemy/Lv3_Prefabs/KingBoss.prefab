@@ -180,7 +180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpeed: 5
-  maxHp: 1000
+  maxHp: 1500
   currentHp: 0
   healthBar: {fileID: 2476972159703357720}
   enterDamage: 10

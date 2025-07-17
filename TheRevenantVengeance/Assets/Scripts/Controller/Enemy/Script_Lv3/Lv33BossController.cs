@@ -90,7 +90,7 @@ public class Lv33BossController : EnemyController
                 }
                 else
                 {
-                    isInvincible = true;
+                    isInvincible = false;
                     animator.SetTrigger("Combo");
                     //StartCoroutine(EndInvincibilityAfterAnimation("Combo"));
                     if (audioSource != null && attackSound != null)
