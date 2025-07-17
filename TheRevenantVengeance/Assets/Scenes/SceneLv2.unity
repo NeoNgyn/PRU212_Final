@@ -38451,11 +38451,12 @@ MonoBehaviour:
   attackClip: {fileID: 8300000, guid: d27894f708009524b8140bf1e01847d7, type: 3}
   takeHitClip: {fileID: 8300000, guid: 8944a28c23ce3d84d9c67fcf2de4fe63, type: 3}
   ultiClip: {fileID: 8300000, guid: 95536ddc4c4c2034785a11c39d79560d, type: 3}
-  deathClip: {fileID: 0}
+  deathClip: {fileID: 8300000, guid: 26b94bd1fac52cd4e9dc67752d1eedc5, type: 3}
+  levelUpClip: {fileID: 8300000, guid: 9b8d53485f812514e9d3a176cbc6488e, type: 3}
   swordSpinPrefab: {fileID: 0}
   spinCenter: {fileID: 0}
   swordSpin: {fileID: 0}
-  fireBall: {fileID: 0}
+  fireBall: {fileID: 7865378796058465710, guid: d27255f797a4bd247a9510f98e30eabb, type: 3}
   circleEffectPrefab: {fileID: 0}
   ultimateVideoPlayer: {fileID: 1573283718}
   ultimateCanvas: {fileID: 1062417637}
@@ -44196,7 +44197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 1976998065}
-  countdownTime: 10
+  countdownTime: 30
   bossEnemy: {fileID: 524961325}
   healthBar: {fileID: 1019660100}
   healthText: {fileID: 1286324325}
@@ -44848,11 +44849,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2977275262544998253, guid: f649080e75da5a649b16817ed6b64c8e, type: 3}
       propertyPath: maxHp
-      value: 10
+      value: 800
       objectReference: {fileID: 0}
     - target: {fileID: 2977275262544998253, guid: f649080e75da5a649b16817ed6b64c8e, type: 3}
       propertyPath: enemySpeed
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2977275262544998253, guid: f649080e75da5a649b16817ed6b64c8e, type: 3}
       propertyPath: gameManager

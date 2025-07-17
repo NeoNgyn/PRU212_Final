@@ -100094,8 +100094,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c26dc52b9c5f2a247beb2b7eb05d580f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpeed: 1
-  maxHp: 800
+  enemySpeed: 2
+  maxHp: 500
   currentHp: 0
   healthBar: {fileID: 1675031860}
   enterDamage: 10
@@ -102173,7 +102173,8 @@ MonoBehaviour:
   attackClip: {fileID: 8300000, guid: d27894f708009524b8140bf1e01847d7, type: 3}
   takeHitClip: {fileID: 8300000, guid: 8944a28c23ce3d84d9c67fcf2de4fe63, type: 3}
   ultiClip: {fileID: 8300000, guid: 95536ddc4c4c2034785a11c39d79560d, type: 3}
-  deathClip: {fileID: 0}
+  deathClip: {fileID: 8300000, guid: 26b94bd1fac52cd4e9dc67752d1eedc5, type: 3}
+  levelUpClip: {fileID: 8300000, guid: 9b8d53485f812514e9d3a176cbc6488e, type: 3}
   swordSpinPrefab: {fileID: 0}
   spinCenter: {fileID: 0}
   swordSpin: {fileID: 0}
@@ -102185,6 +102186,7 @@ MonoBehaviour:
   ultimateTimeScale: 0.1
   ultimateDuration: 3
   damageTextPrefab: {fileID: 7958397516696462843, guid: 3f714a41d1df0a544bfe1ad42b092f56, type: 3}
+  fireballShootClip: {fileID: 0}
 --- !u!50 &679756555
 Rigidbody2D:
   serializedVersion: 5

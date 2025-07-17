@@ -3595,7 +3595,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 1020512460}
-  countdownTime: 10
+  countdownTime: 30
   bossEnemy: {fileID: 1156526628}
   healthBar: {fileID: 1992905493}
   healthText: {fileID: 144804193}
@@ -4237,11 +4237,12 @@ MonoBehaviour:
   attackClip: {fileID: 8300000, guid: d27894f708009524b8140bf1e01847d7, type: 3}
   takeHitClip: {fileID: 8300000, guid: 8944a28c23ce3d84d9c67fcf2de4fe63, type: 3}
   ultiClip: {fileID: 8300000, guid: 95536ddc4c4c2034785a11c39d79560d, type: 3}
-  deathClip: {fileID: 0}
+  deathClip: {fileID: 8300000, guid: 26b94bd1fac52cd4e9dc67752d1eedc5, type: 3}
+  levelUpClip: {fileID: 8300000, guid: 9b8d53485f812514e9d3a176cbc6488e, type: 3}
   swordSpinPrefab: {fileID: 6612760209944274038, guid: 42cce2e7e964b0a49b5695c3cc9bc6a7, type: 3}
   spinCenter: {fileID: 1248569481}
-  swordSpin: {fileID: 0}
-  fireBall: {fileID: 0}
+  swordSpin: {fileID: 8792174930152747383, guid: 42cce2e7e964b0a49b5695c3cc9bc6a7, type: 3}
+  fireBall: {fileID: 7865378796058465710, guid: d27255f797a4bd247a9510f98e30eabb, type: 3}
   circleEffectPrefab: {fileID: 8741384446669436887, guid: cac2265e3b98a0e4f9c674a3ae74d3b1, type: 3}
   ultimateVideoPlayer: {fileID: 1977052158}
   ultimateCanvas: {fileID: 1457660603}
@@ -53548,8 +53549,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bde0ba0f937c34478b7c270cdbfd000, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpeed: 1
-  maxHp: 30
+  enemySpeed: 2
+  maxHp: 800
   currentHp: 0
   healthBar: {fileID: 717970207}
   enterDamage: 10

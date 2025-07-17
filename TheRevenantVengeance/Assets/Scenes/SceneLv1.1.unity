@@ -122399,6 +122399,7 @@ MonoBehaviour:
   takeHitClip: {fileID: 8300000, guid: 8944a28c23ce3d84d9c67fcf2de4fe63, type: 3}
   ultiClip: {fileID: 8300000, guid: 95536ddc4c4c2034785a11c39d79560d, type: 3}
   deathClip: {fileID: 8300000, guid: 26b94bd1fac52cd4e9dc67752d1eedc5, type: 3}
+  levelUpClip: {fileID: 8300000, guid: 9b8d53485f812514e9d3a176cbc6488e, type: 3}
   swordSpinPrefab: {fileID: 0}
   spinCenter: {fileID: 0}
   swordSpin: {fileID: 0}

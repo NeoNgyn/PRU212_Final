@@ -51,6 +51,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioClip takeHitClip;
     [SerializeField] private AudioClip ultiClip;
     [SerializeField] private AudioClip deathClip;
+    [SerializeField] private AudioClip levelUpClip;
 
     [SerializeField] private GameObject swordSpinPrefab;
     [SerializeField] private Transform spinCenter;
@@ -333,6 +334,11 @@ public class PlayerController : MonoBehaviour
 
     protected void LevelUp()
     {
+        if (audioSource != null && levelUpClip != null)
+        {
+            audioSource.PlayOneShot(levelUpClip);
+        }
+
         level += 1;
         moveSpeed += 0.2f;
         maxHp += 20;
