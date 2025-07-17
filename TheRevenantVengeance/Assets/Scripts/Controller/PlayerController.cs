@@ -76,6 +76,9 @@ public class PlayerController : MonoBehaviour
 
     private Coroutine poisonCoroutine;
 
+    [SerializeField] private AudioClip fireballShootClip;
+
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -431,6 +434,10 @@ public class PlayerController : MonoBehaviour
         if (rb != null)
         {
             rb.linearVelocity = direction * fireballSpeed;
+        }
+        if (audioSource != null && fireballShootClip != null)
+        {
+            audioSource.PlayOneShot(fireballShootClip);
         }
 
         Debug.Log("Đã bắn quả cầu tự động!");

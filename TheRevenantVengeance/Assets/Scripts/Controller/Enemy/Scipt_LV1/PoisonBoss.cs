@@ -45,6 +45,7 @@ public class PoisonBossEnemy : EnemyController
     private Animator animator;
     private bool isAttacking = false;
 
+    [SerializeField] private GameManager gameManager;
     protected override void Awake()
     {
         base.Awake();
@@ -289,6 +290,7 @@ public class PoisonBossEnemy : EnemyController
         {
             gateTrigger.OpenGate();
         }
+        gameManager.OnBossDead();
         base.Die();
         //Destroy(gameObject, 3f);
     }

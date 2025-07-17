@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject uiComponent;
 
     [SerializeField] private AudioClip deathClip;
-
+    [SerializeField] private TMP_Text gateMessageText;
     void Start()
     {
         Time.timeScale = 0f;
@@ -152,5 +152,18 @@ public class GameManager : MonoBehaviour
         timerText.text = "The Overlord Descends";
         timerText.fontSize = 72;
         timerText.color = Color.red;
+    }
+
+    public void OnBossDead()
+    {
+        if (timerText != null)
+        {
+            timerText.text = "";
+        }
+
+        if (gateMessageText != null)
+        {
+            gateMessageText.text = "The Gate is Open!";
+        }
     }
 }

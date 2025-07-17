@@ -179,7 +179,7 @@ using UnityEngine.Tilemaps;
 public class GateTriggerBoss : MonoBehaviour
 {
 	[SerializeField] private Tilemap gateTilemap;
-	[SerializeField] private TMP_Text gateMessageText;
+	//[SerializeField] private TMP_Text gateMessageText;
 	[SerializeField] private AudioSource gateOpenSound;
 	[SerializeField] private Collider2D gateCollider;
 
@@ -218,11 +218,11 @@ public class GateTriggerBoss : MonoBehaviour
 				gateOpenSound.Play();
 			}
 
-			if (gateMessageText != null)
-			{
-				gateMessageText.text = "The Gate is Open!";
-				Invoke(nameof(HideMessage), 2f);
-			}
+			//if (gateMessageText != null)
+			//{
+			//	gateMessageText.text = "The Gate is Open!";
+			//	Invoke(nameof(HideMessage), 2f);
+			//}
 		}
 		else
 		{
@@ -230,11 +230,11 @@ public class GateTriggerBoss : MonoBehaviour
 		}
 	}
 
-	private void HideMessage()
-	{
-		if (gateMessageText != null)
-			gateMessageText.text = "";
-	}
+	//private void HideMessage()
+	//{
+	//	if (gateMessageText != null)
+	//		gateMessageText.text = "";
+	//}
 
 	private void OnTriggerStay2D(Collider2D collision)
 	{
@@ -257,9 +257,10 @@ public class GateTriggerBoss : MonoBehaviour
 				if (!string.IsNullOrEmpty(targetSceneName)) // ??m b?o tên c?nh không r?ng
 				{
 					Debug.Log("Ng??i ch?i b?m W! ?ang t?i scene: " + targetSceneName + "..."); // Log tên c?nh ?ích
+                    //SceneTransitionManager.instance.TransitionToScene(targetSceneName);
 					SceneManager.LoadScene(targetSceneName);
 				}
-				else
+            else
 				{
 					Debug.LogWarning("Target Scene Name ch?a ???c ??t trong Inspector c?a GateTriggerBoss!");
 				}
@@ -276,8 +277,18 @@ public class GateTriggerBoss : MonoBehaviour
         PlayerState.CurrentExp = pc.currentExp;
         PlayerState.MoveSpeed = pc.moveSpeed;
         PlayerState.NormalDamge = pc.attackDetector.attackDamage;
-        PlayerState.Skill1Damge = pc.fireBall.damage;
-        PlayerState.Skill2Damge = pc.swordSpin.damage;
+        //PlayerState.Skill1Damge = pc.fireBall.damage;
+        //PlayerState.Skill2Damge = pc.swordSpin.damage;
+
+        if (pc.fireBall != null)
+        {
+            PlayerState.Skill1Damge = pc.fireBall.damage;
+        }
+
+        if (pc.swordSpin != null)
+        {
+            PlayerState.Skill2Damge = pc.swordSpin.damage;
+        }
 
 
 

@@ -6,6 +6,9 @@ public class EnergyItemController : MonoBehaviour
     [SerializeField] private float attractRange = 3f;
     [SerializeField] private float moveSpeed = 5f;
 
+    [Header("Âm thanh thu thập Energy")]
+    [SerializeField] private AudioClip collectEnergyClip;
+
     private Transform player;
 
     void Start()
@@ -38,6 +41,10 @@ public class EnergyItemController : MonoBehaviour
             if (player != null)
             {
                 player.GetEnergy(energyValue);
+                if (collectEnergyClip != null)
+                {
+                    AudioSource.PlayClipAtPoint(collectEnergyClip, transform.position);
+                }
                 Destroy(gameObject);
             }
         }

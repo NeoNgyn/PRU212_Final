@@ -43,7 +43,7 @@ public class BossEnemyLV1 : EnemyController
 
     private Animator animator;
     private bool isAttacking = false;
-    //protected bool isDead = false;
+    [SerializeField] private GameManager gameManager;
 
     protected override void Awake()
     {
@@ -293,6 +293,7 @@ public class BossEnemyLV1 : EnemyController
         {
             gateTrigger.OpenGate();
         }
+        gameManager.OnBossDead();
         base.Die();
         //Destroy(gameObject, 3f);
     }
