@@ -7,6 +7,7 @@ public class StartMenuManager : MonoBehaviour
     [SerializeField] private GameObject startMenu;
     [SerializeField] private GameObject introduction;
     [SerializeField] private GameObject instructionPanel;
+    [SerializeField] private GameObject aboutPanel;
 
 
     void Start()
@@ -14,6 +15,7 @@ public class StartMenuManager : MonoBehaviour
         startMenu.SetActive(true);
         introduction.SetActive(false);
         instructionPanel.SetActive(false);
+        aboutPanel.SetActive(false);
     }
 
     private void Update()
@@ -34,6 +36,14 @@ public class StartMenuManager : MonoBehaviour
     public void HideInstructions()
     {
         instructionPanel.SetActive(false);
+    }
+    public void ShowAbout()
+    {
+        aboutPanel.SetActive(true);
+    }
+    public void HideAbout()
+    {
+        aboutPanel.SetActive(false);
     }
     public void SkipIntro()
     {
