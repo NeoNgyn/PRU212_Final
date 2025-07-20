@@ -11,8 +11,8 @@ namespace Assets.Scripts.Controller
     {
         public static bool acquiredSwordSpin = false;
         public static int Level = 1;
-        public static float MaxHp = 200f;
-        public static float CurrentHp = 200f;
+        public static float MaxHp = 300f;
+        public static float CurrentHp = 300f;
         public static int MaxExp = 10;
         public static float CurrentExp = 0;
         public static float MoveSpeed = 5f;

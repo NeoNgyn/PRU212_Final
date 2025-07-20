@@ -221606,11 +221606,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3365f4e87383eb441bbc7d4fc6372622, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpeed: 2
-  maxHp: 1000
+  enemySpeed: 3
+  maxHp: 2000
   currentHp: 0
   healthBar: {fileID: 1933221341}
-  enterDamage: 50
+  enterDamage: 60
   stayDamage: 15
   expObjects: []
   knockbackForce: 5
