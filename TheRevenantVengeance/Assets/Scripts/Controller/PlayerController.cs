@@ -341,11 +341,11 @@ public class PlayerController : MonoBehaviour
 
         level += 1;
         moveSpeed += 0.2f;
-        maxHp += 20;
+        maxHp += 30;
         currentHp = maxHp;
         maxExp += 100;
         currentExp = 0;
-        attackDetector.attackDamage += 2;
+        attackDetector.attackDamage += 3;
         if (fireBall) fireBall.damage += 2;
         if (swordSpin) swordSpin.damage += 1;
 
