@@ -1,5 +1,4 @@
-﻿using UnityEditor.SearchService;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class StartMenuManager : MonoBehaviour
@@ -42,10 +41,10 @@ public class StartMenuManager : MonoBehaviour
     }
     public void OnQuitButtonClicked()
     {
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
+//#if UNITY_EDITOR
+//        UnityEditor.EditorApplication.isPlaying = false;
+//#else
     Application.Quit();
-#endif
+//#endif
     }
 }

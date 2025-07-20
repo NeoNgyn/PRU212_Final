@@ -44849,7 +44849,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2977275262544998253, guid: f649080e75da5a649b16817ed6b64c8e, type: 3}
       propertyPath: maxHp
-      value: 800
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 2977275262544998253, guid: f649080e75da5a649b16817ed6b64c8e, type: 3}
       propertyPath: enemySpeed
