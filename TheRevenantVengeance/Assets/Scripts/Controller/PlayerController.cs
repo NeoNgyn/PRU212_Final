@@ -332,7 +332,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    protected void LevelUp()
+    public void LevelUp()
     {
         if (audioSource != null && levelUpClip != null)
         {
