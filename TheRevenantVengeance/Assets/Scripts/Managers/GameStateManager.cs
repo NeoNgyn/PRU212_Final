@@ -7,6 +7,7 @@ public class GameStateManager : MonoBehaviour
 {
     public static GameStateManager instance;
     public GameObject pauseMenuUI;
+    public GameObject cheatMenuUI;
     private bool isPaused = false;
 
 
@@ -31,6 +32,13 @@ public class GameStateManager : MonoBehaviour
                 ResumeGame();
             else
                 PauseGame();
+        }
+        if (Input.GetKeyDown(KeyCode.BackQuote))
+        {
+            if (isPaused)
+                CloseCheatMenu();
+            else
+                OpenCheatMenu();
         }
     }
 
@@ -85,6 +93,37 @@ public class GameStateManager : MonoBehaviour
         }
         if (MusicManager.Instance != null) MusicManager.Instance.RestartMusic();
         SceneManager.LoadScene(0);
+    }
+
+    public void OpenCheatMenu()
+    {
+        Debug.LogWarning("Open Cheat Menu Clicked.");
+        if (cheatMenuUI != null)
+        {
+            cheatMenuUI.SetActive(true);
+            Time.timeScale = 0f;
+            isPaused = true;
+            MusicManager.Instance?.PauseMusic();
+        }
+        else
+        {
+            Debug.LogWarning("Cheat menu UI is still null.");
+        }
+    }
+    public void CloseCheatMenu()
+    {
+        Debug.LogWarning("Close Cheat Menu Clicked.");
+        if (cheatMenuUI != null)
+        {
+            cheatMenuUI.SetActive(false);
+            Time.timeScale = 1f;
+            isPaused = false;
+            MusicManager.Instance?.ResumeMusic();
+        }
+        else
+        {
+            Debug.LogWarning("Cheat menu UI is still null.");
+        }
     }
     public void QuitGame()
     {
